@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude-design__get_claude_design_prompt",
+      "mcp__claude-design__render_preview",
+      "Bash(playwright-cli goto *)",
+      "Bash(playwright-cli --raw console error)",
+      "Bash(playwright-cli eval *)",
+      "Bash(playwright-cli screenshot *)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "claude-design"
+  ]
+}
