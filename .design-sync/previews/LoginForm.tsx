@@ -34,9 +34,21 @@ export const AuthError = () => (
   <LoginForm
     logo={<Logo />}
     subtitle="Sign in to your Acme Analytics workspace."
-    // NOTE: LoginForm hard-codes the Alert *title* to "Incorrect email or
-    // password"; `authError` only fills the description. See NOTES.md.
-    authError="Check your credentials and try again, or reset your password."
+    authError="Incorrect email or password"
+    onForgotPassword={() => {}}
+  />
+);
+
+/**
+ * `authError` is shown verbatim, so failures other than a bad password are
+ * labelled correctly — and `authErrorDetail` adds a supporting line.
+ */
+export const AuthErrorWithDetail = () => (
+  <LoginForm
+    logo={<Logo />}
+    subtitle="Sign in to your Acme Analytics workspace."
+    authError="Your account is locked"
+    authErrorDetail="Too many failed attempts. Try again in 15 minutes or contact an admin."
     onForgotPassword={() => {}}
   />
 );

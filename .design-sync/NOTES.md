@@ -101,14 +101,24 @@ to the anchor, zero pageerrors, and the combinations `asChild + loading` and
 specifically to keep this from regressing silently — if the bug returns, those cells
 fail the render check.
 
+### FIXED — `LoginForm` hard-coded auth-error title
+
+`login-form.tsx` rendered a literal `<AlertTitle>Incorrect email or password</AlertTitle>`
+and demoted the `authError` prop to the description. Any other failure — locked account,
+expired session, SSO required — was therefore mislabelled as a bad password, and the
+common case (`authError="Incorrect email or password"`) rendered the same sentence twice.
+
+Fixed by rendering `authError` verbatim as the headline, matching the prop's own JSDoc
+example. Added an optional `authErrorDetail` prop for the supporting line, so the
+two-slot Alert layout is still reachable without hard-coding copy.
+
+Covered by two preview cells: `AuthError` (headline only) and `AuthErrorWithDetail`
+("Your account is locked" + detail), the latter existing specifically to catch a
+re-hard-coded title.
+
 ### Open
 
-- **`LoginForm` hard-codes its auth-error title.** Line ~72 renders a literal
-  `<AlertTitle>Incorrect email or password</AlertTitle>` and only pipes the `authError`
-  prop into `AlertDescription`. So `authError="Your account is locked"` still shows the
-  title "Incorrect email or password" — actively misleading. The prop's own JSDoc says it
-  is the top-level auth error, so the title should come from it (or be a separate prop).
-  The preview passes description-shaped copy so the card is coherent; the defect stands.
+- None currently known.
 
 ## Environment
 

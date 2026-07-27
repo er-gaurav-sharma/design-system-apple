@@ -12,8 +12,10 @@ export interface LoginFormProps
   logo?: React.ReactNode;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
-  /** Top-level auth error (e.g. "Incorrect email or password"). */
+  /** Top-level auth error, shown verbatim as the banner headline (e.g. "Incorrect email or password"). */
   authError?: React.ReactNode;
+  /** Optional supporting line under `authError` (e.g. "3 attempts remaining"). */
+  authErrorDetail?: React.ReactNode;
   /** Field-level validation errors. */
   errors?: { email?: string; password?: string };
   loading?: boolean;
@@ -33,6 +35,7 @@ const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
       title = "Sign in",
       subtitle,
       authError,
+      authErrorDetail,
       errors,
       loading = false,
       onForgotPassword,
@@ -69,8 +72,12 @@ const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
 
         {authError && (
           <Alert variant="error" className="mt-6">
-            <AlertTitle>Incorrect email or password</AlertTitle>
-            <AlertDescription>{authError}</AlertDescription>
+            {/* The banner text is whatever the caller passed. It used to be a
+                hard-coded "Incorrect email or password" with authError demoted
+                to the description, which mislabelled every other failure
+                (locked account, expired session, SSO required). */}
+            <AlertTitle>{authError}</AlertTitle>
+            {authErrorDetail && <AlertDescription>{authErrorDetail}</AlertDescription>}
           </Alert>
         )}
 
