@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -60,7 +60,8 @@ function Badge({
   return (
     <Comp className={cn(badgeVariants({ variant, appearance }), className)} {...props}>
       {dot && <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />}
-      {children}
+      {/* Slottable marks which child asChild should merge into — see Button. */}
+      <Slottable>{children}</Slottable>
     </Comp>
   );
 }
