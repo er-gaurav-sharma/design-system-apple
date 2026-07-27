@@ -1,9 +1,6 @@
 import * as React from "react";
 import { Badge } from "@claude-design/dashboard-ui";
 
-// NOTE: no `asChild` cell — Badge renders `{dot && <span/>}{children}`, which hands
-// Radix Slot two children and throws. Same defect as Button; see .design-sync/NOTES.md.
-
 /** The semantic axis, in the default `subtle` appearance. */
 export const Variants = () => (
   <div className="flex flex-wrap items-center gap-2">
@@ -42,6 +39,18 @@ export const WithDot = () => (
     <Badge dot variant="warning">Degraded</Badge>
     <Badge dot variant="error">Outage</Badge>
     <Badge dot>Unknown</Badge>
+  </div>
+);
+
+/** `asChild` turns the badge into whatever element you pass — here a link. */
+export const AsChildLink = () => (
+  <div className="flex flex-wrap items-center gap-2">
+    <Badge asChild variant="info">
+      <a href="#changelog">What&rsquo;s new</a>
+    </Badge>
+    <Badge asChild dot variant="success">
+      <a href="#status">All systems operational</a>
+    </Badge>
   </div>
 );
 

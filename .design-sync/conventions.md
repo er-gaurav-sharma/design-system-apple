@@ -57,10 +57,12 @@ Stay on the scale above; when you genuinely need a one-off, use `style={{…}}`
 
 ## Composition rules that matter
 
-- **`asChild` is unreliable on `Button` and `Badge`** — both render a conditional node
-  before `children`, which makes Radix `Slot` throw. Use a real `<button>`/`<a>` styled
-  with utilities instead. (`asChild` on Radix-owned parts like `DialogClose`,
-  `DropdownMenuTrigger` and `SidebarNavItem` is fine.)
+- **`asChild` works everywhere** — on `Button` and `Badge` (which merge into the child
+  via Radix `Slottable`), on Radix-owned parts (`DialogClose`, `DropdownMenuTrigger`),
+  and on `SidebarNavItem`. Use it to render a link that looks like a button rather than
+  restyling an `<a>` by hand:
+  `<Button asChild><a href="/billing">Go to billing</a></Button>`. It composes with the
+  other props too — `<Button asChild loading>` keeps the spinner inside the anchor.
 - **Compound parts are separate exports, not dotted**: `Card` + `CardHeader`
   `CardTitle` `CardDescription` `CardContent` `CardFooter`; `Table` + `TableHeader`
   `TableBody` `TableRow` `TableHead` `TableCell` `TableFooter` `TableCaption`

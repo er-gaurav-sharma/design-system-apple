@@ -82,15 +82,27 @@ Consequences to keep in mind:
 
 ## Known component defects (found while authoring previews)
 
-- **`Button` `asChild` is broken.** Button renders `{loading && <Loader2/>}{children}`, which
-  hands Radix `Slot` two children, so *any* `asChild` usage throws
-  `Slot failed to slot onto its children`. `asChild?: boolean` is nevertheless part of the
-  public `ButtonProps`, so the design agent will reach for it and crash.
-  `.design-sync/previews/Button.tsx` deliberately has no `asChild` cell.
-  Upstream fix would be to render the spinner only when `!asChild`, or to wrap `children`
-  in Radix's `<Slottable>`. Re-add the preview cell once fixed.
-- **`Badge` `asChild` is broken the same way** — it renders `{dot && <span/>}{children}`.
-  Same root cause, same fix. `.design-sync/previews/Badge.tsx` has no `asChild` cell.
+### FIXED — `asChild` on `Button` and `Badge`
+
+Originally both threw `Slot failed to slot onto its children` for *every* `asChild`
+usage: each rendered a conditional node before `children`
+(`{loading && <Loader2/>}{children}`, `{dot && <span/>}{children}`), and since
+`{false}` still occupies a child slot, Radix `Slot` always saw two children.
+
+Fixed in `src/components/ui/{button,badge}.tsx` by wrapping `children` in Radix's
+`<Slottable>`, which marks the node `asChild` should merge into — the canonical
+shadcn pattern, and it keeps the spinner/dot rendering *inside* the slotted element.
+`Slottable` is exported by `@radix-ui/react-slot` (v1.3.0 installed).
+
+Verified in headless chromium: real `<a href>` elements, button/badge classes applied
+to the anchor, zero pageerrors, and the combinations `asChild + loading` and
+`asChild + dot` both render. The preview cards
+(`previews/Button.tsx` → `AsChildLink`, `previews/Badge.tsx` → `AsChildLink`) exist
+specifically to keep this from regressing silently — if the bug returns, those cells
+fail the render check.
+
+### Open
+
 - **`LoginForm` hard-codes its auth-error title.** Line ~72 renders a literal
   `<AlertTitle>Incorrect email or password</AlertTitle>` and only pipes the `authError`
   prop into `AlertDescription`. So `authError="Your account is locked"` still shows the

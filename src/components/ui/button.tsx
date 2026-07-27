@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 
@@ -54,7 +54,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading && <Loader2 className="animate-spin" aria-hidden="true" />}
-        {children}
+        {/* Slottable marks which child asChild should merge into. Without it the
+            spinner and children are two nodes and Slot throws for every asChild
+            usage — including when `loading` is false, since `{false}` still
+            occupies a child slot. */}
+        <Slottable>{children}</Slottable>
       </Comp>
     );
   },

@@ -54,7 +54,17 @@ export const States = () => (
   </div>
 );
 
-// NOTE: no `asChild` cell. Button renders `{loading && <Loader2/>}{children}`,
-// which hands Radix Slot two children, so ANY asChild usage throws
-// "Slot failed to slot onto its children". Tracked in .design-sync/NOTES.md —
-// re-add a cell here once the component is fixed upstream.
+/** `asChild` hands the button's styling to the child element — here a real link. */
+export const AsChildLink = () => (
+  <div className="flex flex-wrap items-center gap-3">
+    <Button asChild>
+      <a href="#billing">Go to billing</a>
+    </Button>
+    <Button asChild variant="secondary">
+      <a href="#docs">Read the docs</a>
+    </Button>
+    <Button asChild variant="destructive" loading>
+      <a href="#delete">Deleting…</a>
+    </Button>
+  </div>
+);
