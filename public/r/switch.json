@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "Toggle switch built on Radix Switch.",
+  "dependencies": [
+    "@radix-ui/react-switch"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/switch.tsx",
+      "content": "import * as React from \"react\";\nimport * as SwitchPrimitives from \"@radix-ui/react-switch\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Switch = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitives.Root>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitives.Root\n    ref={ref}\n    className={cn(\n      \"peer inline-flex h-[26px] w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent bg-input transition-colors duration-200 ease-standard\",\n      \"focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n      \"disabled:cursor-not-allowed disabled:opacity-40\",\n      \"data-[state=checked]:bg-primary\",\n      className,\n    )}\n    {...props}\n  >\n    <SwitchPrimitives.Thumb\n      className={cn(\n        \"pointer-events-none block size-[18px] rounded-full bg-white shadow-sm ring-0 transition-transform duration-200 ease-standard\",\n        \"translate-x-0 data-[state=checked]:translate-x-[18px]\",\n      )}\n    />\n  </SwitchPrimitives.Root>\n));\nSwitch.displayName = SwitchPrimitives.Root.displayName;\n\nexport { Switch };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

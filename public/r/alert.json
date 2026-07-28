@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "title": "Alert",
+  "description": "Inline alert with semantic variants (info/success/warning/error), title and description.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/alert.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { Info, CircleCheck, TriangleAlert, CircleX } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst alertVariants = cva(\n  \"relative flex w-full items-start gap-3 rounded-md p-4 text-sm\",\n  {\n    variants: {\n      variant: {\n        info: \"bg-info-subtle [&>svg]:text-info\",\n        success: \"bg-success-subtle [&>svg]:text-success\",\n        warning: \"bg-warning-subtle [&>svg]:text-warning\",\n        error: \"bg-error-subtle [&>svg]:text-error\",\n      },\n    },\n    defaultVariants: { variant: \"info\" },\n  },\n);\n\nconst iconFor = {\n  info: Info,\n  success: CircleCheck,\n  warning: TriangleAlert,\n  error: CircleX,\n} as const;\n\nexport interface AlertProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof alertVariants> {\n  /** Hide the default leading status icon. */\n  hideIcon?: boolean;\n}\n\n/**\n * Persistent, contextual message. Pair with AlertTitle / AlertDescription.\n * (For transient notifications use the Toaster / `toast` instead.)\n */\nconst Alert = React.forwardRef<HTMLDivElement, AlertProps>(\n  ({ className, variant = \"info\", hideIcon = false, children, ...props }, ref) => {\n    const Icon = iconFor[variant ?? \"info\"];\n    return (\n      <div\n        ref={ref}\n        role=\"alert\"\n        className={cn(alertVariants({ variant }), className)}\n        {...props}\n      >\n        {!hideIcon && <Icon className=\"mt-0.5 size-[18px] shrink-0\" aria-hidden=\"true\" />}\n        <div className=\"min-w-0 flex-1\">{children}</div>\n      </div>\n    );\n  },\n);\nAlert.displayName = \"Alert\";\n\nconst AlertTitle = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p\n    ref={ref}\n    className={cn(\"text-sm font-semibold leading-snug text-foreground\", className)}\n    {...props}\n  />\n));\nAlertTitle.displayName = \"AlertTitle\";\n\nconst AlertDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p\n    ref={ref}\n    className={cn(\"mt-0.5 text-sm leading-relaxed text-muted-foreground\", className)}\n    {...props}\n  />\n));\nAlertDescription.displayName = \"AlertDescription\";\n\nexport { Alert, AlertTitle, AlertDescription, alertVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

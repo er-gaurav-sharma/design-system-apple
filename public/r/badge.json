@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "Small status/label badge with variants and asChild composition.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/badge.tsx",
+      "content": "import * as React from \"react\";\nimport { Slot, Slottable } from \"@radix-ui/react-slot\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst badgeVariants = cva(\n  \"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium leading-normal\",\n  {\n    variants: {\n      variant: {\n        neutral: \"\",\n        success: \"\",\n        warning: \"\",\n        error: \"\",\n        info: \"\",\n      },\n      appearance: {\n        subtle: \"\",\n        solid: \"\",\n      },\n    },\n    compoundVariants: [\n      { variant: \"neutral\", appearance: \"subtle\", className: \"bg-muted text-secondary-foreground\" },\n      { variant: \"success\", appearance: \"subtle\", className: \"bg-success-subtle text-success\" },\n      { variant: \"warning\", appearance: \"subtle\", className: \"bg-warning-subtle text-warning\" },\n      { variant: \"error\", appearance: \"subtle\", className: \"bg-error-subtle text-error\" },\n      { variant: \"info\", appearance: \"subtle\", className: \"bg-info-subtle text-info\" },\n      { variant: \"neutral\", appearance: \"solid\", className: \"bg-muted-foreground text-white\" },\n      { variant: \"success\", appearance: \"solid\", className: \"bg-success text-success-foreground\" },\n      { variant: \"warning\", appearance: \"solid\", className: \"bg-warning text-warning-foreground\" },\n      { variant: \"error\", appearance: \"solid\", className: \"bg-error text-error-foreground\" },\n      { variant: \"info\", appearance: \"solid\", className: \"bg-info text-info-foreground\" },\n    ],\n    defaultVariants: {\n      variant: \"neutral\",\n      appearance: \"subtle\",\n    },\n  },\n);\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof badgeVariants> {\n  asChild?: boolean;\n  /** Show the leading status dot (subtle appearance only). */\n  dot?: boolean;\n}\n\nfunction Badge({\n  className,\n  variant,\n  appearance,\n  asChild = false,\n  dot = false,\n  children,\n  ...props\n}: BadgeProps) {\n  const Comp = asChild ? Slot : \"span\";\n  return (\n    <Comp className={cn(badgeVariants({ variant, appearance }), className)} {...props}>\n      {dot && <span className=\"size-1.5 rounded-full bg-current\" aria-hidden=\"true\" />}\n      {/* Slottable marks which child asChild should merge into — see Button. */}\n      <Slottable>{children}</Slottable>\n    </Comp>\n  );\n}\n\nexport { Badge, badgeVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

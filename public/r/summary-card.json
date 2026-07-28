@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "summary-card",
+  "title": "Summary Card",
+  "description": "KPI summary card with label, value and trend, plus loading/empty/error states.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "card",
+    "skeleton",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/summary-card.tsx",
+      "content": "import * as React from \"react\";\nimport { ArrowUpRight, ArrowDownRight, Minus } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Card } from \"@/components/ui/card\";\nimport { Skeleton } from \"@/components/ui/skeleton\";\nimport { Button } from \"@/components/ui/button\";\n\ntype Trend = \"up\" | \"down\" | \"neutral\";\n\nexport interface SummaryCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  label: React.ReactNode;\n  value?: React.ReactNode;\n  trend?: Trend;\n  trendLabel?: React.ReactNode;\n  /** Data state. Defaults to \"ready\". */\n  state?: \"ready\" | \"loading\" | \"empty\" | \"error\";\n  emptyLabel?: React.ReactNode;\n  onRetry?: () => void;\n}\n\nconst trendConfig: Record<Trend, { icon: typeof ArrowUpRight; className: string }> = {\n  up: { icon: ArrowUpRight, className: \"text-success\" },\n  down: { icon: ArrowDownRight, className: \"text-error\" },\n  neutral: { icon: Minus, className: \"text-text-tertiary\" },\n};\n\n/** Metric + label + optional trend indicator, with loading / empty / error states. */\nconst SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(\n  (\n    {\n      className,\n      label,\n      value,\n      trend,\n      trendLabel,\n      state = \"ready\",\n      emptyLabel = \"No data yet\",\n      onRetry,\n      ...props\n    },\n    ref,\n  ) => {\n    const Trend = trend ? trendConfig[trend] : null;\n    return (\n      <Card ref={ref} className={cn(\"p-5\", className)} {...props}>\n        {state === \"loading\" ? (\n          <>\n            <Skeleton className=\"mb-3.5 h-3.5 w-3/5\" />\n            <Skeleton className=\"h-8 w-1/2\" />\n            <Skeleton className=\"mt-3.5 h-3 w-2/3\" />\n          </>\n        ) : (\n          <>\n            <p className=\"text-sm text-muted-foreground\">{label}</p>\n            {state === \"empty\" ? (\n              <p className=\"mt-2 text-sm text-text-tertiary\">— {emptyLabel}</p>\n            ) : state === \"error\" ? (\n              <div className=\"mt-2\">\n                <p className=\"text-sm text-error\">Couldn&rsquo;t load</p>\n                {onRetry && (\n                  <Button\n                    variant=\"secondary\"\n                    size=\"sm\"\n                    className=\"mt-2\"\n                    onClick={onRetry}\n                  >\n                    Retry\n                  </Button>\n                )}\n              </div>\n            ) : (\n              <>\n                <p className=\"mt-3 text-[32px] font-semibold leading-none tracking-[-0.01em]\">\n                  {value}\n                </p>\n                {Trend && (\n                  <span\n                    className={cn(\n                      \"mt-3 inline-flex items-center gap-1 text-xs font-medium\",\n                      Trend.className,\n                    )}\n                  >\n                    <Trend.icon className=\"size-3.5\" />\n                    {trendLabel}\n                  </span>\n                )}\n              </>\n            )}\n          </>\n        )}\n      </Card>\n    );\n  },\n);\nSummaryCard.displayName = \"SummaryCard\";\n\nexport { SummaryCard };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

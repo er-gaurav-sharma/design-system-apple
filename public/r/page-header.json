@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-header",
+  "title": "Page Header",
+  "description": "Dashboard page header with title and actions slot.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/page-header.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface PageHeaderProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"title\"> {\n  title: React.ReactNode;\n  description?: React.ReactNode;\n  /** Optional action buttons rendered on the right. */\n  actions?: React.ReactNode;\n}\n\n/** Page title + optional description + optional action buttons. */\nconst PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(\n  ({ className, title, description, actions, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\n        \"flex flex-col gap-4 pb-6 sm:flex-row sm:items-start sm:justify-between\",\n        className,\n      )}\n      {...props}\n    >\n      <div className=\"min-w-0\">\n        <h1 className=\"text-[32px] font-semibold leading-tight tracking-[-0.015em]\">\n          {title}\n        </h1>\n        {description && (\n          <p className=\"mt-1.5 text-base text-muted-foreground\">{description}</p>\n        )}\n      </div>\n      {actions && <div className=\"flex flex-none items-center gap-3\">{actions}</div>}\n    </div>\n  ),\n);\nPageHeader.displayName = \"PageHeader\";\n\nexport { PageHeader };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}
