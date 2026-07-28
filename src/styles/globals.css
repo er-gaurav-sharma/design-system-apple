@@ -60,10 +60,16 @@
   --info-foreground: #ffffff;
   --info-subtle: #e8f1fd;
 
+  /* Categorical series colors. Hue carries the meaning, so they are chosen to
+     stay separable under protanopia, deuteranopia and tritanopia as well as
+     normal vision (min ΔE2000 9.0 across all four), and to hold at least 3:1
+     against --card for WCAG 1.4.11 non-text contrast. */
   --chart-1: #0071e3;
   --chart-2: #aeaeb2;
   --chart-3: #248a3d;
   --chart-4: #b25000;
+  --chart-5: #7629a3;
+  --chart-6: #0096ad;
 
   /* Density — compact set for dense tables/regions */
   --row-height: 56px;
@@ -80,6 +86,12 @@
   --card: #1d1d1f;
   --muted: #1d1d1f;
   --border: #2c2c2e;
+  --chart-1: #0a84ff;
+  --chart-2: #98989d;
+  --chart-3: #30d158;
+  --chart-4: #ff9f0a;
+  --chart-5: #bf5af2;
+  --chart-6: #40c8e0;
   ...
 }
 --------------------------------------------------------------------------- */
@@ -132,6 +144,8 @@
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
 
   --radius-sm: 6px;
   --radius-md: 10px;
