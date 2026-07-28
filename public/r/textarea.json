@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Multi-line text input matching the Input field conventions.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Textarea = React.forwardRef<\n  HTMLTextAreaElement,\n  React.ComponentProps<\"textarea\">\n>(({ className, ...props }, ref) => {\n  return (\n    <textarea\n      ref={ref}\n      className={cn(\n        \"flex min-h-[88px] w-full resize-y rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground transition-[color,box-shadow,border-color] ease-standard\",\n        \"placeholder:text-text-tertiary\",\n        \"hover:border-text-tertiary\",\n        \"focus-visible:border-primary focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n        \"disabled:cursor-not-allowed disabled:bg-muted disabled:text-text-tertiary\",\n        \"aria-[invalid=true]:border-error aria-[invalid=true]:focus-visible:ring-error/20\",\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nTextarea.displayName = \"Textarea\";\n\nexport { Textarea };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

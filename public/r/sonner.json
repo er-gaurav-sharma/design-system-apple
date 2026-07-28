@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "title": "Sonner (Toaster)",
+  "description": "Toaster and toast() helper from sonner. Mount <Toaster /> near your app root.",
+  "dependencies": [
+    "sonner"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sonner.tsx",
+      "content": "import type * as React from \"react\";\nimport { Toaster as SonnerToaster, toast } from \"sonner\";\n\n/**\n * Transient notifications (success / error / warning / info). Mount <Toaster />\n * once near the app root, then call `toast.success(...)`, `toast.error(...)`, etc.\n * Styled to the design system via token-mapped classes; no next-themes required.\n */\nfunction Toaster(props: React.ComponentProps<typeof SonnerToaster>) {\n  return (\n    <SonnerToaster\n      theme=\"light\"\n      position=\"bottom-right\"\n      className=\"toaster group\"\n      toastOptions={{\n        classNames: {\n          toast:\n            \"group toast !rounded-md !border-0 !bg-card !text-card-foreground !shadow-lg\",\n          title: \"!text-sm !font-semibold\",\n          description: \"!text-xs !text-muted-foreground\",\n          actionButton: \"!bg-primary !text-primary-foreground !rounded-md\",\n          cancelButton: \"!bg-muted !text-muted-foreground !rounded-md\",\n          success: \"[&_[data-icon]]:!text-success\",\n          error: \"[&_[data-icon]]:!text-error\",\n          warning: \"[&_[data-icon]]:!text-warning\",\n          info: \"[&_[data-icon]]:!text-info\",\n        },\n      }}\n      {...props}\n    />\n  );\n}\n\nexport { Toaster, toast };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

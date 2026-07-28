@@ -117,6 +117,20 @@
       ]
     },
     {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page navigation for list endpoints: prev/next, a truncated page list with ellipses, an optional rows-per-page select and a live range readout. Collapses to a compact layout on small screens.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "button", "label", "select"],
+      "files": [
+        {
+          "path": "src/components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
@@ -326,9 +340,13 @@
       "name": "app-shell",
       "type": "registry:block",
       "title": "App Shell",
-      "description": "Dashboard layout shell with brand, collapsible sidebar navigation and a user menu.",
-      "dependencies": ["@radix-ui/react-slot", "lucide-react"],
-      "registryDependencies": ["utils", "dropdown-menu"],
+      "description": "Dashboard layout shell with brand, a user menu, and sidebar navigation that collapses to a rail on desktop and becomes an overlay drawer below the md breakpoint.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": ["utils", "dialog", "dropdown-menu"],
       "files": [
         {
           "path": "src/components/dashboard/app-shell.tsx",

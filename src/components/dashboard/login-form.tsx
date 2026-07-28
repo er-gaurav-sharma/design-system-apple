@@ -17,15 +17,31 @@ export interface LoginFormProps
   /** Optional supporting line under `authError` (e.g. "3 attempts remaining"). */
   authErrorDetail?: React.ReactNode;
   /** Field-level validation errors. */
-  errors?: { email?: string; password?: string };
+  errors?: { email?: string; username?: string; password?: string };
   loading?: boolean;
+  /**
+   * Which identity the first field collects. `"username"` switches it to a plain
+   * text input named `username`, for APIs that don't authenticate by email.
+   * @default "email"
+   */
+  identifier?: "email" | "username";
+  /** Overrides the field label ("Email" / "Username"). */
+  identifierLabel?: React.ReactNode;
+  /** Overrides the field placeholder. Username mode has none by default. */
+  identifierPlaceholder?: string;
   onForgotPassword?: () => void;
-  onSubmit?: (values: { email: string; password: string }) => void;
+  /**
+   * The submitted values. The active identifier is emitted under both its own
+   * key and the legacy `email` key, so `({ email, password }) => …` callers keep
+   * working unchanged in either mode.
+   */
+  onSubmit?: (values: { email: string; username: string; password: string }) => void;
 }
 
 /**
- * Login form: email + password, inline field validation, a loading submit
- * state, and a top-level auth-error banner. Bring your own auth in onSubmit.
+ * Login form: an email or username identifier + password, inline field
+ * validation, a loading submit state, and a top-level auth-error banner. Bring
+ * your own auth in onSubmit.
  */
 const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
   (
@@ -38,17 +54,28 @@ const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
       authErrorDetail,
       errors,
       loading = false,
+      identifier = "email",
+      identifierLabel,
+      identifierPlaceholder,
       onForgotPassword,
       onSubmit,
       ...props
     },
     ref,
   ) => {
+    const isEmail = identifier === "email";
+    const identifierName = isEmail ? "email" : "username";
+    // Username mode falls back to the legacy `email` key, mirroring the dual-key
+    // emit below, so a caller mid-migration is never silently error-less.
+    const identifierError = isEmail ? errors?.email : (errors?.username ?? errors?.email);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const data = new FormData(e.currentTarget);
+      const value = String(data.get(identifierName) ?? "");
       onSubmit?.({
-        email: String(data.get("email") ?? ""),
+        email: value,
+        username: value,
         password: String(data.get("password") ?? ""),
       });
     };
@@ -83,17 +110,19 @@ const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
 
         <div className="mt-6 flex flex-col gap-4">
           <Field>
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor={identifierName}>
+              {identifierLabel ?? (isEmail ? "Email" : "Username")}
+            </Label>
             <Input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              placeholder="user@example.com"
-              aria-invalid={!!errors?.email}
+              id={identifierName}
+              name={identifierName}
+              type={isEmail ? "email" : "text"}
+              autoComplete={isEmail ? "email" : "username"}
+              placeholder={identifierPlaceholder ?? (isEmail ? "user@example.com" : undefined)}
+              aria-invalid={!!identifierError}
               disabled={loading}
             />
-            {errors?.email && <FieldError>{errors.email}</FieldError>}
+            {identifierError && <FieldError>{identifierError}</FieldError>}
           </Field>
 
           <Field>

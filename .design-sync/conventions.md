@@ -39,7 +39,7 @@ Components take `className`, which is merged with `tailwind-merge`, so passing
 | Semantic | `text-success` `text-warning` `text-error` `text-info` + `bg-*-subtle` and `bg-*` / `text-*-foreground` for solid fills |
 | Destructive | `bg-destructive` `text-destructive-foreground` `bg-destructive-hover` |
 | Lines | `border-border` `border-input` `ring-ring` (focus rings are `focus-visible:ring-[3px] ring-ring/30`) |
-| Charts | `text-chart-1` … `text-chart-4`, or `var(--chart-1)`…`var(--chart-4)` inside SVG |
+| Charts | `text-chart-1` … `text-chart-6`, or `var(--chart-1)`…`var(--chart-6)` inside SVG |
 | Radius | `rounded-sm` (6px) `rounded-md` (10px) `rounded-lg` (14px) `rounded-xl` (20px) |
 | Elevation | `shadow-xs` `shadow-sm` `shadow-md` `shadow-lg` `shadow-xl` |
 | Type | `font-sans` (Inter) `font-mono`; sizes via normal Tailwind (`text-sm`, `text-xl`, …) |
@@ -48,6 +48,12 @@ Components take `className`, which is merged with `tailwind-merge`, so passing
 Spacing, flex/grid and sizing are stock Tailwind (`gap-4`, `p-6`, `grid-cols-3`) —
 there is no custom spacing scale. Responsive (`sm: md: lg: xl:`) and state
 (`hover: focus-visible: disabled:`) prefixes work on these.
+
+**Responsiveness is yours to write, with two exceptions.** `AppShell` handles it
+itself — inline sidebar rail from `md` up, overlay drawer below it — and
+`PageHeader` stacks its actions below `sm`. Everything else renders the same at
+every width, so put `sm:` / `md:` / `lg:` prefixes on your own layout grid
+(`grid-cols-1 md:grid-cols-3`) rather than assuming a component reflows.
 
 **Avoid arbitrary values.** The stylesheet is compiled ahead of time — Tailwind is
 not running when your design renders — so a bracket class like `p-[13px]`,
@@ -73,7 +79,13 @@ Stay on the scale above; when you genuinely need a one-off, use `style={{…}}`
 - **Data states**: `SummaryCard` and `ChartContainer` both take
   `state="ready" | "loading" | "empty" | "error"` — use it instead of hand-rolling
   skeletons. `ChartContainer` is chart-library agnostic: mount any chart as children
-  and color series with the `--chart-*` tokens.
+  and color series with the `--chart-*` tokens. There are six, picked to stay
+  separable under the common colour-vision deficiencies, so hue alone can carry a
+  category.
+- **Paged lists**: `Pagination` takes `page` / `pageSize` / `total` +
+  `onPageChange`, so an API returning `{ items, page, page_size, total }` maps
+  straight onto it. Add `onPageSizeChange` for the rows-per-page select. Don't
+  hand-assemble page controls from `Button` + `Select`.
 - Persistent messages are `Alert`; transient ones are `toast()` + `<Toaster />`.
 
 ## Where the truth is
@@ -84,7 +96,7 @@ Read these before styling — they beat any summary:
 - `components/<group>/<Name>/<Name>.prompt.md` — props and worked examples per component.
 - `components/<group>/<Name>/<Name>.d.ts` — the exact prop contract.
 
-Groups: **primitives** (18 controls) and **dashboard** (5 composed patterns:
+Groups: **primitives** (19 controls) and **dashboard** (5 composed patterns:
 `AppShell`, `PageHeader`, `SummaryCard`, `ChartContainer`, `LoginForm`).
 
 ## Idiomatic example

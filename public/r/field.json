@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "Field wrapper with helper text and inline error state for form controls.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/field.tsx",
+      "content": "import * as React from \"react\";\nimport { CircleAlert } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/** Vertical field wrapper: <Field><Label/><Input/><FieldError/></Field>. */\nconst Field = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div ref={ref} className={cn(\"flex flex-col gap-1.5\", className)} {...props} />\n  ),\n);\nField.displayName = \"Field\";\n\nconst FieldHelper = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p ref={ref} className={cn(\"text-xs text-text-tertiary\", className)} {...props} />\n));\nFieldHelper.displayName = \"FieldHelper\";\n\nconst FieldError = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, children, ...props }, ref) => (\n  <p\n    ref={ref}\n    className={cn(\"flex items-center gap-1.5 text-xs text-error\", className)}\n    {...props}\n  >\n    <CircleAlert className=\"size-3.5 shrink-0\" aria-hidden=\"true\" />\n    {children}\n  </p>\n));\nFieldError.displayName = \"FieldError\";\n\nexport { Field, FieldHelper, FieldError };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

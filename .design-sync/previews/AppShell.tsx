@@ -24,6 +24,10 @@ import {
  * The full dashboard layout. SidebarSection and SidebarNavItem read collapse
  * state from AppShell's context via useShell(), so they only work inside
  * <AppShell> — pass them through its `sidebar` prop.
+ *
+ * The sidebar is an inline rail from `md` up (the header toggle collapses it to
+ * icons) and an overlay drawer below it, opened by the same toggle. These cards
+ * render at a desktop viewport, so they always show the rail.
  */
 const Nav = () => (
   <SidebarNav>

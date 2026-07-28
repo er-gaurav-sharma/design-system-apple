@@ -18,7 +18,7 @@ export interface ChartContainerProps
   onRetry?: () => void;
   /**
    * Height of the chart area. The chart itself is swappable — mount any chart
-   * library as children. Use the --chart-1..4 tokens for series colors,
+   * library as children. Use the --chart-1..6 tokens for series colors,
    * --border for gridlines, and --text-tertiary for axis text.
    */
   areaClassName?: string;
