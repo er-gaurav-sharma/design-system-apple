@@ -53,6 +53,33 @@ export const AuthErrorWithDetail = () => (
   />
 );
 
+/**
+ * `identifier="username"` switches the first field to a plain text input named
+ * `username` — label, type and autocomplete follow. `onSubmit` still emits the
+ * value under the legacy `email` key too, so existing callers keep working.
+ */
+export const UsernameIdentifier = () => (
+  <LoginForm
+    logo={<Logo />}
+    subtitle="Sign in with your Acme Analytics account."
+    identifier="username"
+    onForgotPassword={() => {}}
+  />
+);
+
+/** Wording is overridable without forking, in either identifier mode. */
+export const CustomIdentifierWording = () => (
+  <LoginForm
+    logo={<Logo />}
+    subtitle="Sign in with your Acme Analytics account."
+    identifier="username"
+    identifierLabel="Operator ID"
+    identifierPlaceholder="j.doe"
+    errors={{ username: "That operator ID doesn't exist." }}
+    onForgotPassword={() => {}}
+  />
+);
+
 /** `loading` puts the submit button into its spinner state. */
 export const Loading = () => (
   <LoginForm
