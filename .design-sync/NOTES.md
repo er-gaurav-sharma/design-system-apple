@@ -21,7 +21,7 @@ Repo-specific gotchas for future syncs. Read this before re-running the sync.
 - **Component discovery is fully pinned** via `cfg.componentSrcMap`. Discovery normally
   reads PascalCase exports out of a shipped `.d.ts` tree; there is none at the package root,
   so without the pins the build reports `[ZERO_MATCH] tokens-only DS` and emits 0 components.
-  The map lists the 23 *card-worthy* components — one per source file. Sub-parts
+  The map lists the 24 *card-worthy* components — one per source file. Sub-parts
   (`CardHeader`, `DialogContent`, `SelectItem`, …) are deliberately NOT pinned: they are all
   present in the bundle (94 exports on `window.DashboardUI`) and are documented through the
   composition examples in each parent's `.prompt.md`, but they get no card of their own.
@@ -78,7 +78,17 @@ Consequences to keep in mind:
   Keeping them frontmatter-only is deliberate: a stub with a *body* becomes the whole
   `.prompt.md` and **suppresses the synthesized `## Props` / `## Examples` / `## Related`
   sections**, which are the most useful thing the design agent gets. Don't add prose here.
-- Resulting groups: `primitives` (18) and `dashboard` (5).
+- Resulting groups: `primitives` (19) and `dashboard` (5).
+
+## The built registry (`public/r/`) is generated
+
+`registry.json` is a build *input* — its `files[].path` entries are repo-relative and
+carry no content. `npm run registry:build` (`shadcn build`, v4) inlines each file and
+writes the installable `public/r/*.json` that `npx shadcn add <url>` can consume at a
+pinned tag. **`public/r/` is committed**, so it goes stale silently: rebuild and commit
+it whenever `registry.json` or any registered source file changes. A component added to
+`src/` therefore has *four* registration steps, not three — `entry.ts`,
+`componentSrcMap`, `registry.json`, then the rebuild.
 
 ## Known component defects (found while authoring previews)
 
@@ -116,25 +126,74 @@ Covered by two preview cells: `AuthError` (headline only) and `AuthErrorWithDeta
 ("Your account is locked" + detail), the latter existing specifically to catch a
 re-hard-coded title.
 
+### FIXED — `AppShell` had no breakpoint at all
+
+The sidebar was `collapsed ? "w-16" : "w-[230px]"` with no responsive utility anywhere
+in the component, so on a 375px phone the rail permanently ate 230px (or 64px) of the
+viewport. `PageHeader`'s `sm:flex-row` was the *only* responsive utility in the library.
+
+Fixed in `src/components/dashboard/app-shell.tsx`: the `<aside>` is now `hidden md:flex`
+and below `md` the sidebar renders as a Radix Dialog overlay drawer (`MobileSidebar`),
+which supplies the focus trap, Escape, scrim dismissal and scroll lock. `aria-modal` is
+set explicitly — Radix 1.1.20 hides the rest of the page with `aria-hidden` on siblings
+and never emits it.
+
+Two decisions worth not undoing:
+
+- **Layout is CSS-driven, behaviour is JS-driven.** `useIsMobile()`
+  (`useSyncExternalStore` over `matchMedia`) decides only what the header toggle does and
+  whether nav items show labels. The rail/drawer split itself is pure CSS, so there is no
+  first-paint flash and no hydration mismatch in the layout.
+- **One toggle button, not two.** A second `md:hidden` copy would be invisible in a
+  browser but would make consumers' existing `getByLabelText("Toggle navigation")`
+  queries throw in jsdom, where no CSS applies.
+
+`SidebarSection` / `SidebarNavItem` key their icon-only branch off `collapsed && !isMobile`
+so the drawer never renders the desktop rail form. Preview cards render at a desktop
+viewport (`overrides.AppShell.viewport` is `1240x780`) and the drawer is `fixed`, so the
+mobile state **cannot** be captured as a preview cell — verify it in a real browser.
+
+### FIXED — `LoginForm` hard-coded an email identity
+
+Label, `type`, `autoComplete`, placeholder, the `errors` key and the `onSubmit` payload
+were all `email`, so a username-authenticating API had to pass its username through as
+"Email" — visibly mislabelled, and browsers autofilled email addresses into it.
+
+Fixed with an opt-in `identifier?: "email" | "username"` (default `"email"`, so the
+rendered output for existing call sites is byte-identical — verified by diffing
+`renderToStaticMarkup` against the v1.1.0 tag). `onSubmit` emits the active value under
+**both** `username` and the legacy `email` key; widening its parameter type is safe
+because parameter contravariance keeps old `({ email, password }) => …` callbacks
+assignable. Covered by the `UsernameIdentifier` and `CustomIdentifierWording` preview
+cells.
+
 ### Open
 
-- None currently known.
+- `--chart-2` (`#aeaeb2`) is 2.21:1 against `--card`, below WCAG 1.4.11's 3:1 for
+  graphical objects. Left alone deliberately — changing it is a visual break for
+  existing charts — but it is the weakest link in the six-colour series palette.
 
 ## Environment
 
-- playwright is not a repo dependency. The container has a global
-  `/usr/lib/node_modules/@playwright/cli/node_modules/{playwright,playwright-core}` pinning
-  chromium build **1226**, which matches `~/.cache/ms-playwright/chromium-1226`. Symlink both
-  into `.ds-sync/node_modules/` rather than installing a fresh playwright (a version mismatch
-  fails with `Executable doesn't exist`). The *headless shell* (`chromium_headless_shell-1226`)
-  is a separate download — `node .ds-sync/node_modules/playwright-core/cli.js install
-  chromium-headless-shell` — and is what `chromium.launch()` actually uses.
+- playwright is not a repo dependency, and the browser build in the container moves — the
+  1226-in-`~/.cache/ms-playwright` setup this file used to describe is gone. As of the v1.2.0
+  work it is chromium **1194** under `PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`, with no
+  global playwright package at all. Don't chase a matching playwright version and don't run
+  `playwright install`: `npm i --no-save playwright-core` and launch with an explicit path —
+  `chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" })`.
+  That sidesteps the `Executable doesn't exist` version-pin dance entirely.
+- React is a peerDependency, so `npm install` alone cannot render anything.
+  `npm i --no-save react react-dom esbuild` gets a browser harness building (bundle with
+  `--alias:@=<root>/src` to resolve the `@/*` imports); `git checkout -- package-lock.json`
+  afterwards keeps the lockfile clean. Diffing a `git worktree add … v1.1.0` build against
+  HEAD in the same harness is how the "desktop is pixel-identical" claim was checked.
 
 ## Re-sync risks
 
 - **`.design-sync/entry.ts` and `cfg.componentSrcMap` are hand-maintained lists.** A component
   added to `src/` appears in neither automatically and will be silently absent from the sync.
-  Check both against `ls src/components/*/` on every re-sync.
+  Check both against `ls src/components/*/` on every re-sync. `registry.json` and the built
+  `public/r/` are a third and fourth hand-maintained surface with the same failure mode.
 - **Fonts are vendored, i.e. pinned.** `.design-sync/fonts/inter-latin.woff2` is a point-in-time
   copy of Google's Inter v20. It will not track upstream, and if `globals.css` ever changes
   `--font-sans`, the vendored file becomes wrong. Re-check `[FONT_MISSING]` warnings.
