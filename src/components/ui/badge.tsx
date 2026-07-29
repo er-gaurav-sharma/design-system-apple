@@ -26,7 +26,7 @@ const badgeVariants = cva(
       { variant: "warning", appearance: "subtle", className: "bg-warning-subtle text-warning" },
       { variant: "error", appearance: "subtle", className: "bg-error-subtle text-error" },
       { variant: "info", appearance: "subtle", className: "bg-info-subtle text-info" },
-      { variant: "neutral", appearance: "solid", className: "bg-muted-foreground text-white" },
+      { variant: "neutral", appearance: "solid", className: "bg-muted-foreground text-background" },
       { variant: "success", appearance: "solid", className: "bg-success text-success-foreground" },
       { variant: "warning", appearance: "solid", className: "bg-warning text-warning-foreground" },
       { variant: "error", appearance: "solid", className: "bg-error text-error-foreground" },

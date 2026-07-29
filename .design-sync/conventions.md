@@ -1,15 +1,16 @@
 # Dashboard UI — how to build with this design system
 
 Apple-inspired component library for internal dashboards. React + Radix primitives,
-styled with **Tailwind v4** utilities that resolve to design tokens. Light mode only
-(the token names are dark-ready, but no dark theme ships).
+styled with **Tailwind v4** utilities that resolve to design tokens. Light and dark —
+same token names in both, so nothing you write needs a `dark:` variant.
 
 ## Setup — there is no provider
 
 **Do not wrap anything in a provider.** This system has no ThemeProvider, no context
 root: tokens are plain CSS custom properties on `:root`, so a component is styled the
-moment `styles.css` is loaded. The only global you may need is `<Toaster />` (once,
-near the root) if you call `toast()`.
+moment `styles.css` is loaded. Dark mode is a `dark` class on a root element, not a
+provider. The globals you may need: `<Toaster />` (once, near the root) if you call
+`toast()`, and `<TooltipProvider>` if you use `Tooltip`.
 
 ```jsx
 <>

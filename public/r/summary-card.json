@@ -7,10 +7,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "card",
-    "skeleton",
-    "button"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/card.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/skeleton.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/button.json"
   ],
   "files": [
     {

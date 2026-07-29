@@ -9,9 +9,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "dialog",
-    "dropdown-menu"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/dialog.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/dropdown-menu.json"
   ],
   "files": [
     {

@@ -62,12 +62,29 @@ Consequences to keep in mind:
 
 ## Fonts
 
-- `globals.css` pulls Inter via a Google Fonts `@import url(...)`. **The Tailwind v4 compile
-  drops that remote import**, so the compiled CSS referenced Inter while shipping no
-  `@font-face` — every design would have silently rendered in a system fallback.
-  Fixed by vendoring Inter (latin subset, variable weight axis) into `.design-sync/fonts/`
-  and wiring it through `cfg.extraFonts`. Google serves Inter as ONE variable woff2 for all
-  weights — don't be fooled into downloading a file per weight, they're byte-identical.
+- **Fixed at the source in v1.3.0 — there is no longer a sync-only workaround.**
+  `globals.css` used to pull Inter via a Google Fonts `@import url(...)` placed *below*
+  `@import "tailwindcss"`. CSS requires `@import` to precede every other rule and **the
+  Tailwind v4 compile drops any that doesn't**, so the compiled CSS referenced Inter while
+  shipping no `@font-face` — every design, and every consuming app, silently rendered in a
+  system fallback. The sync worked around it by vendoring Inter into `.design-sync/fonts/`
+  and wiring `cfg.extraFonts`; the shipped library never got the fix, and downstream apps
+  were patching it with a `<link>` tag in their own HTML.
+- Now `globals.css` imports `src/styles/fonts/inter.css` **first**, and that file carries a
+  real `@font-face` with the woff2 embedded as a **data URI**. The data URI is not
+  gratuitous: `shadcn build` inlines registered files as UTF-8 text, so a binary `.woff2`
+  cannot travel through the registry at all. Base64 is the only form that reaches BOTH
+  install routes (copy `src/`, and `shadcn add theme`). Cost is ~64 KB of text in
+  `theme.json`; the alternative is the font not arriving.
+- **`src/styles/fonts/inter.css` is generated — never hand-edit it.** Source of truth is
+  `.design-sync/fonts/inter-latin.woff2`; regenerate with `npm run font:embed`
+  (`scripts/embed-font.mjs`). `cfg.extraFonts` now points at the generated CSS, so there is
+  one font declaration in the repo instead of two that could drift.
+- Google serves Inter as ONE variable woff2 for all weights — don't be fooled into
+  downloading a file per weight, they're byte-identical.
+- Quick regression check: `.design-sync/build-css.sh && grep -c @font-face .design-sync/.cache/ds.css`.
+  Before the fix that was `0` while `--font-sans` still said `"Inter"`, which is exactly why
+  it went unnoticed for three releases.
 
 ## Groups
 
@@ -89,6 +106,26 @@ pinned tag. **`public/r/` is committed**, so it goes stale silently: rebuild and
 it whenever `registry.json` or any registered source file changes. A component added to
 `src/` therefore has *four* registration steps, not three — `entry.ts`,
 `componentSrcMap`, `registry.json`, then the rebuild.
+
+**`npm run registry:check` (`scripts/check-registry.mjs`) now verifies all four**, plus the
+dependency rule below. Run it before pushing; it is the only thing standing between a
+half-registered component and a silent downstream absence.
+
+### `registryDependencies` must be URLs, never bare names
+
+Found in v1.3.0, after it had already broken a consuming app. shadcn resolves a bare-name
+`registryDependency` against **ui.shadcn.com**, not against the registry the item came
+from — its docs are explicit: *"`button` means the built-in shadcn `button` item, not an
+item from the same GitHub repository."* Every item here used bare names, so
+`shadcn add login-form` (which depends on `field`) fetched **upstream's** `Field`, which has
+no `FieldHelper`, and overwrote this system's. No warning, no version pinning, and the
+breakage surfaces later as a missing export in the consumer's build.
+
+Internal dependencies are therefore absolute, tag-pinned URLs into this repo's own
+`public/r/`. That embeds a version string in dozens of places, so
+`scripts/sync-version.mjs` rewrites them all from `package.json` (`registry:build` runs it
+automatically) and `registry:check` fails on a stale pin. **Bump `version` in
+`package.json` and touch nothing else.**
 
 ## Known component defects (found while authoring previews)
 
@@ -167,11 +204,55 @@ because parameter contravariance keeps old `({ email, password }) => …` callba
 assignable. Covered by the `UsernameIdentifier` and `CustomIdentifierWording` preview
 cells.
 
-### Open
+### FIXED — four hard-coded colours blocked dark mode
 
-- `--chart-2` (`#aeaeb2`) is 2.21:1 against `--card`, below WCAG 1.4.11's 3:1 for
-  graphical objects. Left alone deliberately — changing it is a visual break for
-  existing charts — but it is the weakest link in the six-colour series palette.
+`.dark {}` was a commented-out scaffold through v1.2.0. Filling it in needed almost no
+component work, because everything styles through semantic utilities — with exactly four
+exceptions, which were the only non-token colours in `src/`: `bg-white` on the Switch
+thumb, `bg-black/40` on the Dialog and AlertDialog scrims, and `text-white` on the solid
+neutral Badge. Each would have stayed light under `.dark`. They are now `--thumb`,
+`--overlay` and `text-background`.
+
+The elevation scale needed a second change: `--shadow-xs…xl` live in `@theme inline`, whose
+values are literal and which `.dark` cannot reach. They now indirect through
+`--elevation-*` in `:root`, which `.dark` overrides with much denser alphas — a 4%-alpha
+shadow is invisible against near-black, so without this every raised surface reads as flat.
+Light values are unchanged from v1.2.0.
+
+Adding `overlay` and `thumb` also meant a line in the colour safelist
+(`tailwind-entry.css`), per the rule above.
+
+### Open — light-mode contrast, seven token pairs
+
+Auditing every pair the components actually combine (both themes) while adding dark mode
+turned up seven shortfalls. **All seven are light-mode values unchanged since v1.0.0; the
+dark theme passes cleanly.** They are left alone on the same reasoning as `--chart-2`
+always was: these are shipped colours, and moving them is a visual break for every existing
+consumer. Fixing them is a deliberate design decision for a future release, not a drive-by.
+
+| Pair | Ratio | Needs | Where it shows |
+|---|---|---|---|
+| `--input` on `--background` | 1.51:1 | 3:1 (1.4.11) | every field boundary — the worst of the set |
+| `--chart-2` on `--card` | 2.21:1 | 3:1 (1.4.11) | second chart series |
+| `--text-tertiary` on `--background` | 3.62:1 | 4.5:1 | `FieldHelper`, table weekday headers |
+| `--success` on `--success-subtle` | 3.95:1 | 4.5:1 | subtle success Badge/Alert |
+| `--accent-foreground` on `--accent` | 4.12:1 | 4.5:1 | accent-tinted text |
+| `--info` on `--info-subtle` | 4.12:1 | 4.5:1 | subtle info Badge/Alert |
+| `--success-foreground` on `--success` | 4.40:1 | 4.5:1 | solid success Badge |
+
+Three dark values were *chosen* against this audit rather than copied from Apple, which is
+worth knowing before anyone "corrects" them back:
+
+- `--primary` is `#0a6bff`, not Apple's dark systemBlue `#0A84FF`. White on `#0A84FF` is
+  3.65:1 — an AA failure on every primary button. `--ring`, `--chart-1` and `--info` keep
+  the bright blue, since none of them carries text.
+- `--primary-hover` / `--primary-active` darken, matching light mode. Brightening from
+  `#0a6bff` drops back under 4.5:1.
+- `--input` is systemGray2 `#636366`, not systemGray3 `#48484a`, which manages only 2.3:1
+  against black.
+
+Re-run the audit after any token change — it reads the compiled CSS, so it measures what
+actually ships.
 
 ## Environment
 
@@ -192,11 +273,21 @@ cells.
 
 - **`.design-sync/entry.ts` and `cfg.componentSrcMap` are hand-maintained lists.** A component
   added to `src/` appears in neither automatically and will be silently absent from the sync.
-  Check both against `ls src/components/*/` on every re-sync. `registry.json` and the built
-  `public/r/` are a third and fourth hand-maintained surface with the same failure mode.
+  `registry.json` and the built `public/r/` are a third and fourth hand-maintained surface
+  with the same failure mode. `npm run registry:check` now checks all four against
+  `src/components/*/` — run it instead of eyeballing an `ls`.
+- **v1.3.0 added five components** — `Tabs`, `Tooltip`, `Popover`, `Calendar`, `DatePicker`
+  (which exports both `DatePicker` and `DateRangePicker`). `Calendar` and `DatePicker` bring
+  the first non-Radix runtime dependencies, `react-day-picker` and `date-fns`.
+  `react-day-picker/style.css` is deliberately **not** imported: the grid is styled purely
+  from tokens so it follows `.dark`, and importing their stylesheet would double-style it.
+  Note where day state lives — react-day-picker puts every modifier class (`selected`,
+  `range_start`, `today`, …) on the day's `<td>`, never on the button inside it, so modifier
+  styling reaches the button via `[&>button]:`.
 - **Fonts are vendored, i.e. pinned.** `.design-sync/fonts/inter-latin.woff2` is a point-in-time
   copy of Google's Inter v20. It will not track upstream, and if `globals.css` ever changes
-  `--font-sans`, the vendored file becomes wrong. Re-check `[FONT_MISSING]` warnings.
+  `--font-sans`, the vendored file becomes wrong. Re-check `[FONT_MISSING]` warnings, and
+  re-run `npm run font:embed` after replacing the woff2.
 - **`dist/types/` is generated and gitignored.** A fresh clone must run `cfg.buildCmd` before
   the converter, or `.d.ts` contracts silently degrade to `[key: string]: unknown` — the build
   still exits 0, so this failure is quiet. Verify a spot-check `.d.ts` has real props.

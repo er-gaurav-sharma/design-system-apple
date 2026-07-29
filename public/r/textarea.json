@@ -4,7 +4,7 @@
   "title": "Textarea",
   "description": "Multi-line text input matching the Input field conventions.",
   "registryDependencies": [
-    "utils"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json"
   ],
   "files": [
     {
