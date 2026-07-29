@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "title": "Popover",
+  "description": "Anchored floating panel built on Radix Popover, sharing SelectContent's surface and stacking level.",
+  "dependencies": [
+    "@radix-ui/react-popover"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/popover.tsx",
+      "content": "import * as React from \"react\";\nimport * as PopoverPrimitive from \"@radix-ui/react-popover\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Popover = PopoverPrimitive.Root;\nconst PopoverTrigger = PopoverPrimitive.Trigger;\nconst PopoverPortal = PopoverPrimitive.Portal;\nconst PopoverClose = PopoverPrimitive.Close;\n/** Anchor the panel to something other than the trigger. */\nconst PopoverAnchor = PopoverPrimitive.Anchor;\n\nconst PopoverContent = React.forwardRef<\n  React.ElementRef<typeof PopoverPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>\n>(({ className, align = \"center\", sideOffset = 6, ...props }, ref) => (\n  <PopoverPortal>\n    <PopoverPrimitive.Content\n      ref={ref}\n      align={align}\n      sideOffset={sideOffset}\n      className={cn(\n        // Same floating-surface recipe and stacking level as SelectContent, so\n        // the two never fight over which sits on top.\n        \"z-[1000] w-72 rounded-md border border-border bg-popover p-4 text-popover-foreground shadow-lg outline-none\",\n        \"data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95\",\n        \"data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1\",\n        className,\n      )}\n      {...props}\n    />\n  </PopoverPortal>\n));\nPopoverContent.displayName = PopoverPrimitive.Content.displayName;\n\nexport { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, PopoverClose, PopoverPortal };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

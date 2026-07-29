@@ -2,10 +2,10 @@
 
 Apple-inspired, drop-in shadcn/ui component library for internal dashboards.
 Generated from the canonical **Claude Design** project (the single source of
-truth). Light mode; token structure is dark-ready.
+truth). Light and dark.
 
 - **Tailwind:** v4 (CSS-first `@theme`, no `tailwind.config`)
-- **Typeface:** Inter · **Accent:** Apple blue (`#0071E3`)
+- **Typeface:** Inter, self-hosted · **Accent:** Apple blue (`#0071E3`)
 - **Icons:** Lucide · **Primitives:** Radix UI
 
 ## Install into an existing app
@@ -16,18 +16,21 @@ This is a **drop-in library** — copy `src/` into your app (or point your
 ```bash
 npm i @radix-ui/react-alert-dialog @radix-ui/react-checkbox \
   @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label \
-  @radix-ui/react-radio-group @radix-ui/react-select @radix-ui/react-slot \
-  @radix-ui/react-switch class-variance-authority clsx tailwind-merge \
-  lucide-react sonner
+  @radix-ui/react-popover @radix-ui/react-radio-group @radix-ui/react-select \
+  @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs \
+  @radix-ui/react-tooltip class-variance-authority clsx tailwind-merge \
+  date-fns lucide-react react-day-picker sonner
 npm i -D tailwindcss@4 tw-animate-css
 ```
 
 Then:
 
 1. Import the tokens once, at your app entry: `import "@/styles/globals.css";`
-   (it `@import`s Tailwind, Inter, and `tw-animate-css`).
+   (it `@import`s Inter, Tailwind, and `tw-animate-css`).
 2. Ensure `@/*` resolves to `./src/*` (see `tsconfig.json` `paths`).
 3. Mount `<Toaster />` (from `@/components/ui/sonner`) near your root for toasts.
+4. Wrap the app in `<TooltipProvider>` (from `@/components/ui/tooltip`) if you
+   use tooltips anywhere.
 
 The `components.json` lets `npx shadcn@latest add <name>` drop new components in
 using the same aliases and token conventions.
@@ -40,39 +43,90 @@ you want:
 
 ```bash
 # tokens first — every component styles through them
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.2.0/public/r/theme.json
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.2.0/public/r/pagination.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/theme.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/pagination.json
 ```
 
-Each item pulls its own `registryDependencies` (`utils`, `button`, …), so you get
-the transitive set. Pinning the tag in the URL is how you pin the version.
+Each item pulls its own `registryDependencies`, so you get the transitive set.
+Pinning the tag in the URL is how you pin the version.
 
-**Maintainers:** `public/r/` is generated — run `npm run registry:build` and commit
-the result whenever `registry.json` or any registered source file changes, or
-consumers install stale code.
+Those dependencies are absolute URLs back into this registry, at the same tag —
+not bare names. That is deliberate and it matters: shadcn resolves a bare name
+against **ui.shadcn.com**, not against the registry the item came from. When
+`login-form` depended on `"field"`, `shadcn add login-form` fetched upstream's
+`Field` — which has no `FieldHelper` — and overwrote this system's. Anything
+already built on `FieldHelper` broke, silently, at install time.
+
+**Maintainers:**
+
+- `public/r/` is generated — run `npm run registry:build` and commit the result
+  whenever `registry.json` or any registered source file changes, or consumers
+  install stale code.
+- `npm run registry:check` verifies all of that: no bare-name dependencies, no
+  pins left on an old tag, no component registered on some surfaces but not
+  others, no stale `public/r/`. Run it before you push.
+- Bump `version` in `package.json` and nothing else — `npm run version:sync`
+  (which `registry:build` runs for you) rewrites every pinned URL here and in
+  `registry.json` to match.
 
 ## Structure
 
 ```
 src/
   styles/globals.css        Design tokens → Tailwind v4 @theme bridge
+  styles/fonts/inter.css    Self-hosted Inter (generated — see Typeface)
   lib/utils.ts              cn() helper
   components/ui/            Primitives (shadcn new-york style)
     button  input  textarea  label  field
     select  checkbox  radio-group  switch
     badge  alert  sonner (Toaster + toast)
     dropdown-menu  dialog  alert-dialog
+    tabs  tooltip  popover
+    calendar  date-picker (DatePicker + DateRangePicker)
     table  pagination  skeleton  card
   components/dashboard/     Composed patterns
     page-header  summary-card  chart-container
     app-shell    login-form
+scripts/                    Registry + font maintenance
 public/r/                   Built shadcn registry (generated)
 ```
 
-### Not included
+## Typeface
 
-No `Tabs`, `Tooltip`, `Popover` or `Calendar`/date-range picker yet. `Input`
-forwards `type`, so `<Input type="date">` is the supported route for date filters.
+The system ships Inter itself — you need **no `<link>` tag and no request to
+Google Fonts**. `globals.css` imports `styles/fonts/inter.css`, which carries a
+real `@font-face` with the latin subset (variable, 100–900) embedded as a data
+URI, so the typeface survives both install routes: copying `src/`, and
+`shadcn add theme`.
+
+Two details worth knowing before changing it:
+
+- **The `@import` must stay first.** CSS requires `@import` to precede every
+  other rule and Tailwind v4's optimizer silently drops any that doesn't. Before
+  v1.3.0 the font came from an `@import url(...)` to Google Fonts sitting *below*
+  `@import "tailwindcss"` — so the compiled CSS named Inter in `--font-sans` while
+  shipping no `@font-face`, and every consumer rendered in `system-ui` with
+  nothing to indicate it.
+- **`inter.css` is generated.** `shadcn build` inlines registered files as UTF-8
+  text, so a binary `.woff2` cannot travel through the registry — hence the data
+  URI. The source of truth is `.design-sync/fonts/inter-latin.woff2`; regenerate
+  with `npm run font:embed`, never edit the CSS by hand.
+
+## Dark mode
+
+Put `dark` on a root element — `<html class="dark">` — and every component
+follows. Nothing else to configure and no per-component opt-in: `.dark` in
+`globals.css` restates the same token names with dark values, so components,
+which only ever reference semantic utilities, need no changes.
+
+Values follow Apple's dark system palette rather than inverting the light ramp,
+which has two visible consequences: surfaces get *lighter* with elevation
+(`--card` sits above `--background`), and the accent shifts to `#0A84FF`,
+because `#0071E3` on near-black falls below 4.5:1.
+
+If you add a token, add it to **both** blocks. The `dark:` variant is wired up
+(`@custom-variant dark`) for the rare case a component needs to diverge
+structurally rather than just by token value.
 
 ## Token model — never hard-code color
 
@@ -89,6 +143,8 @@ never raw hex:
 | `border-border` `border-input` | dividers / field boundaries |
 | `rounded-sm…rounded-xl` | radius scale |
 | `ring-ring/30` | focus ring |
+| `bg-overlay` | scrim behind modal surfaces |
+| `bg-thumb` | knob of a `Switch` |
 | `bg-chart-1…chart-6` | chart series colors (six categorical hues) |
 
 Focus states use `focus-visible:ring-[3px] focus-visible:ring-ring/30`; every
@@ -135,6 +191,30 @@ desktop-only. `useShell()` exposes `{ collapsed, toggle, isMobile, mobileOpen,
 setMobileOpen }` if you need to drive it yourself (e.g. closing it on a router
 back-navigation, or via the controlled `mobileOpen` / `onMobileOpenChange` props).
 
+### Dates
+
+`DatePicker` and `DateRangePicker` (`@/components/ui/date-picker`) are the
+supported route for date input — a form-styled trigger opening a `Calendar` in a
+`Popover`. They render identically in every browser, unlike `<Input type="date">`,
+and drop into a `Field` like any other control:
+
+```tsx
+<Field>
+  <Label htmlFor="period">Period</Label>
+  <DateRangePicker id="period" name="period" value={range} onValueChange={setRange} />
+  <FieldHelper>Submits as period-from and period-to.</FieldHelper>
+</Field>
+```
+
+Both are controlled when you pass `value` and uncontrolled otherwise. Setting
+`name` emits hidden inputs carrying ISO dates (`name` for a single date;
+`name-from` / `name-to` for a range), so plain `FormData` submission works.
+`Calendar` is also usable directly for an always-visible month grid.
+
+Note that `Calendar` does **not** import `react-day-picker/style.css` — it is
+styled entirely from the tokens, so it follows `.dark` and the accent color.
+Importing that stylesheet on top of it will double-style the grid.
+
 ### Username-based auth
 
 `LoginForm` collects an email by default. For APIs that authenticate on a plain
@@ -147,5 +227,7 @@ the legacy `email` key, so existing handlers keep working in either mode.
 
 This library is generated from the Claude Design project. Change **tokens**
 there and re-sync `globals.css`; prefer changing values behind existing token
-names over renaming (renames are breaking). Add dark mode by filling in a
-`.dark {}` block in `globals.css` using the same names — no component changes.
+names over renaming (renames are breaking). A new token needs a value in both
+`:root` and `.dark`, an entry in the `@theme inline` bridge, and a line in the
+colour safelist in `.design-sync/tailwind-entry.css` — the design agent can name
+a token it can't otherwise use.

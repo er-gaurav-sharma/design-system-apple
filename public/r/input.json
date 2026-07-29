@@ -4,7 +4,7 @@
   "title": "Input",
   "description": "Single-line text input with token-driven field styling and focus ring.",
   "registryDependencies": [
-    "utils"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json"
   ],
   "files": [
     {

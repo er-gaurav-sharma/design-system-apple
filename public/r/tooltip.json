@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "Hover/focus tooltip built on Radix Tooltip, with an optional arrow. Wrap the app in TooltipProvider once.",
+  "dependencies": [
+    "@radix-ui/react-tooltip"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tooltip.tsx",
+      "content": "import * as React from \"react\";\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\";\n\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Wrap the app (or a subtree) once. Radix requires a provider above every\n * Tooltip, and hoisting it is what makes the shared open/close delay work\n * across neighbouring tooltips instead of each one waiting out its own.\n */\nconst TooltipProvider = TooltipPrimitive.Provider;\nconst Tooltip = TooltipPrimitive.Root;\nconst TooltipTrigger = TooltipPrimitive.Trigger;\nconst TooltipPortal = TooltipPrimitive.Portal;\n\nconst TooltipContent = React.forwardRef<\n  React.ElementRef<typeof TooltipPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & {\n    /** Render the little pointer at the trigger. @default true */\n    showArrow?: boolean;\n  }\n>(({ className, sideOffset = 6, showArrow = true, children, ...props }, ref) => (\n  <TooltipPortal>\n    <TooltipPrimitive.Content\n      ref={ref}\n      sideOffset={sideOffset}\n      className={cn(\n        // Above Dialog (z-[1300]) on purpose: a tooltip on a control inside a\n        // modal has to win, and it never traps interaction anyway.\n        \"z-[1400] max-w-xs rounded-sm bg-foreground px-2.5 py-1.5 text-xs font-medium text-background shadow-md\",\n        \"data-[state=delayed-open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=delayed-open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=delayed-open]:zoom-in-95\",\n        \"data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n      {showArrow && <TooltipPrimitive.Arrow className=\"fill-foreground\" width={11} height={5} />}\n    </TooltipPrimitive.Content>\n  </TooltipPortal>\n));\nTooltipContent.displayName = TooltipPrimitive.Content.displayName;\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, TooltipPortal };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

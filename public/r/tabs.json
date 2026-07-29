@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Tabbed sections built on Radix Tabs, in an underline variant for page-level sections and a segmented variant for switching one panel's contents.",
+  "dependencies": [
+    "@radix-ui/react-tabs"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tabs.tsx",
+      "content": "import * as React from \"react\";\nimport * as TabsPrimitive from \"@radix-ui/react-tabs\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype TabsVariant = \"underline\" | \"segmented\";\n\n/** The list picks the variant; triggers read it so both stay in step. */\nconst TabsVariantContext = React.createContext<TabsVariant>(\"underline\");\n\nconst Tabs = TabsPrimitive.Root;\n\nconst TabsList = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.List>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> & {\n    /**\n     * `underline` for page-level sections, `segmented` for switching the\n     * contents of a single panel (Apple's segmented control).\n     * @default \"underline\"\n     */\n    variant?: TabsVariant;\n  }\n>(({ className, variant = \"underline\", ...props }, ref) => (\n  <TabsVariantContext.Provider value={variant}>\n    <TabsPrimitive.List\n      ref={ref}\n      data-variant={variant}\n      className={cn(\n        \"inline-flex items-center\",\n        variant === \"underline\" && \"w-full gap-6 border-b border-border\",\n        variant === \"segmented\" && \"gap-1 rounded-md bg-muted p-1\",\n        className,\n      )}\n      {...props}\n    />\n  </TabsVariantContext.Provider>\n));\nTabsList.displayName = TabsPrimitive.List.displayName;\n\nconst TabsTrigger = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.Trigger>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>\n>(({ className, ...props }, ref) => {\n  const variant = React.useContext(TabsVariantContext);\n  return (\n    <TabsPrimitive.Trigger\n      ref={ref}\n      className={cn(\n        \"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors ease-standard\",\n        \"focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n        \"disabled:pointer-events-none disabled:opacity-40\",\n        \"[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\n        variant === \"underline\" && [\n          // -1px pulls the active border over the list's own bottom border\n          // instead of stacking a second line under it.\n          \"-mb-px h-11 rounded-sm border-b-2 border-transparent px-1\",\n          \"hover:text-foreground\",\n          \"data-[state=active]:border-primary data-[state=active]:text-foreground\",\n        ],\n        variant === \"segmented\" && [\n          \"h-8 flex-1 rounded-sm px-3\",\n          \"hover:text-foreground\",\n          \"data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-xs\",\n        ],\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nTabsTrigger.displayName = TabsPrimitive.Trigger.displayName;\n\nconst TabsContent = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>\n>(({ className, ...props }, ref) => (\n  <TabsPrimitive.Content\n    ref={ref}\n    className={cn(\n      \"mt-6 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n      className,\n    )}\n    {...props}\n  />\n));\nTabsContent.displayName = TabsPrimitive.Content.displayName;\n\nexport { Tabs, TabsList, TabsTrigger, TabsContent };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
