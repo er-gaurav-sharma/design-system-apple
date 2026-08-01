@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { Menu, ChevronDown, User, Settings, LogOut, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -327,6 +327,22 @@ const SidebarNavItem = React.forwardRef<HTMLButtonElement, SidebarNavItemProps>(
     const { collapsed, isMobile, setMobileOpen } = useShell();
     const iconOnly = collapsed && !isMobile;
     const Comp = asChild ? Slot : "button";
+    // Under asChild `children` is the consumer's own element, so the label sits
+    // one level deeper than it does on the plain <button>.
+    const slotted =
+      asChild && React.isValidElement<{ children?: React.ReactNode }>(children)
+        ? children
+        : null;
+    const label = slotted ? slotted.props.children : children;
+    // The collapsed rail renders the icon alone. Without asChild that just means
+    // dropping the label; with it the label has to be emptied out of the
+    // consumer's element instead, because dropping the element would leave Slot
+    // with nothing to merge into and the item would silently render nothing.
+    let content = children;
+    if (iconOnly) {
+      if (!asChild) content = null;
+      else if (slotted) content = React.cloneElement(slotted, undefined, null);
+    }
     // Selecting a destination dismisses the drawer. Radix Slot merges handlers,
     // so this still runs when the item is a router <Link> via asChild.
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -338,7 +354,7 @@ const SidebarNavItem = React.forwardRef<HTMLButtonElement, SidebarNavItemProps>(
         ref={ref}
         data-active={active || undefined}
         aria-current={active ? "page" : undefined}
-        title={iconOnly && typeof children === "string" ? children : undefined}
+        title={iconOnly && typeof label === "string" ? label : undefined}
         onClick={handleClick}
         className={cn(
           "flex items-center gap-3 overflow-hidden whitespace-nowrap rounded-md px-3 py-2.5 text-[13px] font-medium text-muted-foreground transition-colors ease-standard",
@@ -352,7 +368,11 @@ const SidebarNavItem = React.forwardRef<HTMLButtonElement, SidebarNavItemProps>(
         {...props}
       >
         {icon}
-        {!iconOnly && children}
+        {/* Slottable marks which child asChild should merge into — see
+            ui/button.tsx. Without it the icon and the label are two nodes and
+            Slot throws for every asChild usage, including when no `icon` is
+            passed, since `{undefined}` still occupies a child slot. */}
+        <Slottable>{content}</Slottable>
       </Comp>
     );
   },

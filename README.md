@@ -43,8 +43,8 @@ you want:
 
 ```bash
 # tokens first — every component styles through them
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/theme.json
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/pagination.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/theme.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/pagination.json
 ```
 
 Each item pulls its own `registryDependencies`, so you get the transitive set.
@@ -178,7 +178,10 @@ import { LayoutDashboard, Users } from "lucide-react";
 </AppShell>
 ```
 
-`SidebarNavItem` and `Button` take `asChild` to compose with a router `<Link>`.
+`SidebarNavItem` and `Button` take `asChild` to compose with a router `<Link>` —
+`<SidebarNavItem icon={<Users />} asChild><a href="/users">Users</a></SidebarNavItem>`
+renders one anchor with the icon inside it. Collapsed, the rail keeps the icon and
+moves the label to `title`, so give the item a plain string label.
 
 ### Responsive behaviour
 

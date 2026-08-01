@@ -4,12 +4,12 @@
   "title": "Login Form",
   "description": "Composed login form using Field, Input, Label, Button and Alert.",
   "registryDependencies": [
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/utils.json",
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/button.json",
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/input.json",
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/label.json",
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/field.json",
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.0/public/r/alert.json"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/field.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/alert.json"
   ],
   "files": [
     {

@@ -1,0 +1,1622 @@
+{
+  "/workspaces/dev-container/repos/design-system-apple/registry.json": {
+    "mtime": 1785552779.564494,
+    "ast_hash": "9fa23bd486dd0ef546aa2bcd1b50795b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.mcp.json": {
+    "mtime": 1784508966.3078856,
+    "ast_hash": "24750dfd8df97a7d4f93acfd1faf7823",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/package.json": {
+    "mtime": 1785552775.325691,
+    "ast_hash": "a72b48e784d806dc0143ebee5ed10c81",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/components.json": {
+    "mtime": 1784567021.3085015,
+    "ast_hash": "b042c3cf1438967e3f70035ed8889f55",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/tsconfig.json": {
+    "mtime": 1784567016.16924,
+    "ast_hash": "d9d2285737b10c984106db75b90b2e15",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.claude/settings.json": {
+    "mtime": 1785551453.9961705,
+    "ast_hash": "94dade368b972ab637ecc73c69771a07",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.claude/settings.local.json": {
+    "mtime": 1784565670.2751303,
+    "ast_hash": "662e5d1c886bc6ff081627a3cc16f389",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/alert-dialog.tsx": {
+    "mtime": 1785550380.8472638,
+    "ast_hash": "d9b978abdcc20c723c1fbd012654c163",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/card.tsx": {
+    "mtime": 1784567139.0965977,
+    "ast_hash": "a32df076779d542a3b0a2096a7a9ec83",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/field.tsx": {
+    "mtime": 1784567260.9621549,
+    "ast_hash": "2ff2c3467a8dd00b7cf998eca365c794",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/label.tsx": {
+    "mtime": 1784567055.8049788,
+    "ast_hash": "1394d4d2d5ebd534f65c6fa02d45c668",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/sonner.tsx": {
+    "mtime": 1784567380.1057856,
+    "ast_hash": "605e17a38a802db43cf181300818e830",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/alert.tsx": {
+    "mtime": 1784567152.6378458,
+    "ast_hash": "69d023dc079510d6b2aa4a44ed518b50",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/switch.tsx": {
+    "mtime": 1785550380.8517597,
+    "ast_hash": "bd4d2118847278a77281f0f877d54bb8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/radio-group.tsx": {
+    "mtime": 1784567075.2986963,
+    "ast_hash": "288d7e9d21bfcd880187a56e13c24f53",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/dialog.tsx": {
+    "mtime": 1785550380.8502986,
+    "ast_hash": "6dc5edb90a0e2a1bb17188e4ebc99965",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/badge.tsx": {
+    "mtime": 1785550380.8478177,
+    "ast_hash": "a9c88a2207eff40fcafe6fc242c2d410",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/table.tsx": {
+    "mtime": 1784567248.858681,
+    "ast_hash": "00e1c270083ba1f9e51ebdd870cdc8b0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/button.tsx": {
+    "mtime": 1785550380.8487167,
+    "ast_hash": "d797521982f3a404ad954686d1b84702",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/checkbox.tsx": {
+    "mtime": 1784567066.7914922,
+    "ast_hash": "a23d514c5def3d5830bd23c1dd700797",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/dropdown-menu.tsx": {
+    "mtime": 1784567181.5483432,
+    "ast_hash": "29a6d9e1279e3c780f93ffb5b6c85924",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/select.tsx": {
+    "mtime": 1784567109.9319396,
+    "ast_hash": "a1fcb5eaf0bfd9fed742afb35b6648c2",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/textarea.tsx": {
+    "mtime": 1784567048.8270502,
+    "ast_hash": "c7b24a2bb27d8a4bff1b0a3e2bd40dae",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/input.tsx": {
+    "mtime": 1784567041.5841718,
+    "ast_hash": "8bc6362dffec3a24482726363e83e69c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/skeleton.tsx": {
+    "mtime": 1784567128.9740424,
+    "ast_hash": "33b4e2bc17733e0959754a260d86ecd6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/dashboard/chart-container.tsx": {
+    "mtime": 1785550380.8450122,
+    "ast_hash": "a0e6833d5dbdb108de62102cd0c6b536",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/dashboard/summary-card.tsx": {
+    "mtime": 1784567282.8994668,
+    "ast_hash": "046fff6445428e2bba2798ddd231a124",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/dashboard/login-form.tsx": {
+    "mtime": 1785550380.8464377,
+    "ast_hash": "27f5062c019187544104c99fae835555",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/dashboard/page-header.tsx": {
+    "mtime": 1784567449.8073652,
+    "ast_hash": "a45d672444a9f51f24f5cb5c1297ac7d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/dashboard/app-shell.tsx": {
+    "mtime": 1785552476.8260489,
+    "ast_hash": "2119fe6ee0ae17782ec497404f1c297c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/lib/utils.ts": {
+    "mtime": 1784566999.5120313,
+    "ast_hash": "554ac087393eaca2cbb8d3a56da3b9a8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/README.md": {
+    "mtime": 1785552779.56677,
+    "ast_hash": "6178201be176ac922d869bb04333162c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/CLAUDE.md": {
+    "mtime": 1785551386.8279865,
+    "ast_hash": "8e8d64fc4e1d8964fce908ddacad8d53",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/.stories-map.json": {
+    "mtime": 1785126672.9263082,
+    "ast_hash": "0a66da6d02ea4a8ab68f803ec1e7d2d6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_ds_sync.json": {
+    "mtime": 1785126672.9820828,
+    "ast_hash": "cdff996087c08c6071eb5a6adb8610e4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_ds_bundle.js": {
+    "mtime": 1785126672.94951,
+    "ast_hash": "3d3682519f38af1b98953b84d9bf0cbe",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/.ds-build-meta.json": {
+    "mtime": 1785126672.957932,
+    "ast_hash": "cfc3c79b06015d9628eddea926339b16",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/.render-check.json": {
+    "mtime": 1785126820.8820858,
+    "ast_hash": "cae1724bc8453c8eb78ad9c9843ba9f2",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/contact-sheets.json": {
+    "mtime": 1785126822.1507866,
+    "ast_hash": "c3effdcd446cea033d016289f70b273b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Toaster.js": {
+    "mtime": 1785126672.1935081,
+    "ast_hash": "c92f3f1ef5230e3e877d4665b3396e0a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Skeleton.js": {
+    "mtime": 1785126672.1747875,
+    "ast_hash": "af09d7e23b29970d9418bc08e865adfb",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/PageHeader.js": {
+    "mtime": 1785126672.1619499,
+    "ast_hash": "121bdb3002015a762e70d2023369dfa0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Switch.js": {
+    "mtime": 1785126672.181717,
+    "ast_hash": "f4571d0504b1f777268cb04b2507842b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Badge.js": {
+    "mtime": 1785126470.4092963,
+    "ast_hash": "feb7d0cc8f54ba5f7eae151ff459504a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Textarea.js": {
+    "mtime": 1785126672.1895037,
+    "ast_hash": "89e3e315c7b9f916bc3bddcf16cd4803",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Field.js": {
+    "mtime": 1785126605.5695763,
+    "ast_hash": "c65150e48396009e3bc5c45f801b99b0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Dialog.js": {
+    "mtime": 1785126536.1447322,
+    "ast_hash": "622556364611dae3ccbc0bc365a4c937",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Select.js": {
+    "mtime": 1785126672.171302,
+    "ast_hash": "3b824183e07384c9887753c53bfd5f7d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Table.js": {
+    "mtime": 1785126672.1856163,
+    "ast_hash": "0e18a56fd8f0642e9a9f61195a3b907a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/SummaryCard.js": {
+    "mtime": 1785126672.1784768,
+    "ast_hash": "83cbbc9077521415a70233954bde8872",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Alert.js": {
+    "mtime": 1785126404.5851872,
+    "ast_hash": "7663c3906406daa67960cd682e0a4b58",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/AppShell.js": {
+    "mtime": 1785126470.4002695,
+    "ast_hash": "beac5956f0281b07f0b23daf92e89b3e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Checkbox.js": {
+    "mtime": 1785126536.1410499,
+    "ast_hash": "d4854c6b756af2ec6fa74f24d5f14708",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/RadioGroup.js": {
+    "mtime": 1785126672.1673818,
+    "ast_hash": "69b593871514b1c37a52eb79176e563b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/ChartContainer.js": {
+    "mtime": 1785126536.1371143,
+    "ast_hash": "29c9fe8adf8098452ef36ffcbcc179e6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/AlertDialog.js": {
+    "mtime": 1785126404.591403,
+    "ast_hash": "69a20462f8105592f3830b01ae4b5382",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Button.js": {
+    "mtime": 1785126536.128005,
+    "ast_hash": "8ae3a4cb4daae491211d46f0cff6b0a5",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Card.js": {
+    "mtime": 1785126536.1332822,
+    "ast_hash": "73867f1649e008004bbfd35fffd57dd1",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/LoginForm.js": {
+    "mtime": 1785126605.5842805,
+    "ast_hash": "c5c3ececcddb54c8e05a4ae95601fa3b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Label.js": {
+    "mtime": 1785126605.5796793,
+    "ast_hash": "34aae79a32f056aa230ec829c0e4d132",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/Input.js": {
+    "mtime": 1785126605.5748863,
+    "ast_hash": "7c1d0ef4323c60cc1ce55531d5b7b2f3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_preview/DropdownMenu.js": {
+    "mtime": 1785126605.5614796,
+    "ast_hash": "147b405d81534098f5c33fc1c9822e4e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_vendor/react.js": {
+    "mtime": 1785126403.720345,
+    "ast_hash": "85ca5d6494ab2b66b6726bdf1d6bad61",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_vendor/react-dom.js": {
+    "mtime": 1785126403.7215683,
+    "ast_hash": "c1b9b966eaf9ca3cf4ce5b8b4b270c3c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/RadioGroup/RadioGroup.jsx": {
+    "mtime": 1785126672.893353,
+    "ast_hash": "6d929836d799b96a0c4c47fdce40b22a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/RadioGroup/RadioGroup.d.ts": {
+    "mtime": 1785126672.8946452,
+    "ast_hash": "281114cbb3808833fdbfa3418908abfd",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Toaster/Toaster.jsx": {
+    "mtime": 1785126672.91403,
+    "ast_hash": "ba8b0fa3cbfa214a824d1c83e2cc3480",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Toaster/Toaster.d.ts": {
+    "mtime": 1785126672.915008,
+    "ast_hash": "a93ba6a0d4f2b5b3140aa4116be26261",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Card/Card.jsx": {
+    "mtime": 1785126672.8401463,
+    "ast_hash": "5f7852754feb6cb2d754239f8daf8231",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Card/Card.d.ts": {
+    "mtime": 1785126672.8408544,
+    "ast_hash": "d7bbc4dfe13114b32dbf846a218f6749",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Input/Input.d.ts": {
+    "mtime": 1785126672.8682997,
+    "ast_hash": "e402619ec26af96d79e74607cc8cb48d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Input/Input.jsx": {
+    "mtime": 1785126672.86767,
+    "ast_hash": "7d4897bc68a3c6f99f1babd1abeb5341",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/DropdownMenu/DropdownMenu.d.ts": {
+    "mtime": 1785126672.8624356,
+    "ast_hash": "c85b94ab909e3997cbf6402a5712a1a1",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/DropdownMenu/DropdownMenu.jsx": {
+    "mtime": 1785126672.8615808,
+    "ast_hash": "bd7387b5fa77c14f2a47654535b1bfab",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Alert/Alert.d.ts": {
+    "mtime": 1785126672.808089,
+    "ast_hash": "6d7cd9b241079d2ab560222a036c356e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Alert/Alert.jsx": {
+    "mtime": 1785126672.1952765,
+    "ast_hash": "4f5c3a360d912032f59d4d2072c7963b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Skeleton/Skeleton.jsx": {
+    "mtime": 1785126672.898909,
+    "ast_hash": "3217047eca3279c67412eb6bdb536f85",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Skeleton/Skeleton.d.ts": {
+    "mtime": 1785126672.8996954,
+    "ast_hash": "43623ad8151514e49d3130a7fb84b6a2",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Checkbox/Checkbox.jsx": {
+    "mtime": 1785126672.8564692,
+    "ast_hash": "7f29449d2f4140c61500cee45b3adfd4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Checkbox/Checkbox.d.ts": {
+    "mtime": 1785126672.857351,
+    "ast_hash": "c5df9a2aca1552ae0e843de574a68ab6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Label/Label.d.ts": {
+    "mtime": 1785126672.8703868,
+    "ast_hash": "e5fca1b317f46ca31dabb90f3aa6a423",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Label/Label.jsx": {
+    "mtime": 1785126672.8697217,
+    "ast_hash": "9525dcf9ce496048eb2c82063b5ef831",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Field/Field.d.ts": {
+    "mtime": 1785126672.8662815,
+    "ast_hash": "1dffa235b8f09c541cd6dd636f76f0f8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Field/Field.jsx": {
+    "mtime": 1785126672.8654752,
+    "ast_hash": "4df213aa33248e1fc3d8e8c73c719ad6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Dialog/Dialog.jsx": {
+    "mtime": 1785126672.8591537,
+    "ast_hash": "4032f55a9fbdf4b142dd6d9926a7a8e3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Dialog/Dialog.d.ts": {
+    "mtime": 1785126672.8599167,
+    "ast_hash": "7b55ba5e692b71bfd40e5359988f1327",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Textarea/Textarea.jsx": {
+    "mtime": 1785126672.911871,
+    "ast_hash": "62846bc34c02b631b8e50f958737f046",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Textarea/Textarea.d.ts": {
+    "mtime": 1785126672.9124594,
+    "ast_hash": "24fbea289084b7cc39354a76f6273112",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Button/Button.jsx": {
+    "mtime": 1785126672.834207,
+    "ast_hash": "5da7e87a595b37bb23f7c8d92fc4437a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Button/Button.d.ts": {
+    "mtime": 1785126672.8385835,
+    "ast_hash": "c6ec1bbdef5c6a6f9194cc7973fb700a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Table/Table.jsx": {
+    "mtime": 1785126672.9094923,
+    "ast_hash": "9886ae786200fac748757cb587261ce0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Table/Table.d.ts": {
+    "mtime": 1785126672.9101877,
+    "ast_hash": "99ec6e9fa5011b89603abe0ca2a99761",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Switch/Switch.d.ts": {
+    "mtime": 1785126672.9078608,
+    "ast_hash": "9bcdea8d4223b20ce960b285536903d8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Switch/Switch.jsx": {
+    "mtime": 1785126672.9068427,
+    "ast_hash": "05d9eb69e05d554b231ad6e392590440",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Select/Select.jsx": {
+    "mtime": 1785126672.8968463,
+    "ast_hash": "451227a1cc413788b06caf7e0337ec28",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Select/Select.d.ts": {
+    "mtime": 1785126672.8974779,
+    "ast_hash": "d5544cc7676150a0f6620bd430ea679c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/AlertDialog/AlertDialog.d.ts": {
+    "mtime": 1785126672.8140478,
+    "ast_hash": "5681a46f58a2080acc7905e35d3bad71",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/AlertDialog/AlertDialog.jsx": {
+    "mtime": 1785126672.8124225,
+    "ast_hash": "43911db5f2f0772074ce8e1dc5957759",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Badge/Badge.jsx": {
+    "mtime": 1785126672.826887,
+    "ast_hash": "c2561420a0eeec8fc4749bb78b7599a8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Badge/Badge.d.ts": {
+    "mtime": 1785126672.8326623,
+    "ast_hash": "ce7f5eab76d9f2772c3595ae59664f79",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/LoginForm/LoginForm.d.ts": {
+    "mtime": 1785126672.8852158,
+    "ast_hash": "c55668aa17f780e5a5242795acf3881c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/LoginForm/LoginForm.jsx": {
+    "mtime": 1785126672.8717391,
+    "ast_hash": "5f37194f0827c996cf7d6a4301b650d7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/PageHeader/PageHeader.d.ts": {
+    "mtime": 1785126672.89138,
+    "ast_hash": "0c4ebe124a0a2a0dafb7017128590d1e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/PageHeader/PageHeader.jsx": {
+    "mtime": 1785126672.8892803,
+    "ast_hash": "87d35da1110339090d9bbba1cf3d46bc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/AppShell/AppShell.d.ts": {
+    "mtime": 1785126672.8252437,
+    "ast_hash": "4f243448a373b274a2410eb5e26affb2",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/AppShell/AppShell.jsx": {
+    "mtime": 1785126672.8162386,
+    "ast_hash": "c4ad8c23a9a6b4987e76f93ac5341b7e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/SummaryCard/SummaryCard.d.ts": {
+    "mtime": 1785126672.9046438,
+    "ast_hash": "1213d16d8837ac719bfcc08edf0bdc9b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/SummaryCard/SummaryCard.jsx": {
+    "mtime": 1785126672.9011831,
+    "ast_hash": "933e15c9dd48fcbd52e5899d239882cd",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/ChartContainer/ChartContainer.jsx": {
+    "mtime": 1785126672.8442345,
+    "ast_hash": "4253c93327d19c3072785add11e0bafe",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/ChartContainer/ChartContainer.d.ts": {
+    "mtime": 1785126672.8546307,
+    "ast_hash": "2010e259cfabe08b9abc646e8e590e7c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/package-build.mjs": {
+    "mtime": 1785114914.6969862,
+    "ast_hash": "66999186fa8b728800b67290a8252664",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/package-validate.mjs": {
+    "mtime": 1785114914.6982226,
+    "ast_hash": "7da751958f56e5f3881ad30fada99096",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/package.json": {
+    "mtime": 1785114946.3474965,
+    "ast_hash": "3ba40318132494cd35cf0724cac8f3b3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/resync.mjs": {
+    "mtime": 1785114914.7038615,
+    "ast_hash": "cb40f6512d6dcc4c94127bb34d673889",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/package-capture.mjs": {
+    "mtime": 1785114914.7017047,
+    "ast_hash": "3fc420fdaf1f90261bb25c68ec6e010f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/storybook/probe.mjs": {
+    "mtime": 1785114914.7180054,
+    "ast_hash": "978302b4fd9b4bb0f0b584f0a988c22e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/storybook/compare.mjs": {
+    "mtime": 1785114914.7174456,
+    "ast_hash": "8639d76c87830a2c1ac5e7f3d0f8183a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/storybook/http-serve.mjs": {
+    "mtime": 1785114914.7185915,
+    "ast_hash": "3f6a1ad4523b5f2579222fd6921b8176",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/css-fallback.mjs": {
+    "mtime": 1785114914.7129288,
+    "ast_hash": "f64d526fe2918a3a69e7bafa5ed39345",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/docs.mjs": {
+    "mtime": 1785114914.7108045,
+    "ast_hash": "21b152cbe43606a9f6c4ab42b2a3fef0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/source-kit.mjs": {
+    "mtime": 1785114914.706541,
+    "ast_hash": "9fcfb414ac5e43bf2a406c521e088737",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/preview-gen-storybook.mjs": {
+    "mtime": 1785114914.71136,
+    "ast_hash": "572e93f436051f067682b77831debaab",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/preview-rebuild.mjs": {
+    "mtime": 1785114914.7101884,
+    "ast_hash": "f89b265086d123be9648967b8054e782",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/css.mjs": {
+    "mtime": 1785114914.7058654,
+    "ast_hash": "7ca69e96b216df4b03733c75b4a76067",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/common.mjs": {
+    "mtime": 1785114914.714294,
+    "ast_hash": "82bba3f56019ec5d7c7807fed228623a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/dts.mjs": {
+    "mtime": 1785114914.7138712,
+    "ast_hash": "68c421f1f4eea10791be0fc0be570c49",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/previews.mjs": {
+    "mtime": 1785114914.7119424,
+    "ast_hash": "b72e6b4c5a3a1e3d96e0d2737e08d079",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/remote-diff.mjs": {
+    "mtime": 1785114914.7088273,
+    "ast_hash": "40299ae579c3f56aa997b3181b0ece4d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/story-imports.mjs": {
+    "mtime": 1785114914.70809,
+    "ast_hash": "c745268a904af4d98034099122481954",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/source-storybook.mjs": {
+    "mtime": 1785114914.7070434,
+    "ast_hash": "f631ac6868e2a4fce7080cc05984b9fe",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/emit.mjs": {
+    "mtime": 1785114914.7124972,
+    "ast_hash": "9f20c8130a8d09fb1d9667d8ee25bc76",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/detect.mjs": {
+    "mtime": 1785114914.7147195,
+    "ast_hash": "87cc64c2799627ebd2f631a1a5349729",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/sync-hashes.mjs": {
+    "mtime": 1785114914.709565,
+    "ast_hash": "b442df4b72b2b9c3b198fdc991463ceb",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/lib/bundle.mjs": {
+    "mtime": 1785114914.7134175,
+    "ast_hash": "a0537baa4fdf1e16d26a6326a98d43ed",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/.review.html": {
+    "mtime": 1785126672.9269729,
+    "ast_hash": "453a5ba8865365febe6f08b5d6317523",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/README.md": {
+    "mtime": 1785126672.9565544,
+    "ast_hash": "c9e3ab921fe70d09b084c0cdbda28de8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/.contact-sheet-2.html": {
+    "mtime": 1785126821.5395913,
+    "ast_hash": "ebab32c3e8ce212f9066beca3beff197",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/.contact-sheet-1.html": {
+    "mtime": 1785126820.9047267,
+    "ast_hash": "e915544cc3004ac8f2a9019f74fd053a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/.sheet-dashboard__LoginForm.html": {
+    "mtime": 1785126677.3345714,
+    "ast_hash": "23db67642202750b767dddb9a8906246",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/RadioGroup/RadioGroup.prompt.md": {
+    "mtime": 1785126672.8953137,
+    "ast_hash": "63f376f51c943f57f70b949f8607320c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/RadioGroup/RadioGroup.html": {
+    "mtime": 1785126672.8963373,
+    "ast_hash": "cce38a56f9aee535eca6f19df585679f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Toaster/Toaster.html": {
+    "mtime": 1785126672.9160624,
+    "ast_hash": "eb9bd51a36f5bf025ce1308c36643dcc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Toaster/Toaster.prompt.md": {
+    "mtime": 1785126672.915698,
+    "ast_hash": "7e04fdc2ac59f32b090ab409a84c6cc9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Card/Card.prompt.md": {
+    "mtime": 1785126672.8414948,
+    "ast_hash": "666f1af54ecedfad7a20e1877c0e1a4b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Card/Card.html": {
+    "mtime": 1785126672.8434122,
+    "ast_hash": "bd9cb98d66722da26326f4ea4762520b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Input/Input.html": {
+    "mtime": 1785126672.869246,
+    "ast_hash": "2d6afb23d53dfb2f17827e593bad058c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Input/Input.prompt.md": {
+    "mtime": 1785126672.8688807,
+    "ast_hash": "cf91c375ced4446ed717b3f31390b983",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/DropdownMenu/DropdownMenu.prompt.md": {
+    "mtime": 1785126672.864329,
+    "ast_hash": "0a5e53af2097cad9f5fbf5f37a248c36",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/DropdownMenu/DropdownMenu.html": {
+    "mtime": 1785126672.8648121,
+    "ast_hash": "c1943065fa5590afd47920b27fc36d26",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Alert/Alert.html": {
+    "mtime": 1785126672.8118074,
+    "ast_hash": "85f788a06d2dde61d698285985e43a96",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Alert/Alert.prompt.md": {
+    "mtime": 1785126672.8092535,
+    "ast_hash": "6b817c40781ee598d533610d98612660",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Skeleton/Skeleton.prompt.md": {
+    "mtime": 1785126672.9002767,
+    "ast_hash": "72248e61f79c6d2bdfd63a6992d24095",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Skeleton/Skeleton.html": {
+    "mtime": 1785126672.90069,
+    "ast_hash": "86f1ec6b66043e1e0d73db1c0212e4a5",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Checkbox/Checkbox.prompt.md": {
+    "mtime": 1785126672.8580513,
+    "ast_hash": "020cf8c4081909556d18978239e0967b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Checkbox/Checkbox.html": {
+    "mtime": 1785126672.858608,
+    "ast_hash": "fbc518dedaafa04aa24af64fc94787d9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Label/Label.html": {
+    "mtime": 1785126672.8712027,
+    "ast_hash": "ed4c6cb40f66941afb24cf2079143edc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Label/Label.prompt.md": {
+    "mtime": 1785126672.8708282,
+    "ast_hash": "916c3bd1f03d7642e12b1c1b819ffd62",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Field/Field.prompt.md": {
+    "mtime": 1785126672.8667595,
+    "ast_hash": "b1b6f6e286d3dc66f76763868de3efc4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Field/Field.html": {
+    "mtime": 1785126672.8671324,
+    "ast_hash": "0c3c8c5d409aafdda34237bf12fc22da",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Dialog/Dialog.html": {
+    "mtime": 1785126672.8609483,
+    "ast_hash": "772df48ccc31156e610f20c7f62b8dbe",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Dialog/Dialog.prompt.md": {
+    "mtime": 1785126672.8605342,
+    "ast_hash": "1b14eabb465038f41bfd3e3c3d4513f0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Textarea/Textarea.html": {
+    "mtime": 1785126672.9133754,
+    "ast_hash": "042a6ebc459737db44c247233e172754",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Textarea/Textarea.prompt.md": {
+    "mtime": 1785126672.9129882,
+    "ast_hash": "265aafd11aa57587e12e0ba42a727c48",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Button/Button.html": {
+    "mtime": 1785126672.8396134,
+    "ast_hash": "0764ff8ee5599c944bac163027e030d7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Button/Button.prompt.md": {
+    "mtime": 1785126672.8391893,
+    "ast_hash": "c1fad933aee9eb409b51c057f7aee899",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Table/Table.html": {
+    "mtime": 1785126672.9112813,
+    "ast_hash": "ad8cbda7be815a2471f56b7478f68a17",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Table/Table.prompt.md": {
+    "mtime": 1785126672.9107592,
+    "ast_hash": "a70f13f5efd84ec9487689eb11c95264",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Switch/Switch.prompt.md": {
+    "mtime": 1785126672.9085221,
+    "ast_hash": "f067d4393485afb58b429557f88df9c8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Switch/Switch.html": {
+    "mtime": 1785126672.9089472,
+    "ast_hash": "74f16affeedc878833e6a25f71ba7af4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Select/Select.html": {
+    "mtime": 1785126672.89837,
+    "ast_hash": "890e0c8685b9713c240da66e11e6c28b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Select/Select.prompt.md": {
+    "mtime": 1785126672.89792,
+    "ast_hash": "733360efc943251e1b29566ebaf74f35",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/AlertDialog/AlertDialog.prompt.md": {
+    "mtime": 1785126672.8147504,
+    "ast_hash": "f7f1fea94c36996eddc635e64feb4ee8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/AlertDialog/AlertDialog.html": {
+    "mtime": 1785126672.815292,
+    "ast_hash": "304b124d3001fd6465928db37b347586",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Badge/Badge.html": {
+    "mtime": 1785126672.8337364,
+    "ast_hash": "ca0181fdb638d85a328aa5d100bd2764",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/primitives/Badge/Badge.prompt.md": {
+    "mtime": 1785126672.833333,
+    "ast_hash": "390badee94395f637440e0ead9c1756a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/LoginForm/LoginForm.prompt.md": {
+    "mtime": 1785126672.8872817,
+    "ast_hash": "9bc3bd24e01ed54acb6f73f80116aaaf",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/LoginForm/LoginForm.html": {
+    "mtime": 1785126672.8880258,
+    "ast_hash": "9a5f7e9939910a7b259e0209e3a2993f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/PageHeader/PageHeader.html": {
+    "mtime": 1785126672.8928282,
+    "ast_hash": "78641f4deeef21d541c0caded380836f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/PageHeader/PageHeader.prompt.md": {
+    "mtime": 1785126672.8921642,
+    "ast_hash": "69e049b23294b5396f0d161cf318f2e8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/AppShell/AppShell.html": {
+    "mtime": 1785126672.8264093,
+    "ast_hash": "b4d56762b1bda77aa0b728384e608778",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/AppShell/AppShell.prompt.md": {
+    "mtime": 1785126672.8258328,
+    "ast_hash": "c0b925464a3e9522b6b1a53b13cb203a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/SummaryCard/SummaryCard.prompt.md": {
+    "mtime": 1785126672.905306,
+    "ast_hash": "b83bdd79f1e14d939d2cd03ca493d7ed",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/SummaryCard/SummaryCard.html": {
+    "mtime": 1785126672.9062097,
+    "ast_hash": "324ceb54cb646de0e64825831a1d8f3e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/ChartContainer/ChartContainer.html": {
+    "mtime": 1785126672.8560214,
+    "ast_hash": "18300ac962c80056bef80d4d0a126e38",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/components/dashboard/ChartContainer/ChartContainer.prompt.md": {
+    "mtime": 1785126672.8553677,
+    "ast_hash": "398df64d912bf3b7966ffec1911ca4ea",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.ds-sync/storybook/SKILL.md": {
+    "mtime": 1785114914.7158651,
+    "ast_hash": "32f70da02b549b55b315348ee9ce6333",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/dashboard__SummaryCard.png": {
+    "mtime": 1785126808.9830265,
+    "ast_hash": "c45146d003d801282f28c100e0f90ef4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Switch.png": {
+    "mtime": 1785126818.90565,
+    "ast_hash": "d0bf91893689815789ef21582bf4aa0c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/dashboard__AppShell.png": {
+    "mtime": 1785126806.1455503,
+    "ast_hash": "0c70c5b8248c3f9c37c6aba14e9c4c5d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__AlertDialog.png": {
+    "mtime": 1785126810.2905343,
+    "ast_hash": "6ace78030f08212dcf11c0bf10ec70f3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Dialog.png": {
+    "mtime": 1785126813.5998282,
+    "ast_hash": "b9f34c37e7cd30ae7e3b70584f441b00",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/dashboard__ChartContainer.png": {
+    "mtime": 1785126806.8947396,
+    "ast_hash": "a0ab3bade0a2c203185db00f7070e953",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Button.png": {
+    "mtime": 1785126811.5887797,
+    "ast_hash": "ff2e8518c0acbceb704f583d06cf54cc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Input.png": {
+    "mtime": 1785126815.6196241,
+    "ast_hash": "8064a4dae8e1bb0bdb9fae0088f7d6f9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Badge.png": {
+    "mtime": 1785126810.9333422,
+    "ast_hash": "97a46c9a4d6ae45c48493aa8ed28a3fb",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Select.png": {
+    "mtime": 1785126817.6527662,
+    "ast_hash": "864ae297053a6af711d5fa69e81e23c1",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Table.png": {
+    "mtime": 1785126819.6051269,
+    "ast_hash": "21307bc19ea5f92af0bc5abb918eeed0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Card.png": {
+    "mtime": 1785126812.2894125,
+    "ast_hash": "ae1d019fe7b9470ac1bb48e6a68ac5f8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/dashboard__PageHeader.png": {
+    "mtime": 1785126808.2931886,
+    "ast_hash": "2f9e1d0eb40c71a0cc076bf7ef114f6c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/dashboard__LoginForm.png": {
+    "mtime": 1785126807.6428347,
+    "ast_hash": "99824c152c58f666667ceddbbdfe9c9f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Skeleton.png": {
+    "mtime": 1785126818.2912385,
+    "ast_hash": "f22db0603c6cce5db96337a046c184ff",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Checkbox.png": {
+    "mtime": 1785126812.9519246,
+    "ast_hash": "9c7eea87c5cd802a83f3d89b54913fe4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Textarea.png": {
+    "mtime": 1785126820.2769399,
+    "ast_hash": "b411d93ff85862596b987a805ec0b76d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Alert.png": {
+    "mtime": 1785126809.6298487,
+    "ast_hash": "9d018b455ea0dd2d788bf44f4c0926b7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__DropdownMenu.png": {
+    "mtime": 1785126814.3020036,
+    "ast_hash": "135165e66e3b123c0c85e561e9d135b6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Label.png": {
+    "mtime": 1785126816.316318,
+    "ast_hash": "a9c4c6f69da6c8dd3ab1bd8460fdcd1a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__RadioGroup.png": {
+    "mtime": 1785126816.9685397,
+    "ast_hash": "f7f2635842375393a28fe2a6943abb25",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/contact-sheet-2.png": {
+    "mtime": 1785126822.149608,
+    "ast_hash": "2b6778cd52eabe7acdcdf43634b22929",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Field.png": {
+    "mtime": 1785126814.9690616,
+    "ast_hash": "4df842b6337cab8ee426ea046e935a6c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/primitives__Toaster.png": {
+    "mtime": 1785126820.8807125,
+    "ast_hash": "91332880e6bc8ebeedf51b0eaf26ea6b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/contact-sheet-1.png": {
+    "mtime": 1785126821.5376418,
+    "ast_hash": "13ab00f48cff00f2511ee0ff30e605e3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/dashboard__LoginForm.png": {
+    "mtime": 1785126678.0047274,
+    "ast_hash": "6d5ef650cd32decc1da7f955112d8978",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/raw/dashboard__LoginForm__FieldErrors.png": {
+    "mtime": 1785126676.6990597,
+    "ast_hash": "59e7473e5b97767d4f3102604333bf08",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/raw/dashboard__LoginForm__AuthError.png": {
+    "mtime": 1785126674.7625709,
+    "ast_hash": "5ff70672fa23e9e7f965f0efd240a5d3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/raw/dashboard__LoginForm__Loading.png": {
+    "mtime": 1785126677.3334188,
+    "ast_hash": "e1b591af4c718e8c89595674f1af248e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/raw/dashboard__LoginForm__Default.png": {
+    "mtime": 1785126676.053759,
+    "ast_hash": "4ea0e0761fc3912813f21730bafe512e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/ds-bundle/_screenshots/review/raw/dashboard__LoginForm__AuthErrorWithDetail.png": {
+    "mtime": 1785126675.4022644,
+    "ast_hash": "efb7226f4506edf29195787f5357cd03",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/config.json": {
+    "mtime": 1785550380.7706203,
+    "ast_hash": "d11643d0edbdd2bdcb0c858e1e6bac72",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/entry.ts": {
+    "mtime": 1785550380.7918894,
+    "ast_hash": "c4a44d790ad7d104de2722f2e1e1a490",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/build-css.sh": {
+    "mtime": 1785550380.770141,
+    "ast_hash": "1c5c0eb27553c59744a6e60eda86b9a3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/LoginForm.tsx": {
+    "mtime": 1785550380.8043115,
+    "ast_hash": "bf839dcecaf77a4930320ff03251c350",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Pagination.tsx": {
+    "mtime": 1785550380.8056536,
+    "ast_hash": "6db3b064cb97e7397f441a5b9f438fd5",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/AlertDialog.tsx": {
+    "mtime": 1785550380.7947712,
+    "ast_hash": "c60aa242842b8b952afb5131fb531a65",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/ChartContainer.tsx": {
+    "mtime": 1785550380.7986078,
+    "ast_hash": "84f02578eba9f44d0ee5da616489f3f3",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Tabs.tsx": {
+    "mtime": 1785550380.81181,
+    "ast_hash": "d7306d04cca11b593777cb1a458d10c9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/DatePicker.tsx": {
+    "mtime": 1785550380.7998655,
+    "ast_hash": "c686e2b99e0b03d53b287b4b2734d99c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Card.tsx": {
+    "mtime": 1785550380.7980998,
+    "ast_hash": "4e345aba02ad14a41ced64bf79bf6338",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Popover.tsx": {
+    "mtime": 1785550380.8060925,
+    "ast_hash": "32f6dd77d25d10cbf68473e21c8f0b02",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Toaster.tsx": {
+    "mtime": 1785550380.813297,
+    "ast_hash": "3d4e3da922ff4aa04bab0f67c3cf1570",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Field.tsx": {
+    "mtime": 1785550380.8023107,
+    "ast_hash": "2b4c35c7406c24e0bec60d817afa9d1d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/PageHeader.tsx": {
+    "mtime": 1785550380.8051496,
+    "ast_hash": "dc521f2215eb197e43164181f20dba76",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/AppShell.tsx": {
+    "mtime": 1785552671.1267369,
+    "ast_hash": "4a2c59d9ade9a2f54866dabdc24ee081",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Label.tsx": {
+    "mtime": 1785550380.8038542,
+    "ast_hash": "82b72896fd8e7fbc48d38d4410ea80ba",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/SummaryCard.tsx": {
+    "mtime": 1785550380.8085449,
+    "ast_hash": "5fa33505ae2a039ca4025f5e4b799932",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Tooltip.tsx": {
+    "mtime": 1785550380.813776,
+    "ast_hash": "06dd87104b94f6d0a81405b199859948",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Alert.tsx": {
+    "mtime": 1785550380.7940936,
+    "ast_hash": "91cb4b2693e72be1229ec488743544a9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Switch.tsx": {
+    "mtime": 1785550380.8092313,
+    "ast_hash": "018f1bf3c0a4572587b5b3de0ebe4304",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Calendar.tsx": {
+    "mtime": 1785550380.797443,
+    "ast_hash": "ec9da683910b47b67b6b3ceca70993db",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Dialog.tsx": {
+    "mtime": 1785550380.800643,
+    "ast_hash": "ed55a59a2b2074b585b6b3f02f345dfd",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Badge.tsx": {
+    "mtime": 1785550380.7960606,
+    "ast_hash": "fd5bd8629fa9ac88b50a07728d70efe4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/DropdownMenu.tsx": {
+    "mtime": 1785550380.8014052,
+    "ast_hash": "078c9596b7b53ba7c26a5f1fc0c145e9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Table.tsx": {
+    "mtime": 1785550380.8111656,
+    "ast_hash": "09da33b142cf2bd6dd59adab406605dd",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Button.tsx": {
+    "mtime": 1785550380.796984,
+    "ast_hash": "bfe6df076a513275251a1221d99fbc32",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Checkbox.tsx": {
+    "mtime": 1785550380.799417,
+    "ast_hash": "ba8d1e1fcd8dafb6e8f7c1172184f0cd",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/RadioGroup.tsx": {
+    "mtime": 1785550380.8067548,
+    "ast_hash": "002907aefb6a0dc5b5d7e81f73f9fae4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Select.tsx": {
+    "mtime": 1785550380.8074443,
+    "ast_hash": "8732a5ad42067f53580c015bf77ce3e0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Textarea.tsx": {
+    "mtime": 1785550380.8126822,
+    "ast_hash": "3f1b6b261db708ef541fb2b96430ace6",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Input.tsx": {
+    "mtime": 1785550380.8031037,
+    "ast_hash": "9e5548b98cf87b689c329dbc03da3871",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/previews/Skeleton.tsx": {
+    "mtime": 1785550380.8079803,
+    "ast_hash": "7be4e3ac68759333d84ac5abce9e3d33",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/switch.json": {
+    "mtime": 1785552780.6167288,
+    "ast_hash": "60dbcab57aa4d49a129c0278874b527e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/registry.json": {
+    "mtime": 1785552780.6413002,
+    "ast_hash": "9fa23bd486dd0ef546aa2bcd1b50795b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/theme.json": {
+    "mtime": 1785552780.6036303,
+    "ast_hash": "fc131b1ca6c9863888a8da792be8b43e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/field.json": {
+    "mtime": 1785552780.6112418,
+    "ast_hash": "f92b83cba6539035e4623e9f4f367d33",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/sonner.json": {
+    "mtime": 1785552780.6196566,
+    "ast_hash": "cc3ed4c8ccf3aa01a3d992829455de52",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/tooltip.json": {
+    "mtime": 1785552780.6280427,
+    "ast_hash": "ca78ea3d5316b1f307b282b827c257d8",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/page-header.json": {
+    "mtime": 1785552780.632456,
+    "ast_hash": "6026e2e344ca185797877e9f9b85dd31",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/input.json": {
+    "mtime": 1785552780.6080499,
+    "ast_hash": "7ed15975ed14e34b118350b44f53c947",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/date-picker.json": {
+    "mtime": 1785552780.6313357,
+    "ast_hash": "cd50104ab8dca375e4837eab59e8b147",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/summary-card.json": {
+    "mtime": 1785552780.6335287,
+    "ast_hash": "5dfd6923282ec50a1c2bb057393edd8e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/radio-group.json": {
+    "mtime": 1785552780.615691,
+    "ast_hash": "4f2166bb92d3a502d170631dfd0dd570",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/dropdown-menu.json": {
+    "mtime": 1785552780.620685,
+    "ast_hash": "5dff01e556de2d3f016d7fd550825831",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/alert.json": {
+    "mtime": 1785552780.618681,
+    "ast_hash": "bd9d2ed24fa9a19a2c003f08aa4e0606",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/login-form.json": {
+    "mtime": 1785552780.6389542,
+    "ast_hash": "d965ff7b229fdd1ced784b8fe358bc9d",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/dialog.json": {
+    "mtime": 1785552780.6217067,
+    "ast_hash": "e177d9fd242a64882f632c0ee0455f4e",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/checkbox.json": {
+    "mtime": 1785552780.614722,
+    "ast_hash": "83e5699bed1eb7ff877739c99cfa24dc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/card.json": {
+    "mtime": 1785552780.6258736,
+    "ast_hash": "45e9c38ed5a0ee7be0587b835c011b6b",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/utils.json": {
+    "mtime": 1785552780.6050684,
+    "ast_hash": "9afc69f4c1fcc2d4ad33d972f49b524c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/button.json": {
+    "mtime": 1785552780.6066825,
+    "ast_hash": "673854763ad4692095af443567674bef",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/table.json": {
+    "mtime": 1785552780.6239173,
+    "ast_hash": "10b14b35c3045aed434625acfb0b31a7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/alert-dialog.json": {
+    "mtime": 1785552780.6228867,
+    "ast_hash": "a5d7fc9d054fb21f7c331411acec8df9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/textarea.json": {
+    "mtime": 1785552780.6090498,
+    "ast_hash": "480a02cfd209d21e530f42fbb7cac0f1",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/skeleton.json": {
+    "mtime": 1785552780.6249316,
+    "ast_hash": "36dfc964d34ea990bcbff3f2da09476a",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/tabs.json": {
+    "mtime": 1785552780.6270688,
+    "ast_hash": "c03912595f497ff51020340057db81d7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/popover.json": {
+    "mtime": 1785552780.6289341,
+    "ast_hash": "9a6d8fee7e8cd274eea08e576ae3887c",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/calendar.json": {
+    "mtime": 1785552780.630085,
+    "ast_hash": "200357ae6549f4b8362a1d809c1cd546",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/pagination.json": {
+    "mtime": 1785552780.6135736,
+    "ast_hash": "b90249d7464a1484ac3a4c01026505ac",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/app-shell.json": {
+    "mtime": 1785552780.6375108,
+    "ast_hash": "433e23947cf213382e33eacef354bd29",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/label.json": {
+    "mtime": 1785552780.610137,
+    "ast_hash": "995bbed52e2cb042b3a012ca3da4a8c4",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/badge.json": {
+    "mtime": 1785552780.6177366,
+    "ast_hash": "72ce2e9d79c727f5e720e375b28e69fc",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/chart-container.json": {
+    "mtime": 1785552780.6345487,
+    "ast_hash": "20b3c694d46e59f7394212897238dbc9",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/public/r/select.json": {
+    "mtime": 1785552780.6124353,
+    "ast_hash": "945232265db10a29c689ef04f7e9af35",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/scripts/check-registry.mjs": {
+    "mtime": 1785550380.840953,
+    "ast_hash": "9912ce11d0458268bd3472add3d61089",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/scripts/embed-font.mjs": {
+    "mtime": 1785550380.841841,
+    "ast_hash": "860079e994605dbde7cc29cea473f975",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/scripts/sync-version.mjs": {
+    "mtime": 1785550380.8423543,
+    "ast_hash": "55dd92c5811b9d6df6d70cea5abc1845",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/pagination.tsx": {
+    "mtime": 1785550380.850831,
+    "ast_hash": "8e29e5144b8b7d992b30b21370ae4a97",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/tabs.tsx": {
+    "mtime": 1785550380.8521671,
+    "ast_hash": "e1119dc3c3cce73673b21dff1e2f7bb7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/popover.tsx": {
+    "mtime": 1785550380.8512425,
+    "ast_hash": "1aa03ec80fa69c223ad21991c4c5702f",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/date-picker.tsx": {
+    "mtime": 1785550380.8496842,
+    "ast_hash": "ebe5f3141e921fc5ea66e2add93ede27",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/tooltip.tsx": {
+    "mtime": 1785550380.852628,
+    "ast_hash": "c472ac678deb6ffa13d1d7fc17ef9b02",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/ui/calendar.tsx": {
+    "mtime": 1785550380.8492265,
+    "ast_hash": "fae8269fc2d9955d02b0190ef40c37d7",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/conventions.md": {
+    "mtime": 1785552764.7589233,
+    "ast_hash": "538fa5626a65e59b1dc0694689bceb09",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/NOTES.md": {
+    "mtime": 1785552757.7299824,
+    "ast_hash": "aad82bd45e8f29b1156124d39e7de932",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/CLAUDE.md": {
+    "mtime": 1785551444.1379366,
+    "ast_hash": "8c2c123a131bd64dcb6d9fb37a952d69",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/DropdownMenu.md": {
+    "mtime": 1785550380.779948,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Label.md": {
+    "mtime": 1785550380.782114,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Input.md": {
+    "mtime": 1785550380.7810931,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/DatePicker.md": {
+    "mtime": 1785550380.7784517,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Calendar.md": {
+    "mtime": 1785550380.7760983,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/LoginForm.md": {
+    "mtime": 1785550380.782984,
+    "ast_hash": "1c8f8279da8dcd6922dfa710777801ca",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Card.md": {
+    "mtime": 1785550380.77667,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/AlertDialog.md": {
+    "mtime": 1785550380.7738352,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Button.md": {
+    "mtime": 1785550380.775537,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/RadioGroup.md": {
+    "mtime": 1785550380.7853777,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/ChartContainer.md": {
+    "mtime": 1785550380.7772279,
+    "ast_hash": "1c8f8279da8dcd6922dfa710777801ca",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/AppShell.md": {
+    "mtime": 1785550380.7744572,
+    "ast_hash": "1c8f8279da8dcd6922dfa710777801ca",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Alert.md": {
+    "mtime": 1785550380.7724407,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/SummaryCard.md": {
+    "mtime": 1785550380.7873604,
+    "ast_hash": "1c8f8279da8dcd6922dfa710777801ca",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Checkbox.md": {
+    "mtime": 1785550380.77781,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Popover.md": {
+    "mtime": 1785550380.7846887,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Pagination.md": {
+    "mtime": 1785550380.784174,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Select.md": {
+    "mtime": 1785550380.7860498,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Table.md": {
+    "mtime": 1785550380.7884321,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Dialog.md": {
+    "mtime": 1785550380.7790656,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Tabs.md": {
+    "mtime": 1785550380.7889867,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Field.md": {
+    "mtime": 1785550380.7805333,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Textarea.md": {
+    "mtime": 1785550380.7897267,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Switch.md": {
+    "mtime": 1785550380.7878966,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/PageHeader.md": {
+    "mtime": 1785550380.7835789,
+    "ast_hash": "1c8f8279da8dcd6922dfa710777801ca",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Tooltip.md": {
+    "mtime": 1785550380.79128,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Badge.md": {
+    "mtime": 1785550380.7750099,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Skeleton.md": {
+    "mtime": 1785550380.78665,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/.design-sync/docs/Toaster.md": {
+    "mtime": 1785550380.7902994,
+    "ast_hash": "2435a244f76721a9ddb718cfb980feb0",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/styles/CLAUDE.md": {
+    "mtime": 1785551426.2981324,
+    "ast_hash": "1bb0504e478af0b81eb24b447be05a31",
+    "semantic_hash": ""
+  },
+  "/workspaces/dev-container/repos/design-system-apple/src/components/CLAUDE.md": {
+    "mtime": 1785551407.7817757,
+    "ast_hash": "39a594da10e0c32da81ea312b34fb1ec",
+    "semantic_hash": ""
+  }
+}

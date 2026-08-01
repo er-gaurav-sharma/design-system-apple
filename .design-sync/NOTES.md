@@ -148,6 +148,31 @@ to the anchor, zero pageerrors, and the combinations `asChild + loading` and
 specifically to keep this from regressing silently — if the bug returns, those cells
 fail the render check.
 
+### FIXED — `asChild` on `SidebarNavItem`
+
+The same defect, missed when `Button` and `Badge` were fixed above.
+`app-shell.tsx` put `{icon}{!iconOnly && children}` into `Slot`, so every `asChild`
+call site threw `Slot failed to slot onto its children` — with *or* without an
+`icon`, since `{undefined}` occupies a child slot just as `{false}` does. No call-site
+shape worked, while `conventions.md` and `README.md` both told consumers to use it for
+a router `<Link>`.
+
+The naive `<Slottable>{children}</Slottable>` would have traded the crash for something
+worse in the collapsed rail: there `children` is the consumer's whole `<a>`, so
+`!iconOnly && children` hands `Slot` no element to merge into and the item renders
+**nothing at all** — silently, in one viewport state only. So the collapsed branch now
+empties the label out of the consumer's element (`cloneElement(child, undefined, null)`)
+instead of dropping the element. The `title` derivation was widened the same way — it
+reads the label from inside the slotted child — so the icon-only rail keeps its tooltip
+and, since `title` is the accname fallback, its accessible name.
+
+Verified with `renderToStaticMarkup` over the four-row matrix (expanded / collapsed ×
+`asChild` / plain, plus no-icon and `active`): all six render pre-fix-failing cases pass,
+the four `asChild` rows throw on the parent commit, and the two plain rows are
+byte-identical to v1.3.0 — existing call sites are untouched. Guarded by
+`previews/AppShell.tsx` → `AsChildLinks` and `CollapsedAsChildLinks`, the two states
+having distinct failure modes.
+
 ### FIXED — `LoginForm` hard-coded auth-error title
 
 `login-form.tsx` rendered a literal `<AlertTitle>Incorrect email or password</AlertTitle>`

@@ -88,3 +88,56 @@ export const Default = () => (
     </div>
   </AppShell>
 );
+
+/** Nav items as real anchors via `asChild` — how a router <Link> composes. */
+const LinkNav = () => (
+  <SidebarNav>
+    <SidebarNavItem icon={<LayoutDashboard />} asChild active>
+      <a href="#overview">Overview</a>
+    </SidebarNavItem>
+    <SidebarNavItem icon={<BarChart3 />} asChild>
+      <a href="#reports">Reports</a>
+    </SidebarNavItem>
+    <SidebarNavItem icon={<FileText />} asChild>
+      <a href="#invoices">Invoices</a>
+    </SidebarNavItem>
+    <SidebarSection>Workspace</SidebarSection>
+    <SidebarNavItem icon={<Users />} asChild>
+      <a href="#members">Members</a>
+    </SidebarNavItem>
+    <SidebarNavItem icon={<Settings />} asChild>
+      <a href="#settings">Settings</a>
+    </SidebarNavItem>
+  </SidebarNav>
+);
+
+/**
+ * `asChild` on every nav item. This cell exists to catch a Radix `Slottable`
+ * regression the way `previews/Button.tsx → AsChildLink` does: without it,
+ * `SidebarNavItem` throws "Slot failed to slot onto its children".
+ */
+export const AsChildLinks = () => (
+  <AppShell
+    brand={<AppShellBrand logo={<Logo />}>Acme Analytics</AppShellBrand>}
+    sidebar={<LinkNav />}
+    userMenu={<UserMenu name="Dana Whitfield" email="dana@acme.com" />}
+  >
+    <PageHeader title="Overview" description="Every nav item is an <a href>." />
+  </AppShell>
+);
+
+/**
+ * The same links in the collapsed rail. The second half of the same defect: the
+ * label lives inside the anchor here, so dropping it rather than emptying it out
+ * would leave Slot nothing to merge into and the whole item would vanish.
+ */
+export const CollapsedAsChildLinks = () => (
+  <AppShell
+    defaultCollapsed
+    brand={<AppShellBrand logo={<Logo />}>Acme Analytics</AppShellBrand>}
+    sidebar={<LinkNav />}
+    userMenu={<UserMenu name="Dana Whitfield" email="dana@acme.com" />}
+  >
+    <PageHeader title="Overview" description="Icon-only rail, labels moved to title." />
+  </AppShell>
+);

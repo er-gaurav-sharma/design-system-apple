@@ -69,7 +69,10 @@ Stay on the scale above; when you genuinely need a one-off, use `style={{…}}`
   and on `SidebarNavItem`. Use it to render a link that looks like a button rather than
   restyling an `<a>` by hand:
   `<Button asChild><a href="/billing">Go to billing</a></Button>`. It composes with the
-  other props too — `<Button asChild loading>` keeps the spinner inside the anchor.
+  other props too — `<Button asChild loading>` keeps the spinner inside the anchor, and
+  `<SidebarNavItem asChild icon={…}><a href="/reports">Reports</a></SidebarNavItem>` puts
+  the icon inside the anchor. In the collapsed rail that item keeps the icon alone and
+  moves its label to `title`, so pass a plain string label rather than markup.
 - **Compound parts are separate exports, not dotted**: `Card` + `CardHeader`
   `CardTitle` `CardDescription` `CardContent` `CardFooter`; `Table` + `TableHeader`
   `TableBody` `TableRow` `TableHead` `TableCell` `TableFooter` `TableCaption`
