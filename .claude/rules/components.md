@@ -1,3 +1,8 @@
+---
+paths:
+  - "src/components/**"
+---
+
 # Component conventions
 
 Two layers, one direction. **`dashboard/` may import `ui/`; `ui/` must never import
@@ -29,7 +34,7 @@ Two layers, one direction. **`dashboard/` may import `ui/`; `ui/` must never imp
 - **Semantic tokens only.** No hex, `rgb()`, or Tailwind palette class. The one sanctioned
   escape hatch is `var()` inside an arbitrary value, e.g.
   `shadow-[inset_0_0_0_1px_var(--border)]`. Adding a color means adding a token →
-  `src/styles/CLAUDE.md`.
+  `.claude/rules/tokens.md`.
 - **No `dark:` utilities.** Dark mode is handled entirely by token values; there are
   currently zero `dark:` usages and adding one usually means a missing token.
 - **Fixed focus recipe**, repeated verbatim everywhere including ad-hoc buttons:
@@ -47,15 +52,17 @@ Two layers, one direction. **`dashboard/` may import `ui/`; `ui/` must never imp
 | dialog content · app-shell drawer | `z-[1300]` |
 | tooltip content | `z-[1400]` |
 
-Tooltip sits above dialog on purpose — a tooltip on a control inside a modal has to win.
-Rationale in `ui/popover.tsx:23` and `ui/tooltip.tsx:28`.
+Pick from the ladder; don't introduce a local value. Tooltip sits above dialog on purpose —
+Why: [decisions.md](../../docs/project-memory/decisions.md#tooltip-outranks-dialog).
 
 ## `asChild`
 
 Composition uses Radix `Slot`. When a component renders siblings alongside `children`,
 **`<Slottable>` is mandatory** — without it `Slot` throws for *every* `asChild` usage,
 including when the sibling is falsy, because `{false}` still occupies a child slot.
-See `ui/button.tsx:57`.
+See `ui/button.tsx:57`, and
+[decisions.md](../../docs/project-memory/decisions.md#slottable-and-the-aschild-regression)
+for the preview that guards against regressing it.
 
 ## Style
 
@@ -64,11 +71,15 @@ Import order is uniform: `import * as React` → Radix / third-party → lucide 
 every non-obvious prop. Prefer plain lookup maps over cva for variant-ish behaviour in
 `dashboard/` (see `trendConfig` in `dashboard/summary-card.tsx`).
 
-`dashboard/app-shell.tsx` is the only file with real runtime architecture — a `ShellContext`
-+ `useShell()` guard hook, `useSyncExternalStore`-based `useIsMobile()`, and Radix `Dialog`
-reused as the mobile drawer to inherit focus trap / Escape / scroll lock. Note the comment
-at `app-shell.tsx:54`: `useIsMobile()` is for **behaviour only, never layout** — layout uses
-`hidden md:flex` / `md:hidden` so it survives SSR and first paint.
+## `dashboard/app-shell.tsx`
+
+The only file here with real runtime architecture (`ShellContext` + `useShell()`,
+`useSyncExternalStore`-based `useIsMobile()`, Radix `Dialog` reused as the mobile drawer).
+Full write-up: [architecture.md](../../docs/project-memory/architecture.md#appshell-runtime-architecture).
+
+The rule to hold in mind while editing it, per the comment at `app-shell.tsx:54`:
+**`useIsMobile()` is for behaviour only, never layout.** Layout uses `hidden md:flex` /
+`md:hidden` so it survives SSR and first paint.
 
 > A new component file is not done until all **four registration surfaces** are updated.
-> See the root `CLAUDE.md`, then run `npm run registry:check`.
+> See `.claude/rules/registry.md`, then run `npm run registry:check`.

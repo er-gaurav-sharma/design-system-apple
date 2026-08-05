@@ -1,3 +1,8 @@
+---
+paths:
+  - "src/styles/**"
+---
+
 # Token model
 
 `globals.css` has three layers, and which one a value belongs in is not a style choice:
@@ -22,7 +27,7 @@ bridge directly.
 4. **a line in the color safelist in `.design-sync/tailwind-entry.css`**
 
 Skip (4) and the utility works in-app but silently produces no rule in the design-time
-bundle, where Tailwind never runs — see `.design-sync/CLAUDE.md`.
+bundle, where Tailwind never runs — see `.claude/rules/design-sync.md`.
 
 ## Naming
 
@@ -37,29 +42,24 @@ Categories: surfaces/text · action (`primary`/`secondary`/`destructive`/`accent
 (modal scrim) and `--thumb` (Switch knob) · `--chart-1…6` · elevation · density
 (`--row-height`, `--cell-pad-*`).
 
-## Rules with a war story behind them
+## Rules with a story behind them
+
+Each of these has cost something already. Follow the rule; the `Why:` link has the incident.
 
 - **`@import "./fonts/inter.css"` must stay the first rule**, above `@import "tailwindcss"`.
-  CSS requires `@import` to precede every other rule and Tailwind v4's optimizer *silently
-  drops* any that doesn't. This previously shipped a build naming Inter in `--font-sans`
-  with no `@font-face` at all, and every consumer rendered in system-ui with nothing to
-  indicate it. (`globals.css:12`)
+  (`globals.css:12`) Why:
+  [decisions.md](../../docs/project-memory/decisions.md#the-font-import-that-vanished)
 - **`fonts/inter.css` is generated — never hand-edit.** `npm run font:embed`; source of
-  truth is `.design-sync/fonts/inter-latin.woff2`. It is a base64 data URI because
-  `shadcn build` inlines registered files as UTF-8 text, so a binary `.woff2` cannot travel
-  through the registry.
+  truth is `.design-sync/fonts/inter-latin.woff2`. Why it is a base64 data URI:
+  [decisions.md](../../docs/project-memory/decisions.md#why-the-font-is-a-base64-data-uri)
 - **Dark values are contrast-derived, not aesthetic** — don't "fix" them back to Apple's
-  published hexes. Apple's dark systemBlue `#0A84FF` gives white only 3.65:1, an AA failure
-  on every primary button, so `--primary` is deepened to `#0a6bff` while the bright blue is
-  kept where contrast isn't text (`--ring`, `--chart-1`, `--info`). (`globals.css:123`)
-- Dark is **not an inversion** of light: surfaces get *lighter* with elevation (`--card`
-  `#1c1c1e` sits above `--background` `#000`), and shadows are far denser.
-- **`--chart-1…6` carry a constraint**: minimum ΔE2000 9.0 across normal vision and three
-  dichromacies, and ≥3:1 against `--card`. Don't pick chart colors by eye.
+  published hexes, and don't derive them by inverting light. (`globals.css:123`) Why:
+  [decisions.md](../../docs/project-memory/decisions.md#dark-values-are-contrast-derived-not-aesthetic)
+- **Don't pick `--chart-1…6` by eye** — they satisfy a ΔE2000 and contrast constraint that a
+  nicer-looking swap will silently break. Why:
+  [decisions.md](../../docs/project-memory/decisions.md#chart-colors-are-derived-not-picked)
 - `@custom-variant dark` is declared for structural divergence only. **No component uses a
   `dark:` utility** — needing one usually means a missing token.
 
-## Known wart
-
-`ui/sonner.tsx` hard-codes `theme="light"` on the Sonner `<Toaster>`. Its classNames are
-token-mapped so it still follows `.dark` visually, but the prop is not wired to the class.
+Open debt affecting this file (light-mode contrast audit, the `sonner` theme wart):
+[known-issues.md](../../docs/project-memory/known-issues.md).
