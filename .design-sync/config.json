@@ -66,6 +66,13 @@
     "ChartContainer": "src/components/dashboard/chart-container.tsx",
     "LoginForm": "src/components/dashboard/login-form.tsx",
     "PageHeader": "src/components/dashboard/page-header.tsx",
-    "SummaryCard": "src/components/dashboard/summary-card.tsx"
+    "SummaryCard": "src/components/dashboard/summary-card.tsx",
+    "EmptyState": "src/components/dashboard/empty-state.tsx",
+    "SectionHeader": "src/components/dashboard/section-header.tsx",
+    "Stat": "src/components/dashboard/stat.tsx",
+    "FilterMenu": "src/components/dashboard/filter-menu.tsx",
+    "CheckboxTree": "src/components/dashboard/checkbox-tree.tsx",
+    "StepList": "src/components/dashboard/step-list.tsx",
+    "RankList": "src/components/dashboard/rank-list.tsx"
   }
 }

@@ -728,6 +728,127 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:block",
+      "title": "Empty State",
+      "description": "Icon, title, one line and an optional action, for an empty list, a search with no results or a missing item.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/empty-state.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "section-header",
+      "type": "registry:block",
+      "title": "Section Header",
+      "description": "A section heading with an optional link or control on the right.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/section-header.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "stat",
+      "type": "registry:block",
+      "title": "Stat",
+      "description": "A small label, a value and a caption, without a card around it.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/stat.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "filter-menu",
+      "type": "registry:block",
+      "title": "Filter Menu",
+      "description": "A \"Device: All\" button that opens a checklist of options with Select all and Clear.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/dropdown-menu.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/filter-menu.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-tree",
+      "type": "registry:block",
+      "title": "Checkbox Tree",
+      "description": "Groups of checkboxes where a group shows a dash when only some of its items are ticked, with optional search.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/checkbox.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/checkbox-tree.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "step-list",
+      "type": "registry:block",
+      "title": "Step List",
+      "description": "Steps that are queued, running, done or failed, as a full list or a compact row of icons with tooltips.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/step-list.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "rank-list",
+      "type": "registry:block",
+      "title": "Rank List",
+      "description": "Numbered rows with a bar in proportion to the largest value, for a top-ten list.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/rank-list.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
