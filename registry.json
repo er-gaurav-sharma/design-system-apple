@@ -170,7 +170,7 @@
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
-      "description": "Checkbox built on Radix Checkbox with token-driven states.",
+      "description": "Checkbox built on Radix Checkbox with token-driven states, including indeterminate.",
       "dependencies": [
         "@radix-ui/react-checkbox",
         "lucide-react"
@@ -335,7 +335,7 @@
       "name": "table",
       "type": "registry:ui",
       "title": "Table",
-      "description": "Table primitives with sortable-header affordances.",
+      "description": "Table primitives with sortable-header affordances. framed={false} drops the card surface for a table inside a card.",
       "dependencies": [
         "lucide-react"
       ],
@@ -493,8 +493,9 @@
       "name": "summary-card",
       "type": "registry:block",
       "title": "Summary Card",
-      "description": "KPI summary card with label, value and trend, plus loading/empty/error states.",
+      "description": "KPI summary card with label, value, optional icon and trend, plus loading/empty/error states. asChild renders it as a link.",
       "dependencies": [
+        "@radix-ui/react-slot",
         "lucide-react"
       ],
       "registryDependencies": [

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -13,9 +14,25 @@ export interface SummaryCardProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: React.ReactNode;
   trend?: Trend;
   trendLabel?: React.ReactNode;
+  /**
+   * A small icon before the label, such as a lucide icon. It is sized to the
+   * label; give it a color with a text token class (`text-error`).
+   */
+  icon?: React.ReactNode;
+  /**
+   * The link form. Render the card as its only child, an `<a href>` or a router
+   * `<Link>`, which takes the card's classes, ref and props. The whole card
+   * then opens that link, with a hover lift, the focus ring and an arrow.
+   * Use it for a tile that opens a list filtered to what it counts.
+   */
+  asChild?: boolean;
   /** Data state. Defaults to "ready". */
   state?: "ready" | "loading" | "empty" | "error";
   emptyLabel?: React.ReactNode;
+  /**
+   * Shows a Retry button in the error state. Not shown in the link form,
+   * because a button can't sit inside a link.
+   */
   onRetry?: () => void;
 }
 
@@ -25,7 +42,10 @@ const trendConfig: Record<Trend, { icon: typeof ArrowUpRight; className: string 
   neutral: { icon: Minus, className: "text-text-tertiary" },
 };
 
-/** Metric + label + optional trend indicator, with loading / empty / error states. */
+/**
+ * Metric + label + optional icon and trend indicator, with loading / empty /
+ * error states. `asChild` turns the whole card into a link.
+ */
 const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
   (
     {
@@ -34,16 +54,44 @@ const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
       value,
       trend,
       trendLabel,
+      icon,
+      asChild = false,
       state = "ready",
       emptyLabel = "No data yet",
       onRetry,
+      children,
       ...props
     },
     ref,
   ) => {
     const Trend = trend ? trendConfig[trend] : null;
+    // Slot renders the consumer's element in place of Card, so the link form
+    // repeats Card's surface classes itself.
+    const Comp = asChild ? Slot : Card;
+
+    const labelText = icon ? (
+      <p className="flex items-start gap-1.5 text-sm text-muted-foreground">
+        <span className="mt-0.5 flex shrink-0 [&>svg]:size-4">{icon}</span>
+        <span className="min-w-0">{label}</span>
+      </p>
+    ) : (
+      <p className="text-sm text-muted-foreground">{label}</p>
+    );
+
     return (
-      <Card ref={ref} className={cn("p-5", className)} {...props}>
+      <Comp
+        ref={ref}
+        className={cn(
+          "p-5",
+          asChild && [
+            "group/summary-card block rounded-lg bg-card text-left text-card-foreground shadow-sm",
+            "transition-shadow ease-standard hover:shadow-md",
+            "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30",
+          ],
+          className,
+        )}
+        {...props}
+      >
         {state === "loading" ? (
           <>
             <Skeleton className="mb-3.5 h-3.5 w-3/5" />
@@ -52,13 +100,23 @@ const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
           </>
         ) : (
           <>
-            <p className="text-sm text-muted-foreground">{label}</p>
+            {asChild ? (
+              <div className="flex items-start justify-between gap-2">
+                {labelText}
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="mt-0.5 size-4 shrink-0 text-text-tertiary transition-colors ease-standard group-hover/summary-card:text-primary group-focus-visible/summary-card:text-primary"
+                />
+              </div>
+            ) : (
+              labelText
+            )}
             {state === "empty" ? (
               <p className="mt-2 text-sm text-text-tertiary">— {emptyLabel}</p>
             ) : state === "error" ? (
               <div className="mt-2">
                 <p className="text-sm text-error">Couldn&rsquo;t load</p>
-                {onRetry && (
+                {onRetry && !asChild && (
                   <Button
                     variant="secondary"
                     size="sm"
@@ -89,7 +147,10 @@ const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
             )}
           </>
         )}
-      </Card>
+        {/* Slottable marks the consumer's element that asChild merges into — see
+            ui/button.tsx. Outside the link form there is no child to render. */}
+        <Slottable>{asChild ? children : null}</Slottable>
+      </Comp>
     );
   },
 );

@@ -6,6 +6,7 @@ export const States = () => (
   <div className="flex items-center gap-6">
     <Checkbox aria-label="Unchecked" />
     <Checkbox defaultChecked aria-label="Checked" />
+    <Checkbox defaultChecked="indeterminate" aria-label="Some selected" />
     <Checkbox disabled aria-label="Disabled" />
     <Checkbox defaultChecked disabled aria-label="Checked and disabled" />
   </div>
@@ -43,3 +44,43 @@ export const CheckboxGroup = () => (
     </div>
   </fieldset>
 );
+
+const channels = [
+  { id: "email", label: "Email" },
+  { id: "push", label: "Push notifications" },
+  { id: "sms", label: "SMS" },
+];
+
+/**
+ * A parent over its children. With only some children ticked the parent is
+ * "indeterminate": a dash on a filled box. Clicking it selects all.
+ */
+export const SomeSelected = () => {
+  const [on, setOn] = React.useState<string[]>(["email"]);
+  const all = on.length === channels.length;
+  const parent = all ? true : on.length ? "indeterminate" : false;
+  return (
+    <fieldset className="flex flex-col gap-3">
+      <div className="flex items-center gap-2.5">
+        <Checkbox
+          id="cb-channels-all"
+          checked={parent}
+          onCheckedChange={() => setOn(all ? [] : channels.map((c) => c.id))}
+        />
+        <Label htmlFor="cb-channels-all">All channels</Label>
+      </div>
+      {channels.map((c) => (
+        <div key={c.id} className="ml-7 flex items-center gap-2.5">
+          <Checkbox
+            id={`cb-channel-${c.id}`}
+            checked={on.includes(c.id)}
+            onCheckedChange={(v) =>
+              setOn((prev) => (v === true ? [...prev, c.id] : prev.filter((x) => x !== c.id)))
+            }
+          />
+          <Label htmlFor={`cb-channel-${c.id}`}>{c.label}</Label>
+        </div>
+      ))}
+    </fieldset>
+  );
+};

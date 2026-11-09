@@ -10,6 +10,10 @@ import {
   TableCaption,
   TableSortButton,
   Badge,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
 } from "@claude-design/dashboard-ui";
 
 const invoices = [
@@ -139,4 +143,36 @@ export const SelectedRow = () => (
       ))}
     </TableBody>
   </Table>
+);
+
+/**
+ * `framed={false}` inside a Card: the table drops its own background, shadow
+ * and corners, so the card is the only surface.
+ */
+export const InsideACard = () => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Recent invoices</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <Table framed={false}>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Invoice</TableHead>
+            <TableHead>Customer</TableHead>
+            <TableHead className="text-right">Amount</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {invoices.slice(0, 3).map((row) => (
+            <TableRow key={row.id}>
+              <TableCell className="font-medium">{row.id}</TableCell>
+              <TableCell>{row.customer}</TableCell>
+              <TableCell className="text-right tabular-nums">{row.amount}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </CardContent>
+  </Card>
 );
