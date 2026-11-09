@@ -53,9 +53,9 @@ export interface EventLaneChartProps
   onSelect?: (id: string) => void;
   /** The tooltip's last line when events can be clicked. @default "Click for details" */
   selectHint?: React.ReactNode;
-  /** The IANA time zone for the axis and tooltip, such as "Asia/Kolkata". Default: the viewer's. */
+  /** The IANA time zone for the axis and tooltip, such as "Europe/Paris". Default: the viewer's. */
   timeZone?: string;
-  /** The short zone name after a tooltip's time, such as "IST". Default: the zone's offset, like "GMT+5:30". */
+  /** The short zone name after a tooltip's time, such as "CET". Default: the zone's offset, like "GMT+1". */
   timeZoneLabel?: string;
   /** The width of the lane name column, in pixels. @default 96 */
   laneWidth?: number;
@@ -108,7 +108,7 @@ function tickText(t: number, step: number, timeZone?: string) {
   ).format(new Date(t));
 }
 
-/** "2026-11-09 14:53:02 IST", 24-hour, in the zone. */
+/** "2026-11-09 14:53:02 CET", 24-hour, in the zone. */
 function fullTime(t: number, timeZone?: string, label?: string) {
   const date = new Date(t);
   const text = new Intl.DateTimeFormat("sv-SE", {

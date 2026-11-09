@@ -51,7 +51,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -66,7 +66,7 @@
       "title": "Input",
       "description": "Single-line text input with token-driven field styling and focus ring.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -81,7 +81,7 @@
       "title": "Textarea",
       "description": "Multi-line text input matching the Input field conventions.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -99,7 +99,7 @@
         "@radix-ui/react-label"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -117,7 +117,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -136,7 +136,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -154,10 +154,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/select.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/label.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/select.json"
       ],
       "files": [
         {
@@ -176,7 +176,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -194,7 +194,7 @@
         "@radix-ui/react-radio-group"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -212,7 +212,7 @@
         "@radix-ui/react-switch"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -231,7 +231,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -250,7 +250,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -284,7 +284,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -303,7 +303,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -321,8 +321,8 @@
         "@radix-ui/react-alert-dialog"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json"
       ],
       "files": [
         {
@@ -340,7 +340,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -355,7 +355,7 @@
       "title": "Skeleton",
       "description": "Loading placeholder for content and data components.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -370,7 +370,7 @@
       "title": "Card",
       "description": "Raised surface with header, title, description, content and footer parts.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -388,7 +388,7 @@
         "@radix-ui/react-tabs"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -406,7 +406,7 @@
         "@radix-ui/react-tooltip"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -424,7 +424,7 @@
         "@radix-ui/react-popover"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -443,7 +443,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -463,9 +463,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/calendar.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/popover.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/calendar.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/popover.json"
       ],
       "files": [
         {
@@ -480,7 +480,7 @@
       "title": "Meter",
       "description": "A bar from 0 to max, coloured by the band the value falls in, with a mark at each band edge. Bands, colours and max are props.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -498,8 +498,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -514,7 +514,7 @@
       "title": "Code Block",
       "description": "Monospace text such as raw log lines, wrapped or scrolled, with an optional height limit. Renders text only, never HTML.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -529,7 +529,7 @@
       "title": "Key Value List",
       "description": "Label and value pairs in two aligned columns, as a description list.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -547,7 +547,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -565,10 +565,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/input.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/label.json"
       ],
       "files": [
         {
@@ -583,7 +583,7 @@
       "title": "Code Input",
       "description": "One box per digit for an authenticator code. Pasting or autofilling a code fills every box.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -604,7 +604,7 @@
         "@types/qrcode@^1.5.5"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -619,8 +619,8 @@
       "title": "Relative Time",
       "description": "\"12 min ago\", with the full date and time in a tooltip. The time zone is a prop.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -635,7 +635,7 @@
       "title": "Page Header",
       "description": "Dashboard page header with title and actions slot.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -654,10 +654,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/card.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/skeleton.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/card.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/skeleton.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json"
       ],
       "files": [
         {
@@ -675,10 +675,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/card.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/skeleton.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/card.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/skeleton.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json"
       ],
       "files": [
         {
@@ -698,9 +698,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/dialog.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/dropdown-menu.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/dialog.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/dropdown-menu.json"
       ],
       "files": [
         {
@@ -715,12 +715,12 @@
       "title": "Login Form",
       "description": "Composed login form using Field, Input, Label, Button and Alert.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/field.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/alert.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/input.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/label.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/field.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/alert.json"
       ],
       "files": [
         {
@@ -735,7 +735,7 @@
       "title": "Empty State",
       "description": "Icon, title, one line and an optional action, for an empty list, a search with no results or a missing item.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -750,7 +750,7 @@
       "title": "Section Header",
       "description": "A section heading with an optional link or control on the right.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -765,7 +765,7 @@
       "title": "Stat",
       "description": "A small label, a value and a caption, without a card around it.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -783,9 +783,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/dropdown-menu.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/dropdown-menu.json"
       ],
       "files": [
         {
@@ -803,10 +803,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/checkbox.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/checkbox.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/input.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/label.json"
       ],
       "files": [
         {
@@ -824,8 +824,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -840,8 +840,8 @@
       "title": "Rank List",
       "description": "Numbered rows with a bar in proportion to the largest value, for a top-ten list.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -856,7 +856,7 @@
       "title": "Chart Legend",
       "description": "Swatches with labels for a chart's series, plain or textured, plus the two textures as SVG patterns any chart can fill with.",
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -874,8 +874,8 @@
         "recharts@^2.15.4"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/chart-legend.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/chart-legend.json"
       ],
       "files": [
         {
@@ -893,8 +893,8 @@
         "recharts@^2.15.4"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/chart-legend.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/chart-legend.json"
       ],
       "files": [
         {
@@ -912,7 +912,7 @@
         "recharts@^2.15.4"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -930,7 +930,7 @@
         "recharts@^2.15.4"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -948,8 +948,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json"
       ],
       "files": [
         {
@@ -967,7 +967,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -985,9 +985,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -1005,7 +1005,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -1023,7 +1023,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {
@@ -1041,9 +1041,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json",
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
       ],
       "files": [
         {
@@ -1061,7 +1061,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
       ],
       "files": [
         {

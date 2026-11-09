@@ -10,7 +10,9 @@ same token names in both, so nothing you write needs a `dark:` variant.
 root: tokens are plain CSS custom properties on `:root`, so a component is styled the
 moment `styles.css` is loaded. Dark mode is a `dark` class on a root element, not a
 provider. The globals you may need: `<Toaster />` (once, near the root) if you call
-`toast()`, and `<TooltipProvider>` if you use `Tooltip`.
+`toast()`, and `<TooltipProvider>` if you use `Tooltip` — or `CopyButton`, `RelativeTime`,
+the compact `StepList`, or `RankList`, `CorrelationBadge` and `IpLabels` with tooltips,
+which all use it.
 
 ```jsx
 <>
@@ -41,6 +43,7 @@ Components take `className`, which is merged with `tailwind-merge`, so passing
 | Destructive | `bg-destructive` `text-destructive-foreground` `bg-destructive-hover` |
 | Lines | `border-border` `border-input` `ring-ring` (focus rings are `focus-visible:ring-[3px] ring-ring/30`) |
 | Charts | `text-chart-1` … `text-chart-6`, or `var(--chart-1)`…`var(--chart-6)` inside SVG |
+| QR code | `bg-qr-paper` `fill-qr-ink` — the same light paper and dark ink in both themes |
 | Radius | `rounded-sm` (6px) `rounded-md` (10px) `rounded-lg` (14px) `rounded-xl` (20px) |
 | Elevation | `shadow-xs` `shadow-sm` `shadow-md` `shadow-lg` `shadow-xl` |
 | Type | `font-sans` (Inter) `font-mono`; sizes via normal Tailwind (`text-sm`, `text-xl`, …) |
@@ -91,6 +94,23 @@ Stay on the scale above; when you genuinely need a one-off, use `style={{…}}`
   straight onto it. Add `onPageSizeChange` for the rows-per-page select. Don't
   hand-assemble page controls from `Button` + `Select`.
 - Persistent messages are `Alert`; transient ones are `toast()` + `<Toaster />`.
+- **Charts go inside `ChartContainer`.** `WaterfallChart`, `StackedBarChart`,
+  `HistoryChart` and `EventLaneChart` fill the container's area, so give it a height
+  (`areaClassName="h-56"`); its `state` then covers the chart too. Put a `ChartLegend`
+  beside any chart with two or more series, passing the same series list. A series can be
+  `texture: "hatch"` or `"lines"` as well as a colour, so it reads apart without colour.
+  Thresholds, lanes, time zones and every word are props — never redraw a chart by hand.
+- **`CodeBlock` is text only.** It takes a `text` string and never renders HTML, so raw
+  log lines are safe to show. Mask secrets before the text reaches it.
+- **`SecretField` never shows a saved value.** Once a secret is saved it shows who saved
+  it and when, with a Replace button — not the value, not even masked.
+- **`QrCode` stays dark on light** in both themes, because some authenticator apps can't
+  read a light-on-dark code.
+- **Security components** (`RecommendationBadge`, `ConfidenceIndicator`,
+  `CorrelationBadge`, `ReviewStatusLabel`, `DeviceIcon` / `DeviceList`, `IpLabels`,
+  `HealthLabel`) keep one look for each state wherever it appears. Use them rather than a
+  plain `Badge` with your own colours. Their words are props; device names and icons
+  always come from the data.
 
 ## Where the truth is
 
@@ -100,8 +120,9 @@ Read these before styling — they beat any summary:
 - `components/<group>/<Name>/<Name>.prompt.md` — props and worked examples per component.
 - `components/<group>/<Name>/<Name>.d.ts` — the exact prop contract.
 
-Groups: **primitives** (19 controls) and **dashboard** (5 composed patterns:
-`AppShell`, `PageHeader`, `SummaryCard`, `ChartContainer`, `LoginForm`).
+Groups: **primitives** (33 controls), **dashboard** (12 composed patterns, such as
+`AppShell`, `PageHeader`, `SummaryCard`, `ChartContainer`, `EmptyState`, `FilterMenu`),
+**charts** (5) and **security** (7).
 
 ## Idiomatic example
 

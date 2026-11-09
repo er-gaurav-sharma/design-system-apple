@@ -39,9 +39,9 @@ export interface HistoryChartProps extends React.HTMLAttributes<HTMLDivElement> 
   thresholds?: { value: number; label: string }[];
   /** How values are written. @default n.toLocaleString() */
   formatValue?: (value: number) => string;
-  /** The IANA time zone for the axis and tooltip, such as "Asia/Kolkata". Default: the viewer's. */
+  /** The IANA time zone for the axis and tooltip, such as "Europe/Paris". Default: the viewer's. */
   timeZone?: string;
-  /** The short zone name after a tooltip's time, such as "IST". Default: the zone's offset, like "GMT+5:30". */
+  /** The short zone name after a tooltip's time, such as "CET". Default: the zone's offset, like "GMT+1". */
   timeZoneLabel?: string;
   /** The line's colour. @default "var(--chart-1)" */
   color?: string;
@@ -92,7 +92,7 @@ function tickText(t: number, step: number, timeZone?: string) {
   ).format(new Date(t));
 }
 
-/** "2026-11-09 14:53:02 IST", 24-hour, in the zone. */
+/** "2026-11-09 14:53:02 CET", 24-hour, in the zone. */
 function fullTime(t: number, timeZone?: string, label?: string) {
   const date = new Date(t);
   const text = new Intl.DateTimeFormat("sv-SE", {

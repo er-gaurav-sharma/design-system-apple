@@ -35,7 +35,7 @@ Three trees, only this one is yours:
   that component's preview card and screenshot. This is the visual-regression surface —
   e.g. `Button.tsx → AsChildLink` exists specifically to catch a Radix `Slottable` regression
   ([decisions.md](../../docs/project-memory/decisions.md#slottable-and-the-aschild-regression)).
-- **`docs/<Name>.md`** — **frontmatter-only on purpose** (`category: Primitives | Dashboard`).
+- **`docs/<Name>.md`** — **frontmatter-only on purpose** (`category: Primitives | Dashboard | Charts | Security`).
   Adding a body *replaces* the synthesized `## Props` / `## Examples` sections. Their only
   job is grouping.
 - **`tailwind-entry.css` + `build-css.sh`** — compile `globals.css` into a static

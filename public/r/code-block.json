@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code Block",
+  "description": "Monospace text such as raw log lines, wrapped or scrolled, with an optional height limit. Renders text only, never HTML.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/code-block.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface CodeBlockProps\n  extends Omit<React.HTMLAttributes<HTMLPreElement>, \"children\" | \"dangerouslySetInnerHTML\"> {\n  /** The text to show, such as raw log lines. Always rendered as text. */\n  text: string;\n  /** Wrap long lines. Off, long lines scroll sideways. @default true */\n  wrap?: boolean;\n  /** A height limit, such as 320 or \"20rem\". Taller text scrolls. */\n  maxHeight?: number | string;\n}\n\n/**\n * Monospace text in a tinted box, for raw log lines, keys and requests.\n *\n * It renders text only, never HTML: `text` is a string child, which React\n * escapes, and `children` and `dangerouslySetInnerHTML` are not accepted. It\n * hides nothing, so mask secrets (cookies, tokens, passwords) before the text\n * reaches it. When the text can scroll, the block takes keyboard focus so it\n * can be scrolled without a mouse.\n */\nconst CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(\n  ({ text, wrap = true, maxHeight, className, style, ...props }, ref) => {\n    // Defence in depth for untyped callers: drop markup props that the types\n    // already forbid.\n    const { children: _children, dangerouslySetInnerHTML: _html, ...rest } =\n      props as React.HTMLAttributes<HTMLPreElement>;\n    const scrolls = !wrap || maxHeight !== undefined;\n    return (\n      <pre\n        ref={ref}\n        tabIndex={scrolls ? 0 : undefined}\n        className={cn(\n          \"overflow-auto rounded-md bg-muted p-4 font-mono text-xs leading-relaxed text-foreground\",\n          wrap ? \"whitespace-pre-wrap break-words\" : \"whitespace-pre\",\n          \"focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n          className,\n        )}\n        style={maxHeight !== undefined ? { maxHeight, ...style } : style}\n        {...rest}\n      >\n        {String(text)}\n      </pre>\n    );\n  },\n);\nCodeBlock.displayName = \"CodeBlock\";\n\nexport { CodeBlock };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

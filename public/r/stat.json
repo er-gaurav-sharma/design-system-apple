@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat",
+  "title": "Stat",
+  "description": "A small label, a value and a caption, without a card around it.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/stat.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface StatProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** A short label, shown small and upper-case above the value. */\n  label: React.ReactNode;\n  /** A number or short text, shown large. Leave it out to show only `children`. */\n  value?: React.ReactNode;\n  /** A line under the value: what it means, or where it came from. */\n  caption?: React.ReactNode;\n}\n\n/**\n * A small label, a value and a caption, with no card around it, for a row of\n * figures inside a card. `children` go between the value and the caption, for\n * a Meter or a Badge in place of, or as well as, a number.\n */\nconst Stat = React.forwardRef<HTMLDivElement, StatProps>(\n  ({ label, value, caption, children, className, ...props }, ref) => (\n    <div ref={ref} className={cn(\"min-w-0\", className)} {...props}>\n      <p className=\"text-xs font-medium uppercase tracking-wide text-muted-foreground\">{label}</p>\n      {value !== undefined && (\n        <p className=\"mt-2 text-[28px] font-semibold leading-none tracking-[-0.01em] tabular-nums text-foreground\">\n          {value}\n        </p>\n      )}\n      {children !== undefined && <div className={value !== undefined ? \"mt-3\" : \"mt-2\"}>{children}</div>}\n      {caption && <p className=\"mt-1.5 text-xs leading-relaxed text-muted-foreground\">{caption}</p>}\n    </div>\n  ),\n);\nStat.displayName = \"Stat\";\n\nexport { Stat };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

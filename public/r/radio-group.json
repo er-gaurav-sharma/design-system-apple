@@ -7,7 +7,7 @@
     "@radix-ui/react-radio-group"
   ],
   "registryDependencies": [
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
   ],
   "files": [
     {

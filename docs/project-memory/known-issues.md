@@ -3,13 +3,22 @@
 Open at the time of writing. None of these are guarded by a check, so they will not surface
 on their own.
 
-## Open: light-mode contrast audit
+## Open: four contrast failures found by the v1.4.0 render audit
 
-The light palette has **not** been through the same contrast derivation the dark palette
-received (see [decisions.md](decisions.md#dark-values-are-contrast-derived-not-aesthetic)).
-Dark values were deepened to clear AA; the light values are still Apple's published hexes,
-unaudited. Treat any light-mode contrast complaint as expected rather than surprising. The
-running detail is in `.design-sync/NOTES.md`.
+v1.4.0 fixed the seven light-mode token pairs that failed the original audit (details and
+before/after ratios in `.design-sync/NOTES.md`). A second audit that renders every preview in
+both themes found four more, all in components that predate v1.4.0:
+
+- `AppShell`'s active nav item and avatar initials: `text-primary` on `bg-accent`, 4.12:1
+  light and 3.37:1 dark.
+- `LoginForm`'s "Forgot?" link and `Calendar`'s today: `text-primary` on `--card` in dark,
+  3.69:1.
+- `Alert` descriptions on the error and info variants: `text-muted-foreground` on the subtle
+  fills in light, 4.32:1 and 4.45:1.
+- `Calendar` days outside the month, faded with `opacity-60`: 2.26:1 light, 2.71:1 dark.
+
+Rerun the render audit after any token or component colour change; a token-pair check alone
+misses text that sits on a tinted surface.
 
 ## `ui/sonner.tsx` hard-codes `theme="light"`
 

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ip-labels",
+  "title": "IP Labels",
+  "description": "Outbound, Private, Source not verified and Banned as badges or a small line of text. Words and tooltips are props.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/ip-labels.tsx",
+      "content": "import * as React from \"react\";\nimport { ArrowUpRight, Ban, ShieldQuestion, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { badgeVariants } from \"@/components/ui/badge\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/components/ui/tooltip\";\n\n/** Facts about an address worth showing beside it. */\nexport type IpLabel = \"outbound\" | \"private\" | \"unverified\" | \"banned\";\n\nconst ipLabelConfig: Record<IpLabel, { text: string; icon?: LucideIcon; tooltip?: string }> = {\n  outbound: { text: \"Outbound\", icon: ArrowUpRight },\n  private: { text: \"Private\" },\n  unverified: {\n    text: \"Source not verified\",\n    icon: ShieldQuestion,\n    tooltip: \"Its only clear signals are honeypot hits or UDP, which can't prove where they came from\",\n  },\n  banned: { text: \"Banned\", icon: Ban },\n};\n\nexport interface IpLabelsProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** Which labels to show, in this order. Nothing renders when it's empty. */\n  labels: IpLabel[];\n  /**\n   * \"badge\" for a page header; \"inline\", small grey text for the line under\n   * an address in a table row. @default \"badge\"\n   */\n  variant?: \"badge\" | \"inline\";\n  /** Replaces a label's word, such as naming the list that bans the address. */\n  text?: Partial<Record<IpLabel, React.ReactNode>>;\n  /**\n   * Hover and focus text for a label; a label with one takes keyboard focus.\n   * Only \"unverified\" has a default. Pass null to drop it. Needs a\n   * TooltipProvider above.\n   */\n  tooltips?: Partial<Record<IpLabel, React.ReactNode>>;\n}\n\nconst focusRing = \"focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\";\n\n/**\n * Outbound, Private, Source not verified and Banned, as grey badges or as a\n * small line of text. The app chooses which apply; words and tooltips are\n * props, so no product or vendor name is built in.\n */\nconst IpLabels = React.forwardRef<HTMLSpanElement, IpLabelsProps>(\n  ({ labels, variant = \"badge\", text, tooltips, className, ...props }, ref) => {\n    if (!labels.length) return null;\n    const inline = variant === \"inline\";\n    return (\n      <span\n        ref={ref}\n        className={cn(\n          inline\n            ? \"inline-flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-[11px] leading-[13px] text-muted-foreground\"\n            : \"inline-flex flex-wrap items-center gap-1.5\",\n          className,\n        )}\n        {...props}\n      >\n        {labels.map((key) => {\n          const c = ipLabelConfig[key];\n          const tip = tooltips && key in tooltips ? tooltips[key] : c.tooltip;\n          const hasTip = tip !== null && tip !== undefined && tip !== false;\n          const item = (\n            <span\n              key={key}\n              tabIndex={hasTip ? 0 : undefined}\n              className={cn(\n                inline\n                  ? \"inline-flex items-center gap-1 whitespace-nowrap rounded-sm\"\n                  : cn(badgeVariants({ variant: \"neutral\" }), \"whitespace-nowrap px-2\"),\n                hasTip && focusRing,\n              )}\n            >\n              {c.icon && <c.icon className={inline ? \"size-3 shrink-0\" : \"size-3.5 shrink-0\"} aria-hidden=\"true\" />}\n              {text?.[key] ?? c.text}\n            </span>\n          );\n          if (!hasTip) return item;\n          return (\n            <Tooltip key={key}>\n              <TooltipTrigger asChild>{item}</TooltipTrigger>\n              <TooltipContent>{tip}</TooltipContent>\n            </Tooltip>\n          );\n        })}\n      </span>\n    );\n  },\n);\nIpLabels.displayName = \"IpLabels\";\n\nexport { IpLabels };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

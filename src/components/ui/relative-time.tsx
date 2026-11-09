@@ -7,9 +7,9 @@ export interface RelativeTimeProps
   extends Omit<React.TimeHTMLAttributes<HTMLTimeElement>, "children" | "dateTime"> {
   /** The moment: a Date, milliseconds since the epoch, or an ISO string. */
   value: Date | number | string;
-  /** The IANA time zone for the full date and time, such as "Asia/Kolkata". Default: the viewer's. */
+  /** The IANA time zone for the full date and time, such as "Europe/Paris". Default: the viewer's. */
   timeZone?: string;
-  /** The short zone name after the full time, such as "IST". Default: the zone's offset, like "GMT+5:30". */
+  /** The short zone name after the full time, such as "CET". Default: the zone's offset, like "GMT+1". */
   timeZoneLabel?: string;
   /** The current time, for a fixed clock. Without it the text refreshes every 30 seconds. */
   now?: number;

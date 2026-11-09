@@ -100,3 +100,44 @@ The guard against regressing it lives in the sync: `.design-sync/previews/Button
 a named preview called `AsChildLink` for exactly this reason. Each named export becomes a
 labeled cell in the preview card and screenshot, so a reintroduced `Slot` throw shows up as a
 visual diff. Don't delete that export.
+
+## Recharts for the charts, and only in the charts
+
+**Rule it backs:** charts draw with Recharts; `chart-legend` is plain SVG
+(`.claude/rules/components.md`).
+
+v1.4.0's four data charts (waterfall, stacked bars, stepped history, event lanes) need axes,
+tooltips, reference lines and range bars that are a lot of code to hand-roll and test. The
+mockups were built and tested on Recharts 2.15.4, so the shipped components use the same.
+It is listed as a dependency only on those four registry items, so an app that installs
+anything else never pulls it in, and `ChartContainer` stays library-agnostic.
+
+## Textures as well as colours
+
+**Rule it backs:** a series can be textured (`hatch` or `lines`); `ChartLegend` exports both
+as SVG patterns.
+
+A stacked chart with four series leans on hue to tell them apart, which fails in print and
+for some colour-blind readers. Two textures give a second cue: `hatch` keeps the series' hue
+with stripes over a tint, and `lines` reads as a quiet remainder. They are fixed in one file
+so every chart and legend draws them the same.
+
+## Security components live here, with their words as props
+
+**Rule it backs:** security components carry no organisation, product or vendor names
+(`.claude/rules/components.md`).
+
+Badges such as a recommendation or a source's health appear on many screens of the app that
+uses them, and drift when each screen styles its own. Keeping them here gives one look per
+state. The repository is public and other apps may use it, so the words are props with
+plain defaults, device names and icons come from the app, and a scoring change needs no
+library release.
+
+## The QR tokens don't change in dark mode
+
+**Rule it backs:** `--qr-paper` and `--qr-ink` have the same values in `:root` and `.dark`
+(the comment above them in `globals.css`).
+
+Some authenticator apps can't read a light-on-dark QR code, so `QrCode` always draws dark
+modules on a light square, with its own quiet zone. They are tokens rather than literal
+colours so the no-hex rule holds and the intent is named.

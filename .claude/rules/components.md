@@ -8,11 +8,22 @@ paths:
 Two layers, one direction. **`dashboard/` may import `ui/`; `ui/` must never import
 `dashboard/`.**
 
-- **`ui/`** (24 items, `registry:ui`) — primitives. Wrap Radix or a native element. Own no
+- **`ui/`** (33 items, `registry:ui`) — primitives. Wrap Radix or a native element. Own no
   layout and no data fetching.
-- **`dashboard/`** (5 items, `registry:block`) — opinionated compositions of `ui/`. They own
+- **`dashboard/`** (24 items, `registry:block`) — opinionated compositions of `ui/`. They own
   layout, callbacks (`onSubmit`, `onCollapsedChange`), and data-state machines:
-  `state?: "ready" | "loading" | "empty" | "error"` plus `onRetry`.
+  `state?: "ready" | "loading" | "empty" | "error"` plus `onRetry`. Its docs stubs split it
+  into three groups in the design tool: **Dashboard** (12), **Charts** (5) and **Security**
+  (7). A `dashboard/` file may import another `dashboard/` file — the charts import
+  `chart-legend` for its textures — and then lists it as a tag-pinned registry dependency.
+- **Charts** draw with Recharts (only the four that need it; `chart-legend` is plain SVG),
+  fill their parent's height, and take colours only from `--chart-*` and status tokens. They
+  get their loading / empty / error states from the `ChartContainer` around them.
+- **Security components** carry the dashboard's words, but every word and tooltip is a prop
+  with a plain default, and none names an organisation, product or vendor. Device names and
+  icons always come from the app.
+- **`--text-tertiary` text sits only on `background`, `card` or `popover`.** On `muted` it is
+  4.21:1, under AA; use `text-muted-foreground` there (table header rows, hover rows).
 
 ## Rules
 

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "review-status-label",
+  "title": "Review Status Label",
+  "description": "New, Reviewing, Handled or Dismissed with an icon, and an optional one-line hint.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/review-status-label.tsx",
+      "content": "import * as React from \"react\";\nimport { CircleCheck, CircleDot, CircleSlash, Eye, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/** Where a person's review of an item stands. */\nexport type ReviewStatus = \"new\" | \"reviewing\" | \"handled\" | \"dismissed\";\n\n/** The default word and one-line hint for each status, for use in running text such as a dialog. */\nexport const reviewStatusText: Record<ReviewStatus, { label: string; hint: string }> = {\n  new: { label: \"New\", hint: \"Nobody has looked at it yet\" },\n  reviewing: { label: \"Reviewing\", hint: \"Someone is looking at it\" },\n  handled: { label: \"Handled\", hint: \"Dealt with outside the dashboard\" },\n  dismissed: { label: \"Dismissed\", hint: \"A false positive\" },\n};\n\nconst statusIcon: Record<ReviewStatus, LucideIcon> = {\n  new: CircleDot,\n  reviewing: Eye,\n  handled: CircleCheck,\n  dismissed: CircleSlash,\n};\n\nexport interface ReviewStatusLabelProps extends React.HTMLAttributes<HTMLSpanElement> {\n  status: ReviewStatus;\n  /** Replaces the default word. */\n  label?: React.ReactNode;\n  /** Show the one-line hint under the word, such as in a list of statuses to pick from. */\n  showHint?: boolean;\n  /** Replaces the default hint. */\n  hint?: React.ReactNode;\n}\n\n/**\n * New, Reviewing, Handled or Dismissed, each with its own icon. New is set in\n * full-strength text so unreviewed items stand out in a list; the others are\n * quieter.\n */\nconst ReviewStatusLabel = React.forwardRef<HTMLSpanElement, ReviewStatusLabelProps>(\n  ({ status, label, showHint = false, hint, className, ...props }, ref) => {\n    const Icon = statusIcon[status];\n    const text = reviewStatusText[status];\n    const word = label ?? text.label;\n    return (\n      <span\n        ref={ref}\n        className={cn(\n          \"inline-flex gap-1.5\",\n          showHint ? \"items-start\" : \"items-center whitespace-nowrap\",\n          status === \"new\" ? \"font-medium text-foreground\" : \"text-muted-foreground\",\n          className,\n        )}\n        {...props}\n      >\n        <Icon\n          className={cn(\"size-4 shrink-0 text-muted-foreground\", showHint && \"mt-px\")}\n          aria-hidden=\"true\"\n        />\n        {showHint ? (\n          <span className=\"flex min-w-0 flex-col gap-0.5\">\n            <span>{word}</span>\n            <span className=\"text-xs font-normal text-muted-foreground\">{hint ?? text.hint}</span>\n          </span>\n        ) : (\n          word\n        )}\n      </span>\n    );\n  },\n);\nReviewStatusLabel.displayName = \"ReviewStatusLabel\";\n\nexport { ReviewStatusLabel };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

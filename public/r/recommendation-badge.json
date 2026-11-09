@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "recommendation-badge",
+  "title": "Recommendation Badge",
+  "description": "Perimeter Block, Challenge, Allow or no recommendation as a badge with its own icon. The word is a prop, such as what already blocks the address.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/recommendation-badge.tsx",
+      "content": "import * as React from \"react\";\nimport { Ban, CircleCheck, ShieldX, TriangleAlert, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { badgeVariants } from \"@/components/ui/badge\";\n\n/** What the dashboard recommends doing about an address, strongest first. */\nexport type Recommendation = \"perimeter-block\" | \"challenge\" | \"allow\" | \"none\";\n\n/** The default word for each recommendation, for use in running text. */\nexport const recommendationLabels: Record<Recommendation, string> = {\n  \"perimeter-block\": \"Perimeter Block\",\n  challenge: \"Challenge\",\n  allow: \"Allow\",\n  none: \"No recommendation\",\n};\n\nconst recommendationConfig: Record<\n  Recommendation,\n  { icon: LucideIcon; variant: \"error\" | \"warning\" | \"neutral\" }\n> = {\n  \"perimeter-block\": { icon: ShieldX, variant: \"error\" },\n  challenge: { icon: TriangleAlert, variant: \"warning\" },\n  allow: { icon: CircleCheck, variant: \"neutral\" },\n  none: { icon: Ban, variant: \"neutral\" },\n};\n\nexport interface RecommendationBadgeProps extends React.HTMLAttributes<HTMLSpanElement> {\n  recommendation: Recommendation;\n  /**\n   * Replaces the default word. For \"none\", use it to say what already stops\n   * the address, such as \"Blocked by policy 7\" or a device's ban list; the\n   * badge keeps its \"blocked\" icon.\n   */\n  label?: React.ReactNode;\n}\n\n/**\n * Perimeter Block in red, Challenge in amber, and Allow or no recommendation\n * in grey, each with its own icon so the colour is never the only cue.\n */\nconst RecommendationBadge = React.forwardRef<HTMLSpanElement, RecommendationBadgeProps>(\n  ({ recommendation, label, className, ...props }, ref) => {\n    const { icon: Icon, variant } = recommendationConfig[recommendation];\n    return (\n      <span\n        ref={ref}\n        className={cn(badgeVariants({ variant }), \"whitespace-nowrap\", className)}\n        {...props}\n      >\n        <Icon className=\"size-3.5 shrink-0\" aria-hidden=\"true\" />\n        {label ?? recommendationLabels[recommendation]}\n      </span>\n    );\n  },\n);\nRecommendationBadge.displayName = \"RecommendationBadge\";\n\nexport { RecommendationBadge };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

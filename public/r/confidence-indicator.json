@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confidence-indicator",
+  "title": "Confidence Indicator",
+  "description": "High, Medium or Low beside a signal-strength icon.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/confidence-indicator.tsx",
+      "content": "import * as React from \"react\";\nimport { SignalHigh, SignalLow, SignalMedium, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type ConfidenceLevel = \"high\" | \"medium\" | \"low\";\n\nconst confidenceConfig: Record<ConfidenceLevel, { label: string; icon: LucideIcon }> = {\n  high: { label: \"High\", icon: SignalHigh },\n  medium: { label: \"Medium\", icon: SignalMedium },\n  low: { label: \"Low\", icon: SignalLow },\n};\n\nexport interface ConfidenceIndicatorProps extends React.HTMLAttributes<HTMLSpanElement> {\n  level: ConfidenceLevel;\n  /** Replaces the default word: \"High\", \"Medium\" or \"Low\". */\n  label?: React.ReactNode;\n}\n\n/**\n * How sure the score is: High, Medium or Low beside a signal-strength icon\n * with three, two or one bars. Text size follows the parent.\n */\nconst ConfidenceIndicator = React.forwardRef<HTMLSpanElement, ConfidenceIndicatorProps>(\n  ({ level, label, className, ...props }, ref) => {\n    const { icon: Icon, label: word } = confidenceConfig[level];\n    return (\n      <span\n        ref={ref}\n        className={cn(\"inline-flex items-center gap-1.5 whitespace-nowrap text-muted-foreground\", className)}\n        {...props}\n      >\n        <Icon className=\"size-4 shrink-0\" aria-hidden=\"true\" />\n        <span className=\"text-foreground\">{label ?? word}</span>\n      </span>\n    );\n  },\n);\nConfidenceIndicator.displayName = \"ConfidenceIndicator\";\n\nexport { ConfidenceIndicator };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}
