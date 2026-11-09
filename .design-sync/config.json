@@ -82,6 +82,13 @@
     "WaterfallChart": "src/components/dashboard/waterfall-chart.tsx",
     "StackedBarChart": "src/components/dashboard/stacked-bar-chart.tsx",
     "HistoryChart": "src/components/dashboard/history-chart.tsx",
-    "EventLaneChart": "src/components/dashboard/event-lane-chart.tsx"
+    "EventLaneChart": "src/components/dashboard/event-lane-chart.tsx",
+    "RecommendationBadge": "src/components/dashboard/recommendation-badge.tsx",
+    "ConfidenceIndicator": "src/components/dashboard/confidence-indicator.tsx",
+    "CorrelationBadge": "src/components/dashboard/correlation-badge.tsx",
+    "ReviewStatusLabel": "src/components/dashboard/review-status-label.tsx",
+    "DeviceList": "src/components/dashboard/device-list.tsx",
+    "IpLabels": "src/components/dashboard/ip-labels.tsx",
+    "HealthLabel": "src/components/dashboard/health-label.tsx"
   }
 }

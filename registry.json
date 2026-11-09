@@ -938,6 +938,137 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "recommendation-badge",
+      "type": "registry:block",
+      "title": "Recommendation Badge",
+      "description": "Perimeter Block, Challenge, Allow or no recommendation as a badge with its own icon. The word is a prop, such as what already blocks the address.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/recommendation-badge.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "confidence-indicator",
+      "type": "registry:block",
+      "title": "Confidence Indicator",
+      "description": "High, Medium or Low beside a signal-strength icon.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/confidence-indicator.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "correlation-badge",
+      "type": "registry:block",
+      "title": "Correlation Badge",
+      "description": "A Correlated badge with the correlation rule in a tooltip. The words and the tooltip are props.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/correlation-badge.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "review-status-label",
+      "type": "registry:block",
+      "title": "Review Status Label",
+      "description": "New, Reviewing, Handled or Dismissed with an icon, and an optional one-line hint.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/review-status-label.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "device-list",
+      "type": "registry:block",
+      "title": "Device List",
+      "description": "DeviceIcon and DeviceList: devices as icon and name. Icons and names come from the app; no device list is built in.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/device-list.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "ip-labels",
+      "type": "registry:block",
+      "title": "IP Labels",
+      "description": "Outbound, Private, Source not verified and Banned as badges or a small line of text. Words and tooltips are props.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/badge.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/ip-labels.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "health-label",
+      "type": "registry:block",
+      "title": "Health Label",
+      "description": "A source's connection as an icon and a word: Reading or Connected, Last read failed, Not connected, Off, or Quiet.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/health-label.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
