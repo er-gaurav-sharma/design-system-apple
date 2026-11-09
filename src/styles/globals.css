@@ -42,17 +42,29 @@
 
   --muted: #f5f5f7;
   --muted-foreground: #6e6e73;
-  --text-tertiary: #86868b;
+  /* v1.4.0 contrast fixes. Each token below that changed keeps its hue and
+     takes the lightest value that passes WCAG AA, so the look moves as little
+     as it can. Ratios are against the surface named; the dark values already
+     passed and are unchanged.
+     --text-tertiary was #86868b, 3.62:1 on --background; now 4.58:1. It is for
+     text on --background, --card and --popover. On --muted it is 4.21:1, so
+     text there uses --muted-foreground. */
+  --text-tertiary: #75757a;
 
   --accent: #e8f1fd;
-  --accent-foreground: #0071e3;
+  /* Was #0071e3, 4.12:1 on --accent; now 4.56:1. */
+  --accent-foreground: #0069db;
 
   --destructive: #d70015;
   --destructive-hover: #b80012;
   --destructive-foreground: #ffffff;
 
   --border: #e8e8ed;
-  --input: #d2d2d7;
+  /* Was #d2d2d7, 1.51:1. A field's edge is a UI component boundary under WCAG
+     1.4.11 and needs 3:1 against the page; now 3.06:1. Checkbox and Radio
+     edges and the Switch's off track use it too. Still lighter than the
+     --text-tertiary hover border, so hovering a field still darkens its edge. */
+  --input: #939398;
   --ring: #0071e3;
 
   /* Scrim behind modal surfaces, and the knob of a Switch. Both used to be
@@ -67,7 +79,9 @@
   --qr-paper: #ffffff;
   --qr-ink: #1d1d1f;
 
-  --success: #248a3d;
+  /* Was #248a3d: 3.95:1 on --success-subtle and 4.40:1 under white text.
+     Now 4.59:1 and 5.11:1. --chart-3 keeps the old green as its own value. */
+  --success: #137f33;
   --success-foreground: #ffffff;
   --success-subtle: #e9f6ee;
   --warning: #b25000;
@@ -76,7 +90,9 @@
   --error: #d70015;
   --error-foreground: #ffffff;
   --error-subtle: #fde8e9;
-  --info: #0071e3;
+  /* Was #0071e3, 4.12:1 on --info-subtle; now 4.56:1, the same as
+     --accent-foreground. */
+  --info: #0069db;
   --info-foreground: #ffffff;
   --info-subtle: #e8f1fd;
 
@@ -85,7 +101,10 @@
      normal vision (min ΔE2000 9.0 across all four), and to hold at least 3:1
      against --card for WCAG 1.4.11 non-text contrast. */
   --chart-1: #0071e3;
-  --chart-2: #aeaeb2;
+  /* Was #aeaeb2, 2.21:1 on --card; now 3.06:1. Its nearest neighbour is still
+     ΔE2000 10.2 or more away under normal vision and all three dichromacies
+     (Machado 2009 simulation), above the 9.0 floor. */
+  --chart-2: #939398;
   --chart-3: #248a3d;
   --chart-4: #b25000;
   --chart-5: #7629a3;
