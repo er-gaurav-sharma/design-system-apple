@@ -475,6 +475,161 @@
       ]
     },
     {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "A bar from 0 to max, coloured by the band the value falls in, with a mark at each band edge. Bands, colours and max are props.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/meter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Icon or text button that copies a value and confirms with \"Copied\". When the browser blocks copying it says so and asks to copy by hand.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "Monospace text such as raw log lines, wrapped or scrolled, with an optional height limit. Renders text only, never HTML.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "key-value-list",
+      "type": "registry:ui",
+      "title": "Key Value List",
+      "description": "Label and value pairs in two aligned columns, as a description list.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/key-value-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "live-indicator",
+      "type": "registry:ui",
+      "title": "Live Indicator",
+      "description": "Live, Reconnecting or Offline with the last update time, announced to screen readers.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/live-indicator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "secret-field",
+      "type": "registry:ui",
+      "title": "Secret Field",
+      "description": "Write-only credential input. Once saved it shows who saved it and when, and a Replace button, never the value.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/button.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/input.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/secret-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-input",
+      "type": "registry:ui",
+      "title": "Code Input",
+      "description": "One box per digit for an authenticator code. Pasting or autofilling a code fills every box.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/code-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qr-code",
+      "type": "registry:ui",
+      "title": "QR Code",
+      "description": "Draws text as a QR code in SVG, always dark on light so every authenticator app can read it.",
+      "dependencies": [
+        "qrcode@^1.5.4"
+      ],
+      "devDependencies": [
+        "@types/qrcode@^1.5.5"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/qr-code.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "relative-time",
+      "type": "registry:ui",
+      "title": "Relative Time",
+      "description": "\"12 min ago\", with the full date and time in a tooltip. The time zone is a prop.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/relative-time.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "page-header",
       "type": "registry:block",
       "title": "Page Header",
