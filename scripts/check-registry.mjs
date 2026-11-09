@@ -18,9 +18,10 @@
  *    public/r/ rebuild — and missing one fails quietly: the component is just
  *    absent downstream, with a successful build.
  */
-import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFileSync(resolve(root, p), "utf8");
@@ -99,27 +100,49 @@ for (const dir of ["src/components/ui", "src/components/dashboard"]) {
   }
 }
 
-/* -- 4. public/r/ is not stale ---------------------------------------------- */
+/* -- 4. public/r/ matches its sources --------------------------------------- */
+// Compares content, not file times. A fresh clone sets every file's time in
+// checkout order, so a time check fails on every clone and can pass a stale
+// build. `shadcn build` copies each registered file into its item's JSON as is,
+// with the item's registry.json entry, so any difference means a missed rebuild.
 const built = resolve(root, "public/r");
 if (!existsSync(built)) {
   fail("public/r/ is missing. Run `npm run registry:build`.");
 } else {
-  const mtime = (p) => statSync(resolve(root, p)).mtimeMs;
+  const rebuild = "Run `npm run registry:build` and commit the result.";
+  const sameText = (a, b) => a.replace(/\r\n/g, "\n") === b.replace(/\r\n/g, "\n");
   for (const item of registry.items) {
     const artifact = `public/r/${item.name}.json`;
     if (!existsSync(resolve(root, artifact))) {
       fail(`${item.name}: no built artifact at ${artifact}. Run \`npm run registry:build\`.`);
       continue;
     }
-    const builtAt = mtime(artifact);
-    for (const file of item.files ?? []) {
-      if (existsSync(resolve(root, file.path)) && mtime(file.path) > builtAt) {
-        fail(`${artifact} is older than ${file.path}. Run \`npm run registry:build\` and commit the result.`);
+    const { files = [], ...entry } = item;
+    const { $schema: _schema, files: builtFiles = [], ...builtEntry } = readJSON(artifact);
+    if (!isDeepStrictEqual(entry, builtEntry)) {
+      fail(`${artifact} does not match its entry in registry.json. ${rebuild}`);
+    }
+    if (builtFiles.length !== files.length) {
+      fail(`${artifact} has ${builtFiles.length} files, but registry.json lists ${files.length}. ${rebuild}`);
+    }
+    for (const file of files) {
+      const copy = builtFiles.find((f) => f.path === file.path);
+      if (!copy) {
+        fail(`${artifact} has no copy of ${file.path}. ${rebuild}`);
+        continue;
+      }
+      const { content = "", ...copyEntry } = copy;
+      if (!isDeepStrictEqual(file, copyEntry)) {
+        fail(`${artifact} lists ${file.path} with a different type or target. ${rebuild}`);
+      }
+      if (existsSync(resolve(root, file.path)) && !sameText(content, read(file.path))) {
+        fail(`${artifact} is out of date with ${file.path}. ${rebuild}`);
       }
     }
   }
-  if (mtime("registry.json") > mtime("public/r/registry.json")) {
-    fail("public/r/registry.json is older than registry.json. Run `npm run registry:build`.");
+  const builtIndex = "public/r/registry.json";
+  if (!existsSync(resolve(root, builtIndex)) || !isDeepStrictEqual(readJSON(builtIndex), registry)) {
+    fail(`${builtIndex} does not match registry.json. Run \`npm run registry:build\`.`);
   }
 }
 
