@@ -1,5 +1,9 @@
 # `@claude-design/dashboard-ui`
 
+> These rules apply only to the design-system-apple repository, and every path below is
+> relative to its root. A thread that also has an app repository checked out follows that
+> repository's own CLAUDE.md there.
+
 An Apple-inspired **shadcn/ui component registry** — not an application. `private: true`,
 no JS build. Consumers install by copy-in; **`src/` is the only place you edit.**
 
@@ -9,6 +13,12 @@ no `tailwind.config`) · Radix · Lucide · shadcn `new-york`, `rsc: false`,
 
 ## Rules that apply in every session
 
+- **This repository is public.** Never commit anything about a consuming app's organisation
+  or network: organisation, site or internal product names, device versions, policy IDs,
+  addresses, network layout or sample logs. That includes component examples, previews
+  and tests; use generic sample data.
+- **What belongs here:** reusable components that hold no app data. Anything that reads an
+  app's data or serves one page stays in that app, built from these components.
 - **Never hard-code color.** No hex, `rgb()`, or Tailwind palette class in
   `src/components/**` — there are currently zero. Add a token instead.
 - **Never hand-edit generated files**, and don't read them as source — table in
@@ -34,7 +44,7 @@ The four rules in `.claude/rules/` are path-scoped. Claude Code on your own comp
 when it reads a matching file; Claude project threads don't load them. So open the rule
 yourself first:
 
-| What you change | Read first |
+| What you change in this repository | Read first |
 |---|---|
 | `src/components/**` | `.claude/rules/components.md`, then `.claude/rules/registry.md` |
 | `src/styles/**` | `.claude/rules/tokens.md` |
