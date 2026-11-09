@@ -50,16 +50,21 @@ export * from "../src/components/ui/tooltip";
 // ── Composed dashboard patterns (src/components/dashboard) ──────────────────
 export * from "../src/components/dashboard/app-shell";
 export * from "../src/components/dashboard/chart-container";
+export * from "../src/components/dashboard/chart-legend";
 export * from "../src/components/dashboard/checkbox-tree";
 export * from "../src/components/dashboard/empty-state";
+export * from "../src/components/dashboard/event-lane-chart";
 export * from "../src/components/dashboard/filter-menu";
+export * from "../src/components/dashboard/history-chart";
 export * from "../src/components/dashboard/login-form";
 export * from "../src/components/dashboard/page-header";
 export * from "../src/components/dashboard/rank-list";
 export * from "../src/components/dashboard/section-header";
+export * from "../src/components/dashboard/stacked-bar-chart";
 export * from "../src/components/dashboard/stat";
 export * from "../src/components/dashboard/step-list";
 export * from "../src/components/dashboard/summary-card";
+export * from "../src/components/dashboard/waterfall-chart";
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 export { cn } from "../src/lib/utils";

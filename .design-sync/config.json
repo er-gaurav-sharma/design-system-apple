@@ -26,7 +26,11 @@
     "LoginForm": { "cardMode": "column" },
     "PageHeader": { "cardMode": "column" },
     "SummaryCard": { "cardMode": "column" },
-    "ChartContainer": { "cardMode": "column" }
+    "ChartContainer": { "cardMode": "column" },
+    "WaterfallChart": { "cardMode": "column" },
+    "StackedBarChart": { "cardMode": "column" },
+    "HistoryChart": { "cardMode": "column" },
+    "EventLaneChart": { "cardMode": "column" }
   },
   "componentSrcMap": {
     "Alert": "src/components/ui/alert.tsx",
@@ -73,6 +77,11 @@
     "FilterMenu": "src/components/dashboard/filter-menu.tsx",
     "CheckboxTree": "src/components/dashboard/checkbox-tree.tsx",
     "StepList": "src/components/dashboard/step-list.tsx",
-    "RankList": "src/components/dashboard/rank-list.tsx"
+    "RankList": "src/components/dashboard/rank-list.tsx",
+    "ChartLegend": "src/components/dashboard/chart-legend.tsx",
+    "WaterfallChart": "src/components/dashboard/waterfall-chart.tsx",
+    "StackedBarChart": "src/components/dashboard/stacked-bar-chart.tsx",
+    "HistoryChart": "src/components/dashboard/history-chart.tsx",
+    "EventLaneChart": "src/components/dashboard/event-lane-chart.tsx"
   }
 }

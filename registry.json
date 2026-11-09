@@ -849,6 +849,95 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "chart-legend",
+      "type": "registry:block",
+      "title": "Chart Legend",
+      "description": "Swatches with labels for a chart's series, plain or textured, plus the two textures as SVG patterns any chart can fill with.",
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/chart-legend.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "waterfall-chart",
+      "type": "registry:block",
+      "title": "Waterfall Chart",
+      "description": "Horizontal steps that add up to a total, with hatched scaling steps, lined cap steps and dashed threshold lines. Built on Recharts.",
+      "dependencies": [
+        "recharts@^2.15.4"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/chart-legend.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/waterfall-chart.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "stacked-bar-chart",
+      "type": "registry:block",
+      "title": "Stacked Bar Chart",
+      "description": "Stacked bars per time bucket with a tooltip per bar listing every series and the total. Any series can be textured. Built on Recharts.",
+      "dependencies": [
+        "recharts@^2.15.4"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json",
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/chart-legend.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/stacked-bar-chart.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "history-chart",
+      "type": "registry:block",
+      "title": "History Chart",
+      "description": "A value over time as a stepped line, with the reason for each change in its tooltip and dashed threshold lines. Built on Recharts.",
+      "dependencies": [
+        "recharts@^2.15.4"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/history-chart.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "event-lane-chart",
+      "type": "registry:block",
+      "title": "Event Lane Chart",
+      "description": "Events as dots over time, one lane per source, with an optional shaded window and click to select an event. Built on Recharts.",
+      "dependencies": [
+        "recharts@^2.15.4"
+      ],
+      "registryDependencies": [
+        "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dashboard/event-lane-chart.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
