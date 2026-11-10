@@ -65,8 +65,8 @@ Practical consequence: **a new token needs a safelist line too** (→ `.claude/r
 ## Deeper
 
 - **`NOTES.md`** — the engineering log: build shape, the CSS safelist rationale, the font
-  data-URI story, registry pitfalls, a list of fixed component defects, the **open
-  light-mode contrast audit**, and a re-sync risk watch-list. Read it before changing
+  data-URI story, registry pitfalls, a list of fixed component defects, the
+  **contrast audits and their v1.4.0 fixes**, and a re-sync risk watch-list. Read it before changing
   anything here. Summary: [known-issues.md](../../docs/project-memory/known-issues.md).
 - **`.ds-sync/storybook/SKILL.md`** — the full operator playbook for the pipeline
   (gitignored; present only after the skill has been copied in).

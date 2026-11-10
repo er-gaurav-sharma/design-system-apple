@@ -281,23 +281,28 @@ touched.
 **A rule that came out of the audit: `--text-tertiary` text only on `--background`,
 `--card` or `--popover`.** On `--muted` it is 4.21:1 in light and 4.27:1 in dark, so text on
 a muted surface (a table's header row, a hovered row) uses `text-muted-foreground`
-(4.66:1) instead. It is in `.claude/rules/components.md`.
+(4.87:1) instead. It is in `.claude/rules/components.md`.
 
-### Open — four more findings from the v1.4.0 render audit
+### FIXED in v1.4.0 — four more findings from the render audit
 
 The v1.4.0 audit renders every preview in both themes and measures each text node and icon
 against its real background, which the token-pair audit above can't see. It found four
-failures outside the seven pairs:
+failures outside the seven pairs, all in components that predate v1.4.0, and v1.4.0 fixes
+them too:
 
-| Where | Pair | Ratio |
-|---|---|---|
-| `AppShell` active nav item and avatar initials | `text-primary` on `bg-accent` | 4.12 light, 3.37 dark |
-| `LoginForm` "Forgot?" link, `Calendar` today | `text-primary` on `--card`, dark | 3.69 |
-| `Alert` description on error and info | `text-muted-foreground` on `--error-subtle` / `--info-subtle`, light | 4.32 / 4.45 |
-| `Calendar` days outside the month | `opacity-60` on the day text | 2.26 light, 2.71 dark |
+| Where | Before | Fix | After |
+|---|---|---|---|
+| `AppShell` active nav item and avatar initials | `text-primary` on `bg-accent`: 4.12 light, 3.37 dark | `text-accent-foreground` | 4.56 light, 7.35 dark |
+| `LoginForm` "Forgot?" link, `Calendar` today | `text-primary` on `--card`: 3.69 dark | `text-accent-foreground` | 5.19 light, 8.05 dark |
+| `Alert` description on error and info | `text-muted-foreground` on `--error-subtle` / `--info-subtle`: 4.32 / 4.45 light | light `--muted-foreground` `#6e6e73` → `#6b6b70`, the lightest of its hue that passes | 4.52 / 4.65 |
+| `Calendar` days outside the month | `text-text-tertiary` at `opacity-60`: 2.26 light, 2.71 dark | no `opacity-60`; `hover:text-muted-foreground`, because the hover fill is `--muted` | 4.58 light, 5.22 dark; 4.87 / 6.30 on hover |
 
 Two more are exempt and stay: the unsorted `TableSortButton` icon at `opacity-40` (a hint
 beside a text label) and the label of a disabled control (WCAG exempts inactive UI).
+
+Rerun the render audit after any token or component colour change; a token-pair check alone
+misses text that sits on a tinted surface. Let a theme switch settle before measuring: a
+control with `transition-colors` reads as a failing mid-fade colour for about 150 ms.
 
 Three dark values were *chosen* against this audit rather than copied from Apple, which is
 worth knowing before anyone "corrects" them back:

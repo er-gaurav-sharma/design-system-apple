@@ -360,7 +360,7 @@ const SidebarNavItem = React.forwardRef<HTMLButtonElement, SidebarNavItemProps>(
           "flex items-center gap-3 overflow-hidden whitespace-nowrap rounded-md px-3 py-2.5 text-[13px] font-medium text-muted-foreground transition-colors ease-standard",
           "hover:bg-muted hover:text-foreground",
           "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30",
-          "data-[active]:bg-accent data-[active]:text-primary",
+          "data-[active]:bg-accent data-[active]:text-accent-foreground",
           "[&>svg]:size-[18px] [&>svg]:shrink-0",
           iconOnly && "w-10 justify-center px-0",
           className,
@@ -416,7 +416,7 @@ function UserMenu({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex flex-none items-center gap-2 rounded-md px-2 py-1.5 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30">
-        <span className="flex size-7 flex-none items-center justify-center overflow-hidden rounded-full bg-accent text-xs font-semibold text-primary">
+        <span className="flex size-7 flex-none items-center justify-center overflow-hidden rounded-full bg-accent text-xs font-semibold text-accent-foreground">
           {avatar ?? initials}
         </span>
         {/* Avatar-only below sm: the name would otherwise crowd the brand out
