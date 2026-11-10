@@ -21,10 +21,11 @@ Repo-specific gotchas for future syncs. Read this before re-running the sync.
 - **Component discovery is fully pinned** via `cfg.componentSrcMap`. Discovery normally
   reads PascalCase exports out of a shipped `.d.ts` tree; there is none at the package root,
   so without the pins the build reports `[ZERO_MATCH] tokens-only DS` and emits 0 components.
-  The map lists the 24 *card-worthy* components — one per source file. Sub-parts
-  (`CardHeader`, `DialogContent`, `SelectItem`, …) are deliberately NOT pinned: they are all
-  present in the bundle (94 exports on `window.DashboardUI`) and are documented through the
-  composition examples in each parent's `.prompt.md`, but they get no card of their own.
+  The map lists the 57 *card-worthy* components (v1.4.0) — one per source file. Sub-parts
+  (`CardHeader`, `DialogContent`, `SelectItem`, `DeviceIcon`, `ChartPattern`, …) are
+  deliberately NOT pinned: they are all present in the bundle (146 exports on
+  `window.DashboardUI` at v1.4.0) and are documented through the composition examples in
+  each parent's `.prompt.md`, but they get no card of their own.
 
 ## CSS / Tailwind v4
 
@@ -95,7 +96,14 @@ Consequences to keep in mind:
   Keeping them frontmatter-only is deliberate: a stub with a *body* becomes the whole
   `.prompt.md` and **suppresses the synthesized `## Props` / `## Examples` / `## Related`
   sections**, which are the most useful thing the design agent gets. Don't add prose here.
-- Resulting groups: `primitives` (19) and `dashboard` (5).
+- Resulting groups at v1.4.0: `primitives` (33), `dashboard` (12), `charts` (5) and
+  `security` (7). Charts and Security are split out of `src/components/dashboard/` by their
+  stubs alone (`category: Charts`, `category: Security`); the files don't move.
+- **Why a Security group.** Those seven carry one product's words (Perimeter Block,
+  Correlated, Quiet…), which reads oddly beside generic blocks. They live here rather than in
+  the app so a badge looks the same on every screen. Every word and tooltip is a prop with a
+  plain default, and device names and icons come from the app, so no organisation, product
+  or vendor name is built in.
 
 ## The built registry (`public/r/`) is generated
 
@@ -247,23 +255,54 @@ Light values are unchanged from v1.2.0.
 Adding `overlay` and `thumb` also meant a line in the colour safelist
 (`tailwind-entry.css`), per the rule above.
 
-### Open — light-mode contrast, seven token pairs
+### FIXED in v1.4.0 — light-mode contrast, seven token pairs
 
 Auditing every pair the components actually combine (both themes) while adding dark mode
-turned up seven shortfalls. **All seven are light-mode values unchanged since v1.0.0; the
-dark theme passes cleanly.** They are left alone on the same reasoning as `--chart-2`
-always was: these are shipped colours, and moving them is a visual break for every existing
-consumer. Fixing them is a deliberate design decision for a future release, not a drive-by.
+turned up seven light-mode shortfalls, all values unchanged since v1.0.0. They were left
+alone until v1.4.0, where each moved just far enough to pass with its hue kept. Dark mode
+already passed and did not change.
 
-| Pair | Ratio | Needs | Where it shows |
+| Pair | Before | After | Needs | New light value |
+|---|---|---|---|---|
+| `--input` on `--background` | 1.51:1 | 3.06:1 | 3:1 (1.4.11) | `--input` `#939398` (also the Switch's off track) |
+| `--chart-2` on `--card` | 2.21:1 | 3.06:1 | 3:1 (1.4.11) | `--chart-2` `#939398` |
+| `--text-tertiary` on `--background` | 3.62:1 | 4.58:1 | 4.5:1 | `--text-tertiary` `#75757a` |
+| `--success` on `--success-subtle` | 3.95:1 | 4.59:1 | 4.5:1 | `--success` `#137f33` |
+| `--accent-foreground` on `--accent` | 4.12:1 | 4.56:1 | 4.5:1 | `--accent-foreground` `#0069db` |
+| `--info` on `--info-subtle` | 4.12:1 | 4.56:1 | 4.5:1 | `--info` `#0069db` |
+| `--success-foreground` on `--success` | 4.40:1 | 5.11:1 | 4.5:1 | (from the `--success` change) |
+
+`--chart-2` moved, so the colour-vision check was rerun (Machado 2009 simulation, ΔE2000):
+its nearest neighbour under any of the three dichromacies stays at 10.2 or more. The same
+rerun puts the unchanged `--chart-3` / `--chart-4` pair at 8.94 under deuteranopia, a little
+under the 9.0 that `decisions.md` quotes; that pair predates this release and was not
+touched.
+
+**A rule that came out of the audit: `--text-tertiary` text only on `--background`,
+`--card` or `--popover`.** On `--muted` it is 4.21:1 in light and 4.27:1 in dark, so text on
+a muted surface (a table's header row, a hovered row) uses `text-muted-foreground`
+(4.87:1) instead. It is in `.claude/rules/components.md`.
+
+### FIXED in v1.4.0 — four more findings from the render audit
+
+The v1.4.0 audit renders every preview in both themes and measures each text node and icon
+against its real background, which the token-pair audit above can't see. It found four
+failures outside the seven pairs, all in components that predate v1.4.0, and v1.4.0 fixes
+them too:
+
+| Where | Before | Fix | After |
 |---|---|---|---|
-| `--input` on `--background` | 1.51:1 | 3:1 (1.4.11) | every field boundary — the worst of the set |
-| `--chart-2` on `--card` | 2.21:1 | 3:1 (1.4.11) | second chart series |
-| `--text-tertiary` on `--background` | 3.62:1 | 4.5:1 | `FieldHelper`, table weekday headers |
-| `--success` on `--success-subtle` | 3.95:1 | 4.5:1 | subtle success Badge/Alert |
-| `--accent-foreground` on `--accent` | 4.12:1 | 4.5:1 | accent-tinted text |
-| `--info` on `--info-subtle` | 4.12:1 | 4.5:1 | subtle info Badge/Alert |
-| `--success-foreground` on `--success` | 4.40:1 | 4.5:1 | solid success Badge |
+| `AppShell` active nav item and avatar initials | `text-primary` on `bg-accent`: 4.12 light, 3.37 dark | `text-accent-foreground` | 4.56 light, 7.35 dark |
+| `LoginForm` "Forgot?" link, `Calendar` today | `text-primary` on `--card`: 3.69 dark | `text-accent-foreground` | 5.19 light, 8.05 dark |
+| `Alert` description on error and info | `text-muted-foreground` on `--error-subtle` / `--info-subtle`: 4.32 / 4.45 light | light `--muted-foreground` `#6e6e73` → `#6b6b70`, the lightest of its hue that passes | 4.52 / 4.65 |
+| `Calendar` days outside the month | `text-text-tertiary` at `opacity-60`: 2.26 light, 2.71 dark | no `opacity-60`; `hover:text-muted-foreground`, because the hover fill is `--muted` | 4.58 light, 5.22 dark; 4.87 / 6.30 on hover |
+
+Two more are exempt and stay: the unsorted `TableSortButton` icon at `opacity-40` (a hint
+beside a text label) and the label of a disabled control (WCAG exempts inactive UI).
+
+Rerun the render audit after any token or component colour change; a token-pair check alone
+misses text that sits on a tinted surface. Let a theme switch settle before measuring: a
+control with `transition-colors` reads as a failing mid-fade colour for about 150 ms.
 
 Three dark values were *chosen* against this audit rather than copied from Apple, which is
 worth knowing before anyone "corrects" them back:
@@ -301,6 +340,13 @@ actually ships.
   `registry.json` and the built `public/r/` are a third and fourth hand-maintained surface
   with the same failure mode. `npm run registry:check` now checks all four against
   `src/components/*/` — run it instead of eyeballing an `ls`.
+- **v1.4.0 added 28 components** — nine primitives, seven generic blocks, five charts and
+  seven security components — and two runtime dependencies. `recharts` (^2.15.4) is listed in
+  the registry only on the four charts that use it, and `qrcode` (^1.5.4) only on `QrCode`.
+  The previews were checked on React 19.2 with the `react-is` 18.3.1 that recharts brings,
+  and on React 18.3 in the mockups, with no override needed. The sync bundle now carries
+  Recharts: a minified esbuild bundle of `entry.ts` (React external) is about 908 KB with it
+  and 476 KB without it.
 - **v1.3.0 added five components** — `Tabs`, `Tooltip`, `Popover`, `Calendar`, `DatePicker`
   (which exports both `DatePicker` and `DateRangePicker`). `Calendar` and `DatePicker` bring
   the first non-Radix runtime dependencies, `react-day-picker` and `date-fns`.

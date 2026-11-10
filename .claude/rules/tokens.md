@@ -61,5 +61,5 @@ Each of these has cost something already. Follow the rule; the `Why:` link has t
 - `@custom-variant dark` is declared for structural divergence only. **No component uses a
   `dark:` utility** — needing one usually means a missing token.
 
-Open debt affecting this file (light-mode contrast audit, the `sonner` theme wart):
+Open debt affecting this file (the `sonner` theme wart):
 [known-issues.md](../../docs/project-memory/known-issues.md).

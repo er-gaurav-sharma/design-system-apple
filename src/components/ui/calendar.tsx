@@ -119,14 +119,16 @@ function Calendar({
           "hover:bg-muted",
           "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30",
           "disabled:pointer-events-none disabled:opacity-40",
-          "data-[today=true]:font-semibold data-[today=true]:text-primary",
-          "data-[outside=true]:text-text-tertiary data-[outside=true]:opacity-60",
+          "data-[today=true]:font-semibold data-[today=true]:text-accent-foreground",
+          // Tertiary text passes only on card or popover, so a hovered outside
+          // day (on --muted) switches to muted-foreground.
+          "data-[outside=true]:text-text-tertiary data-[outside=true]:hover:text-muted-foreground",
           "data-[selected-single=true]:bg-primary data-[selected-single=true]:font-medium data-[selected-single=true]:text-primary-foreground data-[selected-single=true]:hover:bg-primary-hover",
           "data-[range-start=true]:bg-primary data-[range-start=true]:font-medium data-[range-start=true]:text-primary-foreground data-[range-start=true]:hover:bg-primary-hover",
           "data-[range-end=true]:bg-primary data-[range-end=true]:font-medium data-[range-end=true]:text-primary-foreground data-[range-end=true]:hover:bg-primary-hover",
           // Deliberately `text-foreground`, not `text-accent-foreground`: the
-          // cell tint already says "in range", and accent-on-accent-subtle is
-          // only 4.12:1, short of AA for text this small.
+          // cell tint already says "in range", and accent text on the accent
+          // tint is 4.56:1, only just over AA for text this small.
           "data-[range-middle=true]:bg-transparent data-[range-middle=true]:text-foreground data-[range-middle=true]:hover:bg-transparent",
         ),
         ...classNames,

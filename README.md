@@ -19,9 +19,12 @@ npm i @radix-ui/react-alert-dialog @radix-ui/react-checkbox \
   @radix-ui/react-popover @radix-ui/react-radio-group @radix-ui/react-select \
   @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs \
   @radix-ui/react-tooltip class-variance-authority clsx tailwind-merge \
-  date-fns lucide-react react-day-picker sonner
-npm i -D tailwindcss@4 tw-animate-css
+  date-fns lucide-react qrcode react-day-picker recharts sonner
+npm i -D @types/qrcode tailwindcss@4 tw-animate-css
 ```
+
+`recharts` is only for the four Recharts charts and `qrcode` only for `QrCode`;
+installing per component (below) pulls each in only where it's used.
 
 Then:
 
@@ -30,7 +33,8 @@ Then:
 2. Ensure `@/*` resolves to `./src/*` (see `tsconfig.json` `paths`).
 3. Mount `<Toaster />` (from `@/components/ui/sonner`) near your root for toasts.
 4. Wrap the app in `<TooltipProvider>` (from `@/components/ui/tooltip`) if you
-   use tooltips anywhere.
+   use tooltips anywhere. `CopyButton`, `RelativeTime`, the compact `StepList`, and
+   `RankList`, `CorrelationBadge` and `IpLabels` with tooltips all need it.
 
 The `components.json` lets `npx shadcn@latest add <name>` drop new components in
 using the same aliases and token conventions.
@@ -43,8 +47,8 @@ you want:
 
 ```bash
 # tokens first — every component styles through them
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/theme.json
-npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/pagination.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/theme.json
+npx shadcn@latest add https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/pagination.json
 ```
 
 Each item pulls its own `registryDependencies`, so you get the transitive set.
@@ -76,7 +80,7 @@ src/
   styles/globals.css        Design tokens → Tailwind v4 @theme bridge
   styles/fonts/inter.css    Self-hosted Inter (generated — see Typeface)
   lib/utils.ts              cn() helper
-  components/ui/            Primitives (shadcn new-york style)
+  components/ui/            Primitives (shadcn new-york style), 33
     button  input  textarea  label  field
     select  checkbox  radio-group  switch
     badge  alert  sonner (Toaster + toast)
@@ -84,9 +88,18 @@ src/
     tabs  tooltip  popover
     calendar  date-picker (DatePicker + DateRangePicker)
     table  pagination  skeleton  card
-  components/dashboard/     Composed patterns
+    meter  copy-button  code-block  key-value-list  live-indicator
+    secret-field  code-input  qr-code  relative-time
+  components/dashboard/     Composed patterns, 24
     page-header  summary-card  chart-container
     app-shell    login-form
+    empty-state  section-header  stat  filter-menu
+    checkbox-tree  step-list  rank-list
+    Charts:   chart-legend  waterfall-chart  stacked-bar-chart
+              history-chart  event-lane-chart
+    Security: recommendation-badge  confidence-indicator  correlation-badge
+              review-status-label  device-list (DeviceIcon + DeviceList)
+              ip-labels  health-label
 scripts/                    Registry + font maintenance
 public/r/                   Built shadcn registry (generated)
 ```
@@ -146,6 +159,8 @@ never raw hex:
 | `bg-overlay` | scrim behind modal surfaces |
 | `bg-thumb` | knob of a `Switch` |
 | `bg-chart-1…chart-6` | chart series colors (six categorical hues) |
+| `bg-qr-paper` `fill-qr-ink` | a QR code's light and dark modules, the same in both themes |
+| `animate-highlight-new` `animate-highlight-target` | a short fade on a new row, or on the item a link jumped to; off under reduced motion |
 
 Focus states use `focus-visible:ring-[3px] focus-visible:ring-ring/30`; every
 interactive component ships default / hover / focus / active / disabled, and
@@ -217,6 +232,29 @@ Both are controlled when you pass `value` and uncontrolled otherwise. Setting
 Note that `Calendar` does **not** import `react-day-picker/style.css` — it is
 styled entirely from the tokens, so it follows `.dark` and the accent color.
 Importing that stylesheet on top of it will double-style the grid.
+
+### Charts
+
+`WaterfallChart`, `StackedBarChart`, `HistoryChart` and `EventLaneChart` are drawn
+with Recharts and fill their parent's height, so mount them inside `ChartContainer`
+and size its `areaClassName` (`h-[240px]`); its loading, empty and error states then
+cover the chart too. Colours come only from `--chart-*` and the status tokens, so
+dark mode needs no second palette. A series can be textured as well as coloured
+(`texture: "hatch" | "lines"`), so it reads apart in print and for colour-blind
+readers; `ChartLegend` draws the matching swatches and exports the two textures as
+SVG patterns for your own charts. Time axes put ticks on round times in the
+`timeZone` you pass. Pair a chart with a table or list of the same data for screen
+readers.
+
+### Security components
+
+`RecommendationBadge`, `ConfidenceIndicator`, `CorrelationBadge`,
+`ReviewStatusLabel`, `DeviceIcon` / `DeviceList`, `IpLabels` and `HealthLabel` carry
+a security dashboard's words, so every badge looks the same wherever it appears.
+Every word and tooltip is a prop with a plain default, and none names a product or
+vendor: `DeviceList` takes each device's name and icon from the app, and
+`RecommendationBadge` takes `label="Blocked by policy 7"` when something already
+blocks an address.
 
 ### Username-based auth
 

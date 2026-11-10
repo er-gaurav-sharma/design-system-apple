@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "correlation-badge",
+  "title": "Correlation Badge",
+  "description": "A Correlated badge with the correlation rule in a tooltip. The words and the tooltip are props.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/badge.json",
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/tooltip.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/correlation-badge.tsx",
+      "content": "import * as React from \"react\";\nimport { Link2 } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { badgeVariants } from \"@/components/ui/badge\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/components/ui/tooltip\";\n\nexport interface CorrelationBadgeProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** @default \"Correlated\" */\n  label?: React.ReactNode;\n  /**\n   * What correlated means, on hover or keyboard focus. Pass null for no\n   * tooltip, such as in a table that explains it once in a header.\n   * Needs a TooltipProvider above.\n   * @default \"Two different devices flagged it within 1 h (score ×1.5)\"\n   */\n  tooltip?: React.ReactNode;\n}\n\n/**\n * A blue \"Correlated\" badge for an address that more than one source\n * flagged, with the rule that counts as correlated in a tooltip. With a\n * tooltip the badge takes keyboard focus, so the explanation is reachable.\n */\nconst CorrelationBadge = React.forwardRef<HTMLSpanElement, CorrelationBadgeProps>(\n  (\n    {\n      label = \"Correlated\",\n      tooltip = \"Two different devices flagged it within 1 h (score ×1.5)\",\n      className,\n      ...props\n    },\n    ref,\n  ) => {\n    const hasTooltip = tooltip !== null && tooltip !== undefined && tooltip !== false;\n    const badge = (\n      <span\n        ref={ref}\n        tabIndex={hasTooltip ? 0 : undefined}\n        className={cn(\n          badgeVariants({ variant: \"info\" }),\n          \"whitespace-nowrap\",\n          hasTooltip && \"focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30\",\n          className,\n        )}\n        {...props}\n      >\n        <Link2 className=\"size-3.5 shrink-0\" aria-hidden=\"true\" />\n        {label}\n      </span>\n    );\n    if (!hasTooltip) return badge;\n    return (\n      <Tooltip>\n        <TooltipTrigger asChild>{badge}</TooltipTrigger>\n        <TooltipContent>{tooltip}</TooltipContent>\n      </Tooltip>\n    );\n  },\n);\nCorrelationBadge.displayName = \"CorrelationBadge\";\n\nexport { CorrelationBadge };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

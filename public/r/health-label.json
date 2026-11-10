@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "health-label",
+  "title": "Health Label",
+  "description": "A source's connection as an icon and a word: Reading or Connected, Last read failed, Not connected, Off, or Quiet.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/health-label.tsx",
+      "content": "import * as React from \"react\";\nimport { CircleCheck, CircleOff, CircleX, ClockAlert, PlugZap, Unplug, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/**\n * A source's connection.\n * - \"ok\": reading or connected.\n * - \"error\": the last read failed.\n * - \"disconnected\": not connected.\n * - \"off\": turned off on purpose.\n * - \"quiet\": connected, but nothing has arrived within the source's expected\n *   interval, so a silent source isn't mistaken for a calm day.\n */\nexport type HealthState = \"ok\" | \"error\" | \"disconnected\" | \"off\" | \"quiet\";\n\nconst healthConfig: Record<Exclude<HealthState, \"ok\">, { label: string; icon: LucideIcon; tone: string }> = {\n  error: { label: \"Last read failed\", icon: CircleX, tone: \"text-error\" },\n  disconnected: { label: \"Not connected\", icon: Unplug, tone: \"text-error\" },\n  off: { label: \"Off\", icon: CircleOff, tone: \"text-text-tertiary\" },\n  quiet: { label: \"Quiet\", icon: ClockAlert, tone: \"text-warning\" },\n};\n\nexport interface HealthLabelProps extends React.HTMLAttributes<HTMLSpanElement> {\n  state: HealthState;\n  /**\n   * How the source's data arrives, which sets the healthy word: \"pull\" when\n   * the app reads from it on a schedule (\"Reading\"), \"push\" when it sends to\n   * the app (\"Connected\"). @default \"pull\"\n   */\n  intake?: \"pull\" | \"push\";\n  /** Replaces the default word. */\n  label?: React.ReactNode;\n}\n\n/**\n * A source's connection as a coloured icon and a word, so the state never\n * rests on colour alone: Reading or Connected, Last read failed, Not\n * connected, Off, or Quiet.\n */\nconst HealthLabel = React.forwardRef<HTMLSpanElement, HealthLabelProps>(\n  ({ state, intake = \"pull\", label, className, ...props }, ref) => {\n    const c =\n      state === \"ok\"\n        ? intake === \"push\"\n          ? { label: \"Connected\", icon: PlugZap, tone: \"text-success\" }\n          : { label: \"Reading\", icon: CircleCheck, tone: \"text-success\" }\n        : healthConfig[state];\n    return (\n      <span\n        ref={ref}\n        className={cn(\"inline-flex items-center gap-1.5 whitespace-nowrap text-[13px]\", className)}\n        {...props}\n      >\n        <c.icon className={cn(\"size-4 shrink-0\", c.tone)} aria-hidden=\"true\" />\n        {label ?? c.label}\n      </span>\n    );\n  },\n);\nHealthLabel.displayName = \"HealthLabel\";\n\nexport { HealthLabel };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

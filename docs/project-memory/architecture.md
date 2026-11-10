@@ -37,7 +37,8 @@ The guard that keeps both channels honest is `npm run registry:check`.
 `app-shell.tsx` is the only file in the library with real runtime behaviour.
 
 `src/components/dashboard/app-shell.tsx` is the one file with non-trivial runtime behaviour.
-Everything else in `src/components/**` is presentational. It uses:
+Everything else in `src/components/**` keeps at most local state, such as a copy
+confirmation, a code input's boxes or a refresh timer. It uses:
 
 - a **`ShellContext` + `useShell()` guard hook** — `useShell()` throws outside the provider
   rather than returning `undefined`, so misuse fails loudly at the call site;

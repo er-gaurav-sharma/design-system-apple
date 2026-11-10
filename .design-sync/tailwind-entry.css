@@ -61,7 +61,7 @@
 @source inline("line-clamp-{1,2,3,4,5,6,none}");
 
 /* ── Color: every design token, across every color utility, incl. states ───── */
-@source inline("{,hover:,focus:,focus-visible:,active:,disabled:,group-hover:,dark:}{bg,text,border,ring,fill,stroke,decoration,outline,divide,shadow,accent,caret,from,via,to}-{background,foreground,card,card-foreground,popover,popover-foreground,primary,primary-hover,primary-active,primary-foreground,secondary,secondary-hover,secondary-foreground,muted,muted-foreground,text-tertiary,accent,accent-foreground,destructive,destructive-hover,destructive-foreground,border,input,ring,overlay,thumb,success,success-foreground,success-subtle,warning,warning-foreground,warning-subtle,error,error-foreground,error-subtle,info,info-foreground,info-subtle,chart-1,chart-2,chart-3,chart-4,chart-5,chart-6,white,black,transparent,current,inherit}");
+@source inline("{,hover:,focus:,focus-visible:,active:,disabled:,group-hover:,dark:}{bg,text,border,ring,fill,stroke,decoration,outline,divide,shadow,accent,caret,from,via,to}-{background,foreground,card,card-foreground,popover,popover-foreground,primary,primary-hover,primary-active,primary-foreground,secondary,secondary-hover,secondary-foreground,muted,muted-foreground,text-tertiary,accent,accent-foreground,destructive,destructive-hover,destructive-foreground,border,input,ring,overlay,thumb,qr-paper,qr-ink,success,success-foreground,success-subtle,warning,warning-foreground,warning-subtle,error,error-foreground,error-subtle,info,info-foreground,info-subtle,chart-1,chart-2,chart-3,chart-4,chart-5,chart-6,white,black,transparent,current,inherit}");
 /* Common token opacity steps (bg-primary/10, ring-ring/30, …) */
 @source inline("{bg,text,border,ring}-{primary,foreground,muted-foreground,border,ring,error,success,warning,info,black,white}/{5,10,15,20,25,30,40,50,60,70,75,80,90,95}");
 
@@ -80,7 +80,7 @@
 @source inline("{transition,transition-all,transition-colors,transition-opacity,transition-transform,transition-shadow}");
 @source inline("duration-{75,100,150,200,300,500,700,1000}");
 @source inline("ease-{linear,in,out,in-out,standard,spring}");
-@source inline("{animate-none,animate-spin,animate-pulse,animate-bounce}");
+@source inline("{animate-none,animate-spin,animate-pulse,animate-bounce,animate-highlight-new,animate-highlight-target}");
 @source inline("{cursor-pointer,cursor-default,cursor-not-allowed,select-none,pointer-events-none,pointer-events-auto}");
 @source inline("{scale,translate-x,translate-y}-{0,50,75,90,95,100,105,110}");
 @source inline("{,hover:,focus:}{outline-none,ring-offset-0,ring-offset-2}");

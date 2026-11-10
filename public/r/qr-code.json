@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "qr-code",
+  "title": "QR Code",
+  "description": "Draws text as a QR code in SVG, always dark on light so every authenticator app can read it.",
+  "dependencies": [
+    "qrcode@^1.5.4"
+  ],
+  "devDependencies": [
+    "@types/qrcode@^1.5.5"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/qr-code.tsx",
+      "content": "import * as React from \"react\";\nimport QRCode from \"qrcode\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface QrCodeProps\n  extends Omit<React.SVGAttributes<SVGSVGElement>, \"children\" | \"viewBox\"> {\n  /** The text to encode, such as an otpauth:// link. */\n  value: string;\n  /** What the code is for. It is the image's accessible name. */\n  label: string;\n  /** Width and height in pixels. @default 176 */\n  size?: number;\n  /** How much damage the code survives, from L (7%) to H (30%). @default \"M\" */\n  errorCorrection?: \"L\" | \"M\" | \"Q\" | \"H\";\n}\n\n/** The four-module margin the QR standard asks for around the code. */\nconst QUIET = 4;\n\n/**\n * Draws `value` as a QR code in SVG. It is always dark on light, in both\n * themes (the --qr-ink and --qr-paper tokens), because some authenticator apps\n * can't read an inverted code. The qrcode package does the encoding.\n */\nconst QrCode = React.forwardRef<SVGSVGElement, QrCodeProps>(\n  ({ value, label, size = 176, errorCorrection = \"M\", className, ...props }, ref) => {\n    const path = React.useMemo(() => {\n      try {\n        const { modules } = QRCode.create(value, { errorCorrectionLevel: errorCorrection });\n        const n = modules.size;\n        let d = \"\";\n        for (let y = 0; y < n; y++)\n          for (let x = 0; x < n; x++) if (modules.get(x, y)) d += `M${x + QUIET} ${y + QUIET}h1v1h-1z`;\n        return { d, span: n + QUIET * 2 };\n      } catch {\n        // Too long for a QR code, or empty.\n        return null;\n      }\n    }, [value, errorCorrection]);\n\n    return (\n      <svg\n        ref={ref}\n        role=\"img\"\n        aria-label={path ? label : `${label} (can't be drawn)`}\n        width={size}\n        height={size}\n        viewBox={path ? `0 0 ${path.span} ${path.span}` : \"0 0 100 100\"}\n        shapeRendering=\"crispEdges\"\n        className={cn(\"shrink-0 rounded-md\", className)}\n        {...props}\n      >\n        <rect width=\"100%\" height=\"100%\" fill=\"var(--qr-paper)\" />\n        {path ? (\n          <path d={path.d} fill=\"var(--qr-ink)\" />\n        ) : (\n          <text x=\"50\" y=\"52\" textAnchor=\"middle\" fontSize=\"8\" fill=\"var(--qr-ink)\">\n            Can&rsquo;t draw this code\n          </text>\n        )}\n      </svg>\n    );\n  },\n);\nQrCode.displayName = \"QrCode\";\n\nexport { QrCode };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

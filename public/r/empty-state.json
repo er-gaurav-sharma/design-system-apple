@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "title": "Empty State",
+  "description": "Icon, title, one line and an optional action, for an empty list, a search with no results or a missing item.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/empty-state.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface EmptyStateProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"title\"> {\n  /** A lucide icon, drawn in a tinted circle. */\n  icon?: React.ReactNode;\n  title: React.ReactNode;\n  /** One line on why it's empty or what to do. */\n  description?: React.ReactNode;\n  /** A Button or link, such as \"Clear filters\". */\n  action?: React.ReactNode;\n}\n\n/**\n * The centred message for an empty list, a search with no results or an item\n * that doesn't exist: icon, title, one line, and an optional action.\n */\nconst EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(\n  ({ icon, title, description, action, className, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\n        \"flex flex-col items-center justify-center gap-2 px-6 py-14 text-center\",\n        className,\n      )}\n      {...props}\n    >\n      {icon && (\n        <div\n          aria-hidden=\"true\"\n          className=\"mb-1 flex size-11 items-center justify-center rounded-full bg-muted text-muted-foreground [&>svg]:size-5\"\n        >\n          {icon}\n        </div>\n      )}\n      <p className=\"text-sm font-semibold text-foreground\">{title}</p>\n      {description && (\n        <p className=\"max-w-sm text-[13px] leading-relaxed text-muted-foreground\">{description}</p>\n      )}\n      {action && <div className=\"mt-2\">{action}</div>}\n    </div>\n  ),\n);\nEmptyState.displayName = \"EmptyState\";\n\nexport { EmptyState };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

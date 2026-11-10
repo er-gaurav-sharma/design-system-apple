@@ -1,4 +1,5 @@
 import * as React from "react";
+import { CircleAlert, Clock, Users } from "lucide-react";
 import { SummaryCard } from "@claude-design/dashboard-ui";
 
 /** The canonical KPI tile: label, metric, and a trend chip. */
@@ -65,5 +66,49 @@ export const DataStates = () => (
       state="error"
       onRetry={() => {}}
     />
+  </div>
+);
+
+/** An icon before the label. Color it with a text token class. */
+export const WithIcon = () => (
+  <div className="grid grid-cols-2 gap-4">
+    <SummaryCard
+      label="Active users"
+      icon={<Users className="text-info" />}
+      value="9,431"
+    />
+    <SummaryCard
+      label="Overdue invoices"
+      icon={<CircleAlert className="text-error" />}
+      value="4"
+    />
+  </div>
+);
+
+/**
+ * The link form: `asChild` with an `<a href>` (or a router `<Link>`) as the only
+ * child. The whole card opens the link, lifts on hover, takes the focus ring
+ * and shows an arrow. Put the link's own label on the child.
+ */
+export const AsLink = () => (
+  <div className="grid grid-cols-2 gap-4">
+    <SummaryCard
+      asChild
+      label="Pending invoices"
+      icon={<Clock className="text-warning" />}
+      value="18"
+    >
+      <a href="#pending" aria-label="Show the 18 pending invoices" />
+    </SummaryCard>
+    <SummaryCard
+      asChild
+      label="Overdue invoices"
+      icon={<CircleAlert className="text-error" />}
+      value="4"
+      trend="neutral"
+      trendLabel="Same as last week"
+    >
+      <a href="#overdue" aria-label="Show the 4 overdue invoices" />
+    </SummaryCard>
   </div>
 );

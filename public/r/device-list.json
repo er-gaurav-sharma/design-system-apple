@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "device-list",
+  "title": "Device List",
+  "description": "DeviceIcon and DeviceList: devices as icon and name. Icons and names come from the app; no device list is built in.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/device-list.tsx",
+      "content": "import * as React from \"react\";\nimport { Server, type LucideIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface DeviceIconProps extends Omit<React.SVGProps<SVGSVGElement>, \"ref\"> {\n  /**\n   * The device type's icon from lucide-react, supplied by the app with the\n   * device. The library has no built-in list of devices. @default Server\n   */\n  icon?: LucideIcon;\n}\n\n/** A device type's icon at 16px in muted grey, hidden from screen readers; the name beside it carries the meaning. */\nconst DeviceIcon = React.forwardRef<SVGSVGElement, DeviceIconProps>(\n  ({ icon: Icon = Server, className, ...props }, ref) => (\n    <Icon\n      ref={ref}\n      aria-hidden=\"true\"\n      className={cn(\"size-4 shrink-0 text-muted-foreground\", className)}\n      {...props}\n    />\n  ),\n);\nDeviceIcon.displayName = \"DeviceIcon\";\n\nexport interface DeviceListItem {\n  id: string;\n  /** The device's name, such as \"Edge router\". */\n  label: React.ReactNode;\n  /** @default Server */\n  icon?: LucideIcon;\n}\n\nexport interface DeviceListProps extends React.HTMLAttributes<HTMLUListElement> {\n  /** In the order to show them. The app builds this list; nothing is built in. */\n  devices: DeviceListItem[];\n}\n\n/**\n * The devices that flagged something, each as an icon and a name, in a row\n * that wraps between devices but never inside a name.\n */\nconst DeviceList = React.forwardRef<HTMLUListElement, DeviceListProps>(\n  ({ devices, className, ...props }, ref) => (\n    <ul\n      ref={ref}\n      className={cn(\"inline-flex flex-wrap items-center gap-x-3 gap-y-1\", className)}\n      {...props}\n    >\n      {devices.map((d) => (\n        <li key={d.id} className=\"inline-flex items-center gap-1.5 whitespace-nowrap\">\n          <DeviceIcon icon={d.icon} />\n          {d.label}\n        </li>\n      ))}\n    </ul>\n  ),\n);\nDeviceList.displayName = \"DeviceList\";\n\nexport { DeviceIcon, DeviceList };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

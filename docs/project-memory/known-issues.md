@@ -3,14 +3,6 @@
 Open at the time of writing. None of these are guarded by a check, so they will not surface
 on their own.
 
-## Open: light-mode contrast audit
-
-The light palette has **not** been through the same contrast derivation the dark palette
-received (see [decisions.md](decisions.md#dark-values-are-contrast-derived-not-aesthetic)).
-Dark values were deepened to clear AA; the light values are still Apple's published hexes,
-unaudited. Treat any light-mode contrast complaint as expected rather than surprising. The
-running detail is in `.design-sync/NOTES.md`.
-
 ## `ui/sonner.tsx` hard-codes `theme="light"`
 
 The Sonner `<Toaster>` is passed `theme="light"` unconditionally. Its `classNames` are

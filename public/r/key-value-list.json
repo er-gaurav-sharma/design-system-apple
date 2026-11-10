@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "key-value-list",
+  "title": "Key Value List",
+  "description": "Label and value pairs in two aligned columns, as a description list.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/key-value-list.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface KeyValueItem {\n  label: React.ReactNode;\n  value: React.ReactNode;\n  /** A stable key when labels repeat or aren't strings. */\n  key?: React.Key;\n}\n\nexport interface KeyValueListProps extends React.HTMLAttributes<HTMLDListElement> {\n  items: KeyValueItem[];\n  /** Set both columns in monospace, for raw fields such as parsed log keys. */\n  mono?: boolean;\n}\n\n/**\n * Label and value pairs in two aligned columns, such as connection details or\n * the fields of a log line. A `<dl>`, so each label stays tied to its value\n * for screen readers. Long values wrap inside their column.\n */\nconst KeyValueList = React.forwardRef<HTMLDListElement, KeyValueListProps>(\n  ({ items, mono = false, className, ...props }, ref) => (\n    <dl\n      ref={ref}\n      className={cn(\"grid grid-cols-[minmax(120px,max-content)_minmax(0,1fr)] gap-x-6 text-[13px]\", className)}\n      {...props}\n    >\n      {items.map((item, i) => (\n        <React.Fragment key={item.key ?? (typeof item.label === \"string\" ? `${item.label}-${i}` : i)}>\n          <dt\n            className={cn(\n              \"border-b border-border py-2 text-muted-foreground\",\n              mono && \"font-mono text-xs leading-5\",\n            )}\n          >\n            {item.label}\n          </dt>\n          <dd\n            className={cn(\n              \"min-w-0 break-words border-b border-border py-2 text-foreground\",\n              mono && \"font-mono text-xs leading-5\",\n            )}\n          >\n            {item.value}\n          </dd>\n        </React.Fragment>\n      ))}\n    </dl>\n  ),\n);\nKeyValueList.displayName = \"KeyValueList\";\n\nexport { KeyValueList };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

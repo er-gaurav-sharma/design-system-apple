@@ -41,18 +41,32 @@
   --secondary-foreground: #1d1d1f;
 
   --muted: #f5f5f7;
-  --muted-foreground: #6e6e73;
-  --text-tertiary: #86868b;
+  /* Was #6e6e73: 4.32:1 for Alert text on --error-subtle and 4.45:1 on
+     --info-subtle. Now 4.52:1 and 4.65:1, and 4.87:1 on --muted. */
+  --muted-foreground: #6b6b70;
+  /* v1.4.0 contrast fixes. Each token below that changed keeps its hue and
+     takes the lightest value that passes WCAG AA, so the look moves as little
+     as it can. Ratios are against the surface named; the dark values already
+     passed and are unchanged.
+     --text-tertiary was #86868b, 3.62:1 on --background; now 4.58:1. It is for
+     text on --background, --card and --popover. On --muted it is 4.21:1, so
+     text there uses --muted-foreground. */
+  --text-tertiary: #75757a;
 
   --accent: #e8f1fd;
-  --accent-foreground: #0071e3;
+  /* Was #0071e3, 4.12:1 on --accent; now 4.56:1. */
+  --accent-foreground: #0069db;
 
   --destructive: #d70015;
   --destructive-hover: #b80012;
   --destructive-foreground: #ffffff;
 
   --border: #e8e8ed;
-  --input: #d2d2d7;
+  /* Was #d2d2d7, 1.51:1. A field's edge is a UI component boundary under WCAG
+     1.4.11 and needs 3:1 against the page; now 3.06:1. Checkbox and Radio
+     edges and the Switch's off track use it too. Still lighter than the
+     --text-tertiary hover border, so hovering a field still darkens its edge. */
+  --input: #939398;
   --ring: #0071e3;
 
   /* Scrim behind modal surfaces, and the knob of a Switch. Both used to be
@@ -61,7 +75,15 @@
   --overlay: rgb(0 0 0 / 0.4);
   --thumb: #ffffff;
 
-  --success: #248a3d;
+  /* A QR code's light and dark modules. The same in both modes on purpose:
+     some authenticator apps can't read an inverted code (light on dark), so a
+     QR code stays dark on light even in a dark UI. */
+  --qr-paper: #ffffff;
+  --qr-ink: #1d1d1f;
+
+  /* Was #248a3d: 3.95:1 on --success-subtle and 4.40:1 under white text.
+     Now 4.59:1 and 5.11:1. --chart-3 keeps the old green as its own value. */
+  --success: #137f33;
   --success-foreground: #ffffff;
   --success-subtle: #e9f6ee;
   --warning: #b25000;
@@ -70,7 +92,9 @@
   --error: #d70015;
   --error-foreground: #ffffff;
   --error-subtle: #fde8e9;
-  --info: #0071e3;
+  /* Was #0071e3, 4.12:1 on --info-subtle; now 4.56:1, the same as
+     --accent-foreground. */
+  --info: #0069db;
   --info-foreground: #ffffff;
   --info-subtle: #e8f1fd;
 
@@ -79,7 +103,10 @@
      normal vision (min ΔE2000 9.0 across all four), and to hold at least 3:1
      against --card for WCAG 1.4.11 non-text contrast. */
   --chart-1: #0071e3;
-  --chart-2: #aeaeb2;
+  /* Was #aeaeb2, 2.21:1 on --card; now 3.06:1. Its nearest neighbour is still
+     ΔE2000 10.2 or more away under normal vision and all three dichromacies
+     (Machado 2009 simulation), above the 9.0 floor. */
+  --chart-2: #939398;
   --chart-3: #248a3d;
   --chart-4: #b25000;
   --chart-5: #7629a3;
@@ -156,6 +183,10 @@
   --overlay: rgb(0 0 0 / 0.6);
   --thumb: #f5f5f7;
 
+  /* Deliberately the light values: a QR code stays dark on light. See :root. */
+  --qr-paper: #ffffff;
+  --qr-ink: #1d1d1f;
+
   --success: #30d158;
   --success-foreground: #0b2914;
   --success-subtle: #102b18;
@@ -221,6 +252,8 @@
   --color-ring: var(--ring);
   --color-overlay: var(--overlay);
   --color-thumb: var(--thumb);
+  --color-qr-paper: var(--qr-paper);
+  --color-qr-ink: var(--qr-ink);
 
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
@@ -256,6 +289,47 @@
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---- Highlights ------------------------------------------------------------
+   Two short background fades that draw the eye once, then leave the element as
+   it was. Both fade to transparent, so they work on any surface and hand back
+   to the element's own hover or selected background when they end.
+   - animate-highlight-new: something that just arrived, such as a new or
+     updated row in a live table.
+   - animate-highlight-target: the item the user just jumped to, such as the
+     event a chart click scrolled into view.
+   Add the class when the item arrives and remove it after 2.4s; adding it again
+   later replays it. Both are switched off when the system asks for reduced
+   motion.
+   --------------------------------------------------------------------------- */
+@keyframes highlight-new {
+  from {
+    background-color: var(--info-subtle);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@keyframes highlight-target {
+  from {
+    background-color: var(--accent);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@utility animate-highlight-new {
+  animation: highlight-new 2.4s cubic-bezier(0.4, 0, 0.2, 1);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@utility animate-highlight-target {
+  animation: highlight-target 2.4s ease-out;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @layer base {

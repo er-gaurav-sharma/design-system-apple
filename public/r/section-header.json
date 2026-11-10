@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-header",
+  "title": "Section Header",
+  "description": "A section heading with an optional link or control on the right.",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/dashboard/section-header.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface SectionHeaderProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"title\"> {\n  title: React.ReactNode;\n  /** The heading level, to fit the page outline. @default 2 */\n  level?: 2 | 3 | 4;\n  /** A link or control on the right, such as \"View all\" or a toggle. */\n  action?: React.ReactNode;\n}\n\n/** A section heading with an optional link or control on the right. */\nconst SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(\n  ({ title, level = 2, action, className, ...props }, ref) => {\n    const Heading = `h${level}` as \"h2\" | \"h3\" | \"h4\";\n    return (\n      <div\n        ref={ref}\n        className={cn(\"flex flex-wrap items-center justify-between gap-x-3 gap-y-2\", className)}\n        {...props}\n      >\n        <Heading className=\"text-[15px] font-semibold tracking-[-0.005em] text-foreground\">\n          {title}\n        </Heading>\n        {action}\n      </div>\n    );\n  },\n);\nSectionHeader.displayName = \"SectionHeader\";\n\nexport { SectionHeader };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

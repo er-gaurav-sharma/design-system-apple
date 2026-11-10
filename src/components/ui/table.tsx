@@ -3,22 +3,33 @@ import { ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
+  /**
+   * Draw the table on its own card surface: background, shadow and rounded
+   * corners. Defaults to true. Pass false for a table that already sits inside
+   * a Card or a ChartContainer, so it doesn't draw a second card within it.
+   * The horizontal scroll container is kept either way.
+   */
+  framed?: boolean;
+}
+
 /**
  * Compact-density table primitives. Cell padding / row height come from the
  * density tokens (--cell-pad-x/y, --row-height-compact) for scanability.
  */
-const Table = React.forwardRef<
-  HTMLTableElement,
-  React.HTMLAttributes<HTMLTableElement>
->(({ className, ...props }, ref) => (
-  <div className="w-full overflow-x-auto rounded-lg bg-card shadow-sm">
-    <table
-      ref={ref}
-      className={cn("w-full caption-bottom border-collapse text-[13px]", className)}
-      {...props}
-    />
-  </div>
-));
+const Table = React.forwardRef<HTMLTableElement, TableProps>(
+  ({ className, framed = true, ...props }, ref) => (
+    <div
+      className={cn("w-full overflow-x-auto", framed && "rounded-lg bg-card shadow-sm")}
+    >
+      <table
+        ref={ref}
+        className={cn("w-full caption-bottom border-collapse text-[13px]", className)}
+        {...props}
+      />
+    </div>
+  ),
+);
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<

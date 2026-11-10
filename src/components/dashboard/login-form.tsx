@@ -132,7 +132,7 @@ const LoginForm = React.forwardRef<HTMLFormElement, LoginFormProps>(
                 <button
                   type="button"
                   onClick={onForgotPassword}
-                  className="text-xs font-medium text-primary hover:underline"
+                  className="text-xs font-medium text-accent-foreground hover:underline"
                 >
                   Forgot?
                 </button>

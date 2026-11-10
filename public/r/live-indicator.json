@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-indicator",
+  "title": "Live Indicator",
+  "description": "Live, Reconnecting or Offline with the last update time, announced to screen readers.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/live-indicator.tsx",
+      "content": "import * as React from \"react\";\nimport { Loader2, WifiOff } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type LiveState = \"live\" | \"reconnecting\" | \"offline\";\n\nexport interface LiveIndicatorProps\n  extends Omit<React.HTMLAttributes<HTMLSpanElement>, \"children\"> {\n  state: LiveState;\n  /** When the data last updated, such as \"14:32\". Shown when offline. */\n  lastUpdate?: React.ReactNode;\n  /** Replaces the default words (\"Live\", \"Reconnecting…\", \"Offline\"). */\n  label?: React.ReactNode;\n}\n\nconst stateConfig: Record<LiveState, { text: string; className: string }> = {\n  live: { text: \"Live\", className: \"text-foreground\" },\n  reconnecting: { text: \"Reconnecting…\", className: \"text-warning\" },\n  offline: { text: \"Offline\", className: \"text-error\" },\n};\n\n/**\n * Whether a live view is receiving updates: a pulsing dot for Live, a spinner\n * for Reconnecting and an icon with the last update time for Offline. It is a\n * polite live region, so a change of state is announced. The pulse and the\n * spinner stop when the system asks for reduced motion.\n */\nconst LiveIndicator = React.forwardRef<HTMLSpanElement, LiveIndicatorProps>(\n  ({ state, lastUpdate, label, className, ...props }, ref) => {\n    const config = stateConfig[state];\n    return (\n      <span\n        ref={ref}\n        role=\"status\"\n        aria-live=\"polite\"\n        className={cn(\n          \"inline-flex items-center gap-1.5 whitespace-nowrap text-[13px] font-medium\",\n          className,\n        )}\n        {...props}\n      >\n        {state === \"live\" && (\n          <span className=\"relative flex size-2.5\" aria-hidden=\"true\">\n            <span className=\"absolute inline-flex size-full animate-ping rounded-full bg-success opacity-60 motion-reduce:animate-none\" />\n            <span className=\"relative inline-flex size-2.5 rounded-full bg-success\" />\n          </span>\n        )}\n        {state === \"reconnecting\" && (\n          <Loader2\n            className=\"size-3.5 animate-spin text-warning motion-reduce:animate-none\"\n            aria-hidden=\"true\"\n          />\n        )}\n        {state === \"offline\" && <WifiOff className=\"size-3.5 text-error\" aria-hidden=\"true\" />}\n        <span className={config.className}>\n          {label ?? config.text}\n          {state === \"offline\" && lastUpdate ? <> · last update {lastUpdate}</> : null}\n        </span>\n      </span>\n    );\n  },\n);\nLiveIndicator.displayName = \"LiveIndicator\";\n\nexport { LiveIndicator };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

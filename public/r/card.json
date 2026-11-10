@@ -4,7 +4,7 @@
   "title": "Card",
   "description": "Raised surface with header, title, description, content and footer parts.",
   "registryDependencies": [
-    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.3.1/public/r/utils.json"
+    "https://raw.githubusercontent.com/er-gaurav-sharma/design-system-apple/v1.4.0/public/r/utils.json"
   ],
   "files": [
     {
